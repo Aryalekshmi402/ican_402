@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('config.php');
+include('../config.php');
 
 $b=$_POST['id'];
 $s=mysqli_query($con,"select usertype from logintbl where loginid='$b' ");

@@ -8,7 +8,7 @@ if($login)
 
 
 <!DOCTYPE html>
-<?php include('config.php');?>
+<?php include('../config.php');?>
 <html lang="en">
 
 <head>

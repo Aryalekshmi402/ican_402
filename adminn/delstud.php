@@ -1,5 +1,5 @@
 
-<?php include('config.php');
+<?php include('../config.php');
 
 $b=$_GET['id'];
  
