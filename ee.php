@@ -22,7 +22,7 @@
 <hr />
 <div id="dvPassport" style="display: none">
    <?php 
-   $con=mysqli_connect("localhost","root","","test");
+   include('config.php');;
    $result=mysqli_query($con,"select name from student where classid='1'");
    while($row=mysqli_fetch_array($result))
    {

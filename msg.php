@@ -1,5 +1,5 @@
 
-<?php $con=mysqli_connect("localhost","root","","ican");?>
+<?php include('config.php');?>
 <?php
 if(isset($_POST['recover']))
 {

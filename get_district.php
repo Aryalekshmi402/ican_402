@@ -1,6 +1,6 @@
 
 <?php
-$con=mysqli_connect("localhost","root","","ican");
+include('config.php');;
 
 if (! empty($_POST["state"])) {
 	$a=$_POST["state"];

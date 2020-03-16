@@ -1,6 +1,6 @@
 <?php 
     session_start(); 
-    $con=mysqli_connect("localhost","root","","ican"); 
+    include('config.php');
     $s=$_POST["syl"];
     $cls=$_POST["cls"];
     $exam=$_POST["exam"];

@@ -8,7 +8,7 @@ if($login)
 
 
 <!DOCTYPE html>
-<?php $con=mysqli_connect("localhost","root","","ican");?>
+<?php include('config.php');?>
 <html lang="en">
 
 <head>

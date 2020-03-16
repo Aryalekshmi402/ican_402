@@ -33,7 +33,7 @@
 </html>
 <?php
 session_start(); 
-$con=mysqli_connect("localhost","root","","ican");
+include ('config.php');
 if(isset($_POST['submit']))
 {
     $em =$_POST['uname'];

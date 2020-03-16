@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?php $con=mysqli_connect("localhost","root","","ican");?> 
+<?php include('config.php');?>
 <head>
 
 <script src="jquery-3.2.1.min.js" type="text/javascript"></script>

@@ -1,6 +1,5 @@
 <?php
-
-  $con=mysqli_connect("localhost","root","","ican");
+    include ('config.php');
 
   $m="admin123@gmail.com";
   $p="Admin1234";

@@ -12,7 +12,7 @@ if($login)
 
 <!DOCTYPE html>
 <html lang="en">
-<?php $con=mysqli_connect("localhost","root","","ican");?> 
+<?php include('config.php');?>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

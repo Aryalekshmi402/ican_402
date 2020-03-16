@@ -1,6 +1,6 @@
 <?php
 session_start();
-$con=mysqli_connect("localhost","root","","ican");
+include('config.php');
 
 $b=$_POST['id'];
 $s=mysqli_query($con,"select usertype from logintbl where loginid='$b' ");

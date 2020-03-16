@@ -1,6 +1,6 @@
 <?php
 session_start();
-$con=mysqli_connect("localhost","root","","ican");
+include('config.php');
 $l=$_SESSION['loginid'];
 $qu=mysqli_query($con,"Select * from stafftbl where loginid='$l' ");
 $result=mysqli_fetch_assoc($qu);

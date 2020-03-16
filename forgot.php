@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php 
-	$con=mysqli_connect("localhost","root","","ican");
+	include('config.php');
 	$lid=$_GET['lid'];
 ?> 
 <head>

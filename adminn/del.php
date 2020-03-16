@@ -1,5 +1,5 @@
 
-<?php $con=mysqli_connect("localhost","root","","ican");
+<?php include('config.php');
 
 
  $cl=$_GET[id];

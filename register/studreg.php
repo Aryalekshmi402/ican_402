@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html>
-<?php $con=mysqli_connect("localhost","root","","ican");?> 
+<?php include('config.php');?>
 <head>
 <script>
 function getdistrict(val) {
