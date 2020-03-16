@@ -548,7 +548,7 @@ else
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/ican/student/studenthome.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="../../studenthome.php"><i class="fa fa-dashboard"></i> Home</a></li>
         
       </ol>
     </section>

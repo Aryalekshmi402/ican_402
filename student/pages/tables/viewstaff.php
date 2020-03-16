@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-include('config.php');
+include('../../../config.php');
 
 $l=$_SESSION['loginid'];
 if($l)
@@ -539,7 +539,7 @@ else
        
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/ican/student/studenthome.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="../../studenthome.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <!--<li><a href="/ican/staff/pages/forms/leave.php">Apply</a></li>-->
         <li class="active">staff</li>
       </ol>
