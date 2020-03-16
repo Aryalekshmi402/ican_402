@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php 
-	include('config.php');
+	include('../../../config.php');
 	//$lid=$_GET['lid'];
 ?> 
 <head>
@@ -544,7 +544,7 @@
 
           <div class="box-tools pull-right" >
             <!-- <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>-->
-            <button type="button" value=":"><a href="/ican/index.php"> HOME</a></button>
+            <button type="button" value=":"><a href="../../../index.php"> HOME</a></button>
           </div>
         </div>
         <!-- /.box-header -->

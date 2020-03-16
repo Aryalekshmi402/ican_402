@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html>
-<?php include('config.php');?>
+<?php include('../config.php');?>
 <head>
 <script>
 function getdistrict(val) {

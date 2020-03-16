@@ -1,4 +1,4 @@
-<?php include('config.php');?>
+<?php include('../config.php');?>
 
 <?php
 $b=$_POST['id'];

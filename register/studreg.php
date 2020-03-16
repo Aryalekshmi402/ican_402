@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html>
-<?php include('config.php');?>
+<?php include('../config.php');?>
 <head>
 <script>
 function getdistrict(val) {
@@ -92,7 +92,7 @@ function getdistrict(val) {
                                     <a class="nav-link" href="blog.html"><font color="yellow"><b>Blog</b></font></a>
                                 </li>-->
 								 <li class="nav-item">
-                                    <a class="nav-link" href="/ican/index.php"><font color="yellow"><b><i>HOME</i></b></font></a>
+                                    <a class="nav-link" href="../index.php"><font color="yellow"><b><i>HOME</i></b></font></a>
                                 </li>
                                 
                                

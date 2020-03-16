@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-include('config.php');
+include('../../../config.php');
 $l=$_SESSION['loginid'];
 if($l)
 {
@@ -549,8 +549,8 @@ $se="SELECT * FROM `stud_leave` WHERE signid='$sid'";
        
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/ican/student/studenthome.php"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="/ican/student/pages/forms/studleave.php">Apply</a></li>
+        <li><a href="../../studenthome.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <!--<li><a href="../../../studleave.php">Apply</a></li>-->
         <li class="active">status</li>
       </ol>
     </section>

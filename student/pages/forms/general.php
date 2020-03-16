@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-include('config.php');
+include('../../../config.php');
 
 $l=$_SESSION['loginid'];
 if($l)
@@ -362,7 +362,7 @@ else
           </li>
           <!-- Control Sidebar Toggle Button -->
           <li>
-            <a href="/ican/student/studenthome.php" >HOME</a>
+            <a href="../../studenthome.php" >HOME</a>
           </li>
         </ul>
       </div>

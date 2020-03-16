@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php 
-	include('config.php');
+	include('../../../config.php');
 	$lid=$_GET['lid'];
 ?> 
 <head>
