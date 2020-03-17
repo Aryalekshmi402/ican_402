@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('config.php');
+include('../config.php');
 $l=$_SESSION['loginid'];
 $qu=mysqli_query($con,"Select * from stafftbl where loginid='$l' ");
 $result=mysqli_fetch_assoc($qu);
@@ -1291,5 +1291,5 @@ if($login)
 <?php
 }
 else
-header("location:/ican/login.php");
+header("location:/login.php");
 ?>
