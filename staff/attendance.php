@@ -23,8 +23,9 @@ include('header.php');
 
             <!-- Default box -->
             <div class="box">
+                <form action="" @submit.prevent="save">
                 <br>
-                <div class="box-body" >
+                <div class="box-body">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -44,8 +45,31 @@ include('header.php');
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
+                                <label for="session">Session</label>
+                                <select v-model="form.session" name="" class="form-control" id="session">
+                                    <option v-for="session in sessions" :value="session.session_id">{{session.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="session">Session Number</label>
+                                <select v-model="form.session_number" name="" class="form-control" id="session">
+                                    <option v-for="session in 5" :value="session">{{session}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
                                 <label for="syllubus">Date</label>
                                 <input type="date" class="form-control" v-model="form.date">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="duration">Duration</label>
+                                <input type="number" id="duration" class="form-control" v-model="form.duration">
                             </div>
                         </div>
                     </div>
@@ -57,27 +81,22 @@ include('header.php');
                                     <th>Name</th>
                                     <th>Mobile No</th>
                                     <th>
-                                        1st Hr
-                                    </th>
-                                    <th>
-                                        2nd Hr
+                                        Status
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <template v-if="students.length">
-                                    <tr v-for="student in students">
+                                    <tr v-for="(student,index) in students">
                                         <td>{{student.fname}}</td>
                                         <td>{{student.mob}}</td>
                                         <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>
-                                            <input type="checkbox">
+                                            <input :value="student.signid" type="checkbox"
+                                                   @click="select_student(student.signid)">
                                         </td>
                                     </tr>
                                 </template>
-                                <tr v-else >
+                                <tr v-else>
                                     <td colspan="4" class="text-center">No Student Selected</td>
                                 </tr>
                                 </tbody>
@@ -89,6 +108,7 @@ include('header.php');
                 <div class="box-footer text-right" v-if="students.length">
                     <button class="btn btn-success">Save</button>
                 </div>
+                </form>
                 <!-- /.box-body -->
                 <!-- /.box-footer-->
             </div>
@@ -104,22 +124,48 @@ include('header.php');
             data: {
                 students: [],
                 classes: [],
-                syllabus:[],
-                form:{
-                    class:'',
-                    syllabus:'',
-                    date:Date()
+                syllabus: [],
+                sessions: [],
+                form: {
+                    class: '',
+                    syllabus: '',
+                    date: new Date(),
+                    duration: '',
+                    session: '',
+                    session_number: '',
+                    students: []
                 }
             },
             methods: {
+                select_student(student) {
+                    let index = this.form.students.indexOf(student);
+                    if (index === -1) {
+                        this.form.students.push(student)
+                    } else {
+                        this.form.students.splice(index, 1)
+                    }
+                },
                 get_classes() {
                     axios.get('/staff/attendance_process.php', {
                         params: {
-                            type:'CLASSES'
+                            type: 'CLASSES'
                         }
                     })
-                        .then(({data})=> {
-                           this.classes=data.classes;
+                        .then(({data}) => {
+                            this.classes = data.classes;
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        })
+                },
+                get_session() {
+                    axios.get('/staff/attendance_process.php', {
+                        params: {
+                            type: 'SESSION'
+                        }
+                    })
+                        .then(({data}) => {
+                            this.sessions = data.sessions;
                         })
                         .catch(function (error) {
                             console.log(error);
@@ -128,12 +174,12 @@ include('header.php');
                 get_students() {
                     axios.get('/staff/attendance_process.php', {
                         params: {
-                            type:'STUDENTS',
+                            type: 'STUDENTS',
                             ...this.form
                         }
                     })
-                        .then(({data})=> {
-                           this.students=data.students;
+                        .then(({data}) => {
+                            this.students = data.students;
                         })
                         .catch(function (error) {
                             console.log(error);
@@ -142,26 +188,51 @@ include('header.php');
                 get_syllabus() {
                     axios.get('/staff/attendance_process.php', {
                         params: {
-                            type:'SYLLABUS'
+                            type: 'SYLLABUS'
                         }
                     })
-                        .then(({data})=> {
-                           this.syllabus=data.syllabus;
+                        .then(({data}) => {
+                            this.syllabus = data.syllabus;
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        })
+                },
+                save() {
+                    axios.post('/staff/save_attendance.php', {
+                        ...this.form
+                    })
+                        .then(({data}) => {
+                            swal({
+                                title: "Success",
+                                text: "Attendance Added!",
+                                icon: "success",
+                            });
+                            this.form = {
+                                class: '',
+                                syllabus: '',
+                                date: Date(),
+                                duration: '',
+                                session: '',
+                                session_number: '',
+                                students: []
+                            };
                         })
                         .catch(function (error) {
                             console.log(error);
                         })
                 }
             },
-            mounted(){
+            mounted() {
                 this.get_classes();
                 this.get_syllabus();
+                this.get_session();
             },
-            watch:{
-                form:{
-                    deep:true,
-                    handler(){
-                        if(this.form.class!=='' && this.form.syllabus!==''){
+            watch: {
+                form: {
+                    deep: true,
+                    handler() {
+                        if (this.form.class !== '' && this.form.syllabus !== '') {
                             this.get_students();
                         }
                     }

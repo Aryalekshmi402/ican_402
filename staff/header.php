@@ -49,6 +49,7 @@ if (mysqli_num_rows($res) != 0) {
         <!-- AdminLTE for demo purposes -->
         <script src="/js/vue.js"></script>
         <script src="/js/axios.min.js"></script>
+        <script src="/js/sweetalert.js"></script>
 
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
