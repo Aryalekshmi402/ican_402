@@ -443,7 +443,7 @@ if($login)
           <div class="col-lg-12">
             <div class="form-panel">
               <h4 class="mb"><i class="fa fa-angle-right"></i><b> Staff Id generator</b></h4>
-              <form class="form-inline" role="form" action="form_component.php" method="post" align="center">
+              <form class="form-inline" role="form" action="form_component.php" method="post" name="form1" align="center">
                 <div class="form-group">
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Name :<label class="sr-only" for="exampleInputEmail2">Email address</label>
                   <input type="text" class="form-control" name="text-input"  id="exampleInputEmail2" placeholder="Enter name" style="width:200px;" required>
@@ -659,6 +659,11 @@ if($login)
   <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/abc.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="valid.js"></script>
   
   <script type='text/Javascript'>
                function swtalert(swlt)

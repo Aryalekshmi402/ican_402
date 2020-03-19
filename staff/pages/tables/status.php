@@ -126,7 +126,7 @@ $se="SELECT * FROM `tbl_leave` WHERE staffid='$sid'";
                         <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                       </div>
                       <h4>
-                        AdminLTE Design Team
+
                         <small><i class="fa fa-clock-o"></i> 2 hours</small>
                       </h4>
                       <p>Why not buy a new awesome theme?</p>
@@ -549,8 +549,8 @@ $se="SELECT * FROM `tbl_leave` WHERE staffid='$sid'";
        
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/ican/staff/staffhome.php"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="/ican/staff/pages/forms/leave.php">Apply</a></li>
+        <li><a href="../../staffhome.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <!--<li><a href="/ican/staff/pages/forms/leave.php">Apply</a></li>-->
         <li class="active">status</li>
       </ol>
     </section>
@@ -1132,7 +1132,7 @@ $se="SELECT * FROM `tbl_leave` WHERE staffid='$sid'";
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.18
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    <strong>Copyright &copy;2019 <a href="https://adminlte.io">iCan</a>.</strong> All rights
     reserved.
   </footer>
 

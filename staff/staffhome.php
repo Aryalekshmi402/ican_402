@@ -298,7 +298,7 @@ else
 
 
                 <p>
-                 
+
                 </p>
               </li>
               <!-- Menu Body -->
@@ -328,9 +328,7 @@ else
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+
         </ul>
       </div>
     </nav>
@@ -1086,7 +1084,7 @@ else
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.18
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    <strong>Copyright &copy;2019 <a href="https://adminlte.io">iCan</a>.</strong> All rights
     reserved.
   </footer>
 

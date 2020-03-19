@@ -1217,7 +1217,7 @@
 							text: 'Check your mail and login' },
                             function()
                             {
-                              window.location="/ican/index.php";
+                              window.location="../../../index.php";
                             });
                   }
                   else
@@ -1272,7 +1272,15 @@ if(isset($_POST['recover']))
 		
 		$mail->isHTML(true);//html code mail ayakkan true akki iduka
 		$mail->Subject='Forgot password..';//mail subject
-		$mail->Body='<h1></h1>';//body
+        $mail->Body='<h1>Please reset your password</h1>
+		<p>We heard that you lost your  password. Sorry about that!
+
+But don’t worry! You can use the following link to reset your password:
+</p>
+<a href="localhost/ican/login.php">https://ican/forgot/password</a>
+'
+        ;//body
+
 		if(!$mail->send())
 		{
 		$result="Something went wrong";

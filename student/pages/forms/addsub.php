@@ -1268,7 +1268,7 @@
 							text: 'Wait for Approval' },
                             function()
                             {
-                              window.location="/ican/index.php";
+                              window.location="../../../../index.php";
                             });
                   }
                   else

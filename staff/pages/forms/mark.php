@@ -381,7 +381,7 @@ else
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/ican/staff/staffhome.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="../../staffhome.php"><i class="fa fa-dashboard"></i> Home</a></li>
         
       </ol>
     </section>

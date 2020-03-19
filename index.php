@@ -297,7 +297,7 @@ span.psw {
                                 </li>
                                 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="CONTACT.HTML">Contact</a>
+                                    <a class="nav-link" href="contact.html">Contact</a>
                                 </li>
                                 <!--<li class="nav-item">
                                     <a class="nav-link" href="blog.html">Blog</a>

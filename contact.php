@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body style="background-color: #3b3b1f">
     <!--::header part start::-->
     <header class="main_menu single_page_menu">
       <div class="container">
@@ -33,7 +33,7 @@
               <div class="col-lg-12">
                   <nav class="navbar navbar-expand-lg navbar-light">
                       <a class="navbar-brand logo_1" href="index.html">   </a>
-                      <a class="navbar-brand logo_2" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
+                     <!-- <a class="navbar-brand logo_2" href="index.html"> <img src="img/logo.png" alt="logo"> </a>-->
                       <button class="navbar-toggler" type="button" data-toggle="collapse"
                           data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                           aria-expanded="false" aria-label="Toggle navigation">
@@ -45,9 +45,7 @@
                           <ul class="navbar-nav align-items-center">
                               
                               
-                              <li class="d-none d-lg-block">
-                                  <a class="btn_1" href="index.php">HOME</a>
-                              </li>
+
                           </ul>
                       </div>
                   </nav>
@@ -58,47 +56,7 @@
     <!-- Header part end-->
 
     <!-- breadcrumb start-->
-    <section class="breadcrumb breadcrumb_bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb_iner text-center">
-                        <div class="breadcrumb_iner_item">
-                            <h2><div class="col-lg-4">
-          <div class="media contact-info">
-		  <BR>
-            <span class="contact-info__icon"><i class="ti-home"></i></span>
-			<BR>
-            <div class="media-body">
-			
-              <P>ICAN SMART STUDY CENTER</P>
-              <p>NEDUNGOLAM, KOLLAM</p>
-            </div>
-          </div>
-          <div class="media contact-info">
-            <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-            <div class="media-body">
-              <h3><FONT COLOR="YELLOW">+91 8767654543 </FONT></h3>
-              <h3><FONT COLOR="YELLOW">+91 7656787654 </FONT></h3>
-            </div>
-          </div>
-          <div class="media contact-info">
-            <span class="contact-info__icon"><i class="ti-email"></i></span>
-            <div class="media-body">
-              <h3><FONT COLOR="YELLOW">icansmartstudycenter@gmail.com</FONT></h3>
-              <p>Send us your query anytime!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div></h2>
-                            <p>Home<span>/<span>Contact us</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <!-- breadcrumb start-->
 
   <!-- ================ contact section start ================= -->
@@ -128,42 +86,41 @@
           }
           
         </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&callback=initMap"></script>
+
         
       </div>
 
 
-      <div class="row">
-        <div class="col-12">
-          <h2 class="contact-title">Get in Touch</h2>
-        </div>
-        <div class="col-lg-8">
+      <div class="row" style="margin-top: -600px; margin-left: 160px;>
+        <div class="col-lg-8" >
           <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+              <h1 style="font-family:'Malgun Gothic Semilight';"><b>Reset Your Password</b></h1>
             <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group" style="margin-top: 60px;">
+                        <input class="form-control" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder = 'Enter email address'>
+                    </div>
+                </div>
+              <div class="col-sm-6">
+                <div class="form-group" style="margin-top: 60px;">
+                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder = 'Enter new Password' >
+                </div>
+              </div>
+
               <div class="col-12">
                 <div class="form-group">
-                  
-                    <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder = 'Enter Message'></textarea>
+                  <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder = 'ReEnter Password'>
                 </div>
               </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder = 'Enter your name'>
+                <div class="col-12">
+                    <div class="form-group">
+
+                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder = 'Enter Reason'></textarea>
+                    </div>
                 </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input class="form-control" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder = 'Enter email address'>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-group">
-                  <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder = 'Enter Subject'>
-                </div>
-              </div>
             </div>
-            <div class="form-group mt-3">
-              <button type="submit" class="button button-contactForm btn_1">Send Message</button>
+            <div class="form-group mt-3" style="margin-left: 270px; ">
+              <button type="submit" class="button button-contactForm btn_1" style="width: 200px;">Reset</button>
             </div>
           </form>
         </div>

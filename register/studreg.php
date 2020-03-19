@@ -273,7 +273,7 @@ function getdistrict(val) {
 							text: 'Please choose your subject'},
                             function()
                             {
-                              window.location="/ican/student/pages/forms/addsub.php?lid="+lin;
+                              window.location="../student/pages/forms/addsub.php?lid="+lin;
                             });
                   }
                 }

@@ -374,7 +374,7 @@ else
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/ican/staff/staffhome.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="../../staffhome.php"><i class="fa fa-dashboard"></i> Home</a></li>
         
       </ol>
     </section>
@@ -383,7 +383,7 @@ else
     <section class="content">
 
       <!-- SELECT2 EXAMPLE -->
-      <div class="box box-default" style="height:520px;">
+      <div class="box box-default" style="height:800px;">
         <div class="box-header with-border" >
          
 
@@ -399,7 +399,7 @@ else
               <!-- /.form-group -->
             </div>
             <!-- /.col -->
-            <div class="col-md-6" style="margin-right:200px;margin-left:220px; ">
+            <div class="col-md-6" style="margin-right:200px;margin-left:220px;">
               <form action="leave.php" method="POST" style="color:blue;">
               <!-- /.form-group -->
 
@@ -489,14 +489,14 @@ else
       <!-- /.box -->
 
       <!--<div class="row">
-        <!--<div class="col-md-6">
+        <div class="col-md-6">
 
-          <!--<div class="box box-danger">
+          <div class="box box-danger">
             <div class="box-header">
               <h3 class="box-title">Input masks</h3>
             </div>
             <div class="box-body">
-              <!-- Date dd/mm/yyyy -->
+               Date dd/mm/yyyy -->
              <!-- <div class="form-group">
                 <label>Date masks:</label>
 
@@ -506,7 +506,7 @@ else
                   </div>
                   <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
                 </div>
-                <!-- /.input group -->
+                 /.input group -->
               </div>
               <!-- /.form group -->
 
@@ -518,7 +518,7 @@ else
                   </div>
                   <input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
                 </div>
-                <!-- /.input group -->
+                 /.input group -->
               </div>
               <!-- /.form group -->
 
@@ -532,7 +532,7 @@ else
                   </div>
                   <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
                 </div>
-                <!-- /.input group -->
+                /.input group -->
               </div>
               <!-- /.form group -->
 
@@ -585,12 +585,8 @@ else
                   Minimal red skin checkbox
                 </label>
               </div>
-
-
-           
-           
   </div>
-  <!-- /.content-wrapper -->
+ <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.18
