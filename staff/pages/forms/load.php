@@ -9,7 +9,7 @@
     $cl="select classname from tbl_class where classname='$cls'";
     $c=mysqli_query($con,$cl);  
     $res=mysqli_fetch_array($c);
-    $clas=$res['classname'];
+    $clas=$res['classid'];
 ?>
 <form name="form2" action="#" method="POST">
    <thead>
@@ -24,7 +24,7 @@
     while($row = mysqli_fetch_array($result)) 
     {
      $a=$row['loginid'] ;
-     $b="select fname from studtbl where loginid='$a'AND course='$clas' ";
+     $b="select fname from studtbl where loginid='$a'AND course=$clas ";
      $bres=mysqli_query($con,$b);
      //echo mysqli_error($con);
 

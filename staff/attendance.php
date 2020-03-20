@@ -208,6 +208,7 @@ include('header.php');
                                 text: "Attendance Added!",
                                 icon: "success",
                             });
+                            this.students= [];
                             this.form = {
                                 class: '',
                                 syllabus: '',

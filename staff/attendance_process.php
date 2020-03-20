@@ -19,9 +19,19 @@ if (isset($_GET['type'])) {
     if ($_GET['type'] == 'STUDENTS') {
         $class = $_GET['class'];
         $syllabus = $_GET['syllabus'];
-        $res = mysqli_query($con, "select * from studtbl");
-        while ($row = mysqli_fetch_array($res)) {
-            $myArray[] = $row;
+
+
+        $query="SELECT DISTINCT loginid FROM `studentsub` WHERE syid='$syllabus' ";
+        $result = mysqli_query($con,$query);
+
+
+        while($row = mysqli_fetch_array($result)) {
+            $a = $row['loginid'];
+
+            $res = mysqli_query($con, "select * from studtbl where loginid='$a'AND course=$class");
+            while ($row = mysqli_fetch_array($res)) {
+                $myArray[] = $row;
+            }
         }
         echo json_encode(['students' => $myArray]);
     }
