@@ -1,3 +1,9 @@
+
+<?php
+include 'config.php';
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -5,7 +11,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Etrain</title>
+
     <link rel="icon" href="img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -95,35 +101,34 @@
         <div class="col-lg-8" >
           <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
               <h1 style="font-family:'Malgun Gothic Semilight';"><b>Reset Your Password</b></h1>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group" style="margin-top: 60px;">
-                        <input class="form-control" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder = 'Enter email address'>
-                    </div>
-                </div>
-              <div class="col-sm-6">
-                <div class="form-group" style="margin-top: 60px;">
-                  <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder = 'Enter new Password' >
-                </div>
-              </div>
+              <div class="col-lg-8" style="margin-left: 120px;margin-top: 100px;">
+                  <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                      <div class="row">
+                          <div class="col-12">
 
-              <div class="col-12">
-                <div class="form-group">
-                  <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder = 'ReEnter Password'>
-                </div>
-              </div>
-                <div class="col-12">
-                    <div class="form-group">
+                          </div>
+                          <div class="col-sm-6">
+                              <div class="form-group">
+                                  <input class="form-control" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder = 'Enter Registered email address'>
+                              </div>
+                          </div>
+                          <div class="col-sm-6">
+                              <div class="form-group">
+                                  <input class="form-control" name="pass" id="name" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder = 'Enter your New Password'>
+                              </div>
+                          </div>
 
-                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder = 'Enter Reason'></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group mt-3" style="margin-left: 270px; ">
-              <button type="submit" class="button button-contactForm btn_1" style="width: 200px;">Reset</button>
-            </div>
-          </form>
-        </div>
+                          <div class="col-12">
+                              <div class="form-group">
+                                  <input class="form-control" name="rpass" id="subject" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder = 'ReEnter Password'>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="form-group mt-3">
+                          <input type="submit" value="Reset Password" class="button button-contactForm btn_1" name="submitclk" ></input>
+                      </div>
+                  </form>
+              </div>
         
   </section>
   <!-- ================ contact section end ================= -->
@@ -161,6 +166,108 @@
 <script src="js/waypoints.min.js"></script>
 <!-- custom js -->
 <script src="js/custom.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/abc.js"></script>
+    <script type='text/Javascript'>
+        function swtalert(swlt)
+        {
+            if(swlt==0)
+            {
+                swal({ type: 'error',
+                        title: 'Oops!',
+                        text: 'Something went wrong' },
+                    function()
+                    {
+                        window.location="contact.php";
+                    });
+            }
+            else if(swlt==2)
+            {
+                swal({ type: 'error',
+                        title: 'Oops!',
+                        text: 'New password and re-type password does not match' },
+                    function()
+                    {
+                        window.location="contact.php";
+                    });
+            }
+            else if(swlt==3)
+            {
+                swal({ type: 'error',
+                        title: 'Oops!',
+                        text: 'You entered wrong email' },
+                    function()
+                    {
+                        window.location="contact.php";
+                    });
+            }
+            else
+            {
+                swal({ type: 'success',
+                        title: 'Password Changed Successfully',
+                        text: 'welcome,now you can login!!!!'},
+                    function()
+                    {
+                        window.location="contact.php";
+                    });
+            }
+
+        }
+    </script>
+
+
 </body>
 
 </html>
+<?php
+
+
+if(isset($_POST['submitclk']))
+{
+    $email=$_POST['emailid'];
+    $sq="Select * from logintbl where emailid='$email'";
+    $res=mysqli_query($con,$sq);
+    $row=mysqli_fetch_array($res,MYSQLI_ASSOC);
+    $cemail=$row['email'];
+    // new password
+    $ps=$_POST['pass'];
+    $pswd=md5($ps);
+    $psw=$_POST['rpass'];
+    $pa=md5($psw);
+
+    //echo "<script>alert('$email')</script>";
+
+    if(!(strcmp($cemail, $email)))
+    {
+        if(!(strcmp($pswd, $pa)))
+        {
+            if(mysqli_query($con,"Update logintbl set password='$pswd' where emailid='$email'"))
+            {
+                echo "<script>swtalert('1');</script>";
+            }
+            else
+            {
+                echo "<script>swtalert('0');</script>";
+            }
+        }
+        else
+        {
+            echo "<script>swtalert('2');</script>";
+        }
+
+    }
+    else
+    {
+        echo "<script>swtalert('3');</script>";
+    }
+
+}
+
+
+?>
+
+
+
+
+

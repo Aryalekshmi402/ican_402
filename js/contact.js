@@ -14,11 +14,11 @@ $(document).ready(function(){
             rules: {
                 name: {
                     required: true,
-                    minlength: 2
+                    minlength: 5
                 },
-                subject: {
+                pass: {
                     required: true,
-                    minlength: 4
+                    minlength: 5
                 },
                 number: {
                     required: true,
@@ -28,30 +28,30 @@ $(document).ready(function(){
                     required: true,
                     email: true
                 },
-                message: {
+                rpass: {
                     required: true,
-                    minlength: 20
+                    minlength: 5
                 }
             },
             messages: {
                 name: {
-                    required: "come on, you have a name, don't you?",
-                    minlength: "your name must consist of at least 2 characters"
+                    required: "enter your password",
+                    minlength: "your password must consist of at least 5 characters"
                 },
-                subject: {
-                    required: "come on, you have a subject, don't you?",
-                    minlength: "your subject must consist of at least 4 characters"
+                pass: {
+                    required: "please enter your password",
+                    minlength: "your password must consist of at least 5 characters"
                 },
                 number: {
                     required: "come on, you have a number, don't you?",
                     minlength: "your Number must consist of at least 5 characters"
                 },
                 email: {
-                    required: "no email, no message"
+                    required: "no email..."
                 },
-                message: {
-                    required: "um...yea, you have to write something to send this form.",
-                    minlength: "thats all? really?"
+                rpass: {
+                    required: "please re-enter your password",
+                    minlength: "make sure your password is correct"
                 }
             },
             submitHandler: function(form) {

@@ -1277,7 +1277,7 @@ if(isset($_POST['recover']))
 
 But don’t worry! You can use the following link to reset your password:
 </p>
-<a href="localhost/ican/login.php">https://ican/forgot/password</a>
+<a href="http://localhost:8000/contact.php">https://ican/forgot/password</a>
 '
         ;//body
 

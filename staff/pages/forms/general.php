@@ -46,7 +46,7 @@ else
                          text: 'Something went wrong' },
                          function()
                          {
-                          window.location="changepsw.php";
+                          window.location="general.php";
                          });
                   }
                   else if(swlt==2)
@@ -56,7 +56,7 @@ else
                          text: 'New password and re-type password does not match' },
                          function()
                          {
-                          window.location="changepsw.php";
+                          window.location="general.php";
                          });
                   }
                   else if(swlt==3)
@@ -66,7 +66,7 @@ else
                          text: 'You entered wrong old password' },
                          function()
                          {
-                          window.location="changepsw.php";
+                          window.location="general.php";
                          });
                   }
                   else
@@ -75,7 +75,7 @@ else
                          title: 'Password Changed Successfully' },
                          function()
                          {
-                          window.location="changepsw.php";
+                          window.location="../../staffhome.php";
                          });
                   }
         
@@ -768,7 +768,8 @@ else
             <!-- form start -->
             
 			<html>
-<head>
+<!--<head>
+
 <script type="text/javascript">
 function valid()
 {
@@ -799,7 +800,7 @@ return false;
 return true;
 }
 </script>
-</head>
+</head>-->
 <title>Change Password</title>
 <form name="chngpwd" action="general.php" method="post" onSubmit="return valid();" style="margin-bottom:200%";>
 <table align="center">
@@ -1198,6 +1199,9 @@ return true;
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/abc.js"></script>
 </body>
 </html>
 

@@ -177,7 +177,7 @@ include('header.php');
                             type: 'STUDENTS',
                             ...this.form
                         }
-                    })
+                     })
                         .then(({data}) => {
                             this.students = data.students;
                         })

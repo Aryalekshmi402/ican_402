@@ -336,17 +336,17 @@ else
               </li>
               <!-- Menu Body -->
               <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
+                  <!--  <div class="row">
+                      <div class="col-xs-4 text-center">
+                        <a href="#">Followers</a>
+                      </div>
+                      <div class="col-xs-4 text-center">
+                        <a href="#">Sales</a>
+                      </div>
+                      <div class="col-xs-4 text-center">
+                        <a href="#">Friends</a>
+                      </div>
+                    </div>-->
                 <!-- /.row -->
               </li>
               <!-- Menu Footer-->
@@ -767,7 +767,7 @@ else
             <!-- form start -->
             
 			<html>
-<head>
+<!--<head>
 <script type="text/javascript">
 function valid()
 {
@@ -798,7 +798,7 @@ return false;
 return true;
 }
 </script>
-</head>
+</head>-->
 <title>Change Password</title>
 <form name="chngpwd" action="general.php" method="post" onSubmit="return valid();">
 <table align="center" >
@@ -1238,7 +1238,7 @@ return true;
                          title: 'Password Changed Successfully' },
                          function()
                          {
-                          window.location="/ican/student/studenthome.php";
+                          window.location="../../studenthome.php";
                          });
                   }
         
