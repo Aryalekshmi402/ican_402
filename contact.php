@@ -1,7 +1,6 @@
 
 <?php
 include 'config.php';
-
 ?>
 
 <!doctype html>
@@ -99,10 +98,10 @@ include 'config.php';
 
       <div class="row" style="margin-top: -600px; margin-left: 160px;>
         <div class="col-lg-8" >
-          <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+          <form class="form-contact contact_form" action="contact.php" method="post" id="contactForm" novalidate="novalidate">
               <h1 style="font-family:'Malgun Gothic Semilight';"><b>Reset Your Password</b></h1>
               <div class="col-lg-8" style="margin-left: 120px;margin-top: 100px;">
-                  <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                  <form class="form-contact contact_form" action="contact.php" method="post" id="contactForm" novalidate="novalidate">
                       <div class="row">
                           <div class="col-12">
 
@@ -125,7 +124,7 @@ include 'config.php';
                           </div>
                       </div>
                       <div class="form-group mt-3">
-                          <input type="submit" value="Reset Password" class="button button-contactForm btn_1" name="submitclk" ></input>
+                          <button type="submit" value="Reset Password" class="button button-contactForm btn_1" name="save" >Reset Password</button>
                       </div>
                   </form>
               </div>
@@ -158,7 +157,7 @@ include 'config.php';
 <script src="js/jquery.form.js"></script>
 <script src="js/jquery.validate.min.js"></script>
 <script src="js/mail-script.js"></script>
-<script src="js/contact.js"></script>
+<!--<script src="js/contact.js"></script>-->
 
 <!-- slick js -->
 <script src="js/slick.min.js"></script>
@@ -221,22 +220,20 @@ include 'config.php';
 
 </html>
 <?php
-
-
-if(isset($_POST['submitclk']))
+if(isset($_POST['save']))
 {
-    $email=$_POST['emailid'];
+    $email=$_POST['email'];
     $sq="Select * from logintbl where emailid='$email'";
     $res=mysqli_query($con,$sq);
-    $row=mysqli_fetch_array($res,MYSQLI_ASSOC);
-    $cemail=$row['email'];
+    $row=mysqli_fetch_array($res);
+    $cemail=$row['emailid'];
     // new password
     $ps=$_POST['pass'];
     $pswd=md5($ps);
     $psw=$_POST['rpass'];
     $pa=md5($psw);
 
-    //echo "<script>alert('$email')</script>";
+   // echo "<script>alert('$email')</script>";
 
     if(!(strcmp($cemail, $email)))
     {
