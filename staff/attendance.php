@@ -199,6 +199,16 @@ include('header.php');
                         })
                 },
                 save() {
+                    for (const index in this.form){
+                        if (this.form[index]==='' || this.form[index]===[]){
+                            swal({
+                                title: "Oops",
+                                text: "Please Enter Correct Details",
+                                icon: "error",
+                            });
+                            return;
+                        }
+                    }
                     axios.post('/staff/save_attendance.php', {
                         ...this.form
                     })
