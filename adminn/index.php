@@ -805,6 +805,8 @@ if ($login) {
 
     </html>
     <?php
-} else
+}
+
+else
     header("location:/ican/index.php");
 ?>

@@ -7,6 +7,7 @@ include 'config.php';
 <html lang="en">
 
 <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -157,8 +158,7 @@ include 'config.php';
 <script src="js/jquery.form.js"></script>
 <script src="js/jquery.validate.min.js"></script>
 <script src="js/mail-script.js"></script>
-<!--<script src="js/contact.js"></script>-->
-
+    <!--<script src="js/contact.js"></script>-->
 <!-- slick js -->
 <script src="js/slick.min.js"></script>
 <script src="js/jquery.counterup.min.js"></script>

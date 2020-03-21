@@ -1,14 +1,5 @@
-<?php
-session_start();
-$login=$_SESSION['login'];
-$type=$_SESSION['type'];
-if($login)
-{
-	?>
-
 
 <!DOCTYPE html>
-<?php include('../config.php');?>
 <html lang="en">
 
 <head>
@@ -27,11 +18,33 @@ if($login)
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!--external css-->
   <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap-datepicker/css/datepicker.css" />
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap-daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" type="text/css" href="css/zabuto_calendar.css">
+  <link rel="stylesheet" type="text/css" href="lib/gritter/css/jquery.gritter.css" />
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
+  <script src="lib/chart-master/Chart.js"></script>
+
+  <script type="application/javascript" language="javascript">
+
+      function onBtnClick(x){
+        if(x==1){
+          document.getElementById("txthide1").style.display='block';
+          document.getElementById("txthide2").style.display='block';
+          document.getElementById("txthide3").style.display='block';
+          document.getElementById("txthide4").style.display='block';
+          document.getElementById("txtshow1").style.display='none';
+          document.getElementById("txtshow2").style.display='none';
+          document.getElementById("txtshow3").style.display='none';
+
+        }
+        else{
+          document.getElementById("txthide").style.display='none';
+        }
+      } 
+
+  </script>
+
 
   <!-- =======================================================
     Template Name: Dashio
@@ -52,7 +65,7 @@ if($login)
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>i<span>Can</span></b></a>
+      <a href="index.html" class="logo"><b>My<span>Lawyer</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -241,7 +254,7 @@ if($login)
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="logout.php">Logout</a></li>
+          <li><a class="logout" href="../signout.php">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -254,27 +267,42 @@ if($login)
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="img/adm.png" class="img-circle" width="80"></a></p>
-          <h5 class="centered"><?php echo "$type";?></h5>
+          <p class="centered"><a href="profile.php">  <img src="img/ui-sam.jpg" class="img-circle" width="80">  </a></p>
+          <h5 class="centered"></h5>
           <li class="mt">
             <a href="index.php">
               <i class="fa fa-dashboard"></i>
-              <span>home</span>
+              <span>Dashboard</span>
               </a>
           </li>
-         <!-- <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-desktop"></i>
-              <span>UI Elements</span>
+          <li class="sub-menu">
+            <a class="active" href="javascript:;">
+              <i class="fa fa-cogs"></i>
+              <span>Profile</span>
               </a>
             <ul class="sub">
-              <li><a href="general.html">General</a></li>
-              <li><a href="buttons.html">Buttons</a></li>
-              <li><a href="panels.html">Panels</a></li>
-              <li><a href="font_awesome.html">Font Awesome</a></li>
+              <li class="active"><a href="profile.php">Profile</a></li>
+              <li><a href="changepassword.php">Change Password</a></li>
+         <!-- <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="todo_list.html">Todo List</a></li>
+              <li><a href="dropzone.html">Dropzone File Upload</a></li>
+              <li><a href="inline_editor.html">Inline Editor</a></li>
+              <li><a href="file_upload.html">Multiple File Upload</a></li> -->
             </ul>
           </li>
           <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-desktop"></i>
+              <span>Cases</span>
+              </a>
+            <ul class="sub">
+              <li><a href="caserequest.php">Case Requests</a></li>
+          <!--    <li><a href="buttons.html">Buttons</a></li>
+              <li><a href="panels.html">Panels</a></li>
+              <li><a href="font_awesome.html">Font Awesome</a></li>  -->
+            </ul> 
+          </li>
+  <!--        <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-cogs"></i>
               <span>Components</span>
@@ -307,15 +335,14 @@ if($login)
             </ul>
           </li>
           <li class="sub-menu">
-            <a class="active" href="javascript:;">
+            <a href="javascript:;">
               <i class="fa fa-tasks"></i>
               <span>Forms</span>
-              </a>
+            </a>
             <ul class="sub">
-              <li class="active"><a href="form_component.html">Form Components</a></li>
+              <li><a href="form_component.html">Form Components</a></li>
               <li><a href="advanced_form_components.html">Advanced Components</a></li>
               <li><a href="form_validation.html">Form Validation</a></li>
-              <li><a href="contactform.html">Contact Form</a></li>
               <li><a href="contactform.html">Contact Form</a></li>
             </ul>
           </li>
@@ -364,11 +391,11 @@ if($login)
               <i class="fa fa-map-marker"></i>
               <span>Google Maps </span>
               </a>
-          </li>
+          </li>  -->
         </ul>
         <!-- sidebar menu end-->
       </div>
-    </aside>-->
+    </aside>
     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
@@ -376,249 +403,111 @@ if($login)
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>iCan staff</h3>
-        <!-- BASIC FORM ELELEMNTS -->
-        <div class="row mt">
-          <div class="col-lg-12">
-           <!-- <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Form Elements</h4>
-              <form class="form-horizontal style-form" method="get">
+        <div class="row">
+          <div class="col-lg-9 main-chart">
+            <!--CUSTOM CHART START -->
+            <div class="row mt">
+            <div class="col-lg-12">
+            <div class="form-panel con">
+              <h4 class="mb"><i class="fa fa-angle-right"></i> PROFILE </h4>
+              <button class="btn btn-primary btn-xs" style="margin-left:750px; margin-top:-80px;" onclick="onBtnClick('1')"><i class="fa fa-pencil"></i></button>
+              <form class="form-horizontal style-form" id="myform" method="post" action="profile.php" enctype="multipart/form-data">
+                
                 <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Default</label>
+                  <label class="col-sm-2 col-sm-2 control-label">Name</label> 
+                  <label class="col-sm-3 col-sm-3 control-label"></label>
+                  <label class="col-sm-1 col-sm-1 control-label"></label>
+                  <label class="col-sm-2 col-sm-2 control-label">Email Id</label>
+                  <label class="col-sm-3 col-sm-3 control-label"></label>
+                  
+                </div>
+                
+                <div class="form-group">
+                  <label class="col-sm-2 col-sm-2 control-label">Address</label>
+                  <label class="col-sm-3 col-sm-3 control-label"></label>
+                  <label class="col-sm-1 col-sm-1 control-label"></label>
+                  <label class="col-sm-2 col-sm-2 control-label">City</label>
+                  <label class="col-sm-3 col-sm-3 control-label"></label>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-2 col-sm-2 control-label">District</label>
+                  <label class="col-sm-3 col-sm-3 control-label"></label>
+                  <label class="col-sm-1 col-sm-1 control-label"></label>
+                  <label class="col-sm-2 col-sm-2 control-label">State</label>
+                  <label class="col-sm-3 col-sm-3 control-label"></label>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-2 col-sm-2 control-label">Pincode</label>
+                  <label class="col-sm-3 col-sm-3 control-label"></label>
+                  <label class="col-sm-1 col-sm-1 control-label"></label>
+                  <label class="col-sm-2 col-sm-2 control-label">Gender</label>
+                  <label class="col-sm-3 col-sm-3 control-label"></label>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-2 col-sm-2 control-label">Mobile Number</label>
+                  <div id="txtshow1"><label class="col-sm-3 col-sm-3 control-label"></label></div>
+                  <div class="col-sm-10" id="txthide1" style="display:none;">
+                    <input type="text" name="phone" value="" class="form-control">
+                  </div>
+                  <label class="col-sm-1 col-sm-1 control-label"></label>
+                  <div id="txtshow2"><label class="col-sm-2 col-sm-2 control-label">Education</label>
+                  <label class="col-sm-3 col-sm-3 control-label"></label></div>
+                </div>
+
+                <div class="form-group" id="txthide2" style="display:none;">
+                  <label class="col-sm-2 col-sm-2 control-label">Education</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
-                  </div>
+                    <input type="text" name="dedu" value="" class="form-control" >
+                  </div> 
                 </div>
+
                 <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Help text</label>
+                  <label class="col-sm-2 col-sm-2 control-label">Specialization</label>
+                  <div id="txtshow3"><label class="col-sm-3 col-sm-3 control-label"></label></div>
+                  <div class="col-sm-10" id="txthide3" style="display:none;">
+                    <input type="text" name="djob" value="" class="form-control">
+                  </div>
+                  <label class="col-sm-2 col-sm-2 control-label"></label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
-                    <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                    <input type="hidden" class="form-control" name="lid" id="lid" placeholder="" value="<?php echo $l; ?>"/>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Rounder</label>
+              
+                </div>
+
+                <div class="form-group" id="txthide4" style="display:none;">
                   <div class="col-sm-10">
-                    <input type="text" class="form-control round-form">
+                      <button style="margin-left:350px;" type="submit" name="submit" class="btn btn-primary">UPDATE</button>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Input focus</label>
-                  <div class="col-sm-10">
-                    <input class="form-control" id="focusedInput" type="text" value="This is focused...">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Disabled</label>
-                  <div class="col-sm-10">
-                    <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Placeholder</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="placeholder">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Password</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" placeholder="">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-2 col-sm-2 control-label">Static control</label>
-                  <div class="col-lg-10">
-                    <p class="form-control-static">email@example.com</p>
-                  </div>
-                </div>
+              
               </form>
-            </div>-->
+            </div>
           </div>
           <!-- col-lg-12-->
         </div>
-        <!-- /row -->
-        <!-- INLINE FORM ELELEMNTS -->
-        <div class="row mt">
-          <div class="col-lg-12">
-            <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i><b> Staff Id generator</b></h4>
-              <form class="form-inline" role="form" action="form_component.php" method="post" name="form1" id="form1" align="center">
-                <div class="form-group">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Name :<label class="sr-only" for="exampleInputEmail2">Email address</label>
-                  <input type="text" class="form-control" name="nm"  id="nm" placeholder="Enter name" style="width:200px;" >
-                </div><br><br>
-                
-                <div class="form-group">
-                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter Email :<label class="sr-only" for="exampleInputEmail2">Email address</label>
-                  <input type="email" class="form-control" id="em" name="em" placeholder="Enter email" style="width:200px;" >
-                </div><br><br>
-                
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="form-group">Choose Gender : <label class="sr-only" for="exampleInputEmail2" required>Gender</label>
-                  <select name="gen" id="gen" class="form-control" style="width:200px;" required>
-                                                <option value="0">Please select</option>
-                                                <option value="male">male</option>
-                                                <option value="female">female</option>
-                                                <option value="others">others</option>
-                                            </select>
-                </div><br><br>
-                <div class="form-group">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Designation :<label class="sr-only" for="exampleInputEmail2">subject</label>
-                  <input type="text" class="form-control" name="desig" id="desig" placeholder="Enter designation" style="width:200px;">
-                </div><br><br>
-                <div class="form-group">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Subject :<label class="sr-only" for="exampleInputEmail2">subject</label>
-                  <input type="text" class="form-control" name="sub" id="sub" placeholder="Enter subject" style="width:200px;" >
-                </div><br><br>
-                
-                <div class="form-group">
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Enter Phone :<label class="sr-only" for="exampleInputEmail2">phone number</label>
-                  <input type="text" class="form-control" name="phone" id="phone" placeholder="phone number" style="width:200px;"  maxlength=10>
-                </div><br><br>
-                      
-      <div class="form-group">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dob as password :<label class="sr-only" for="exampleInputPassword2">Password</label> 
-                  <input type="date"  class="form-control" id="exampleInputPassword2"  name="pi" placeholder="Password" style="width:200px;">
-                </div><br>
-                  <br>
-                <pre><button type="submit" name="submitclk" class="btn btn-theme">Submit</button></pre>
-              </form>
-            </div>
-            <!-- /form-panel -->
+        
+            <!--custom chart end-->
+            <!-- /row -->
           </div>
-          <!-- /col-lg-12 -->
-        </div>
-        <!-- /row -->
-        <!-- INPUT MESSAGES -->
-       <!-- <div class="row mt">
-          <div class="col-lg-12">
-            <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Input Messages</h4>
-              <form class="form-horizontal tasi-form" method="get">
-                <div class="form-group has-success">
-                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Input with success</label>
-                  <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputSuccess">
-                  </div>
-                </div>
-                <div class="form-group has-warning">
-                  <label class="col-sm-2 control-label col-lg-2" for="inputWarning">Input with warning</label>
-                  <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputWarning">
-                  </div>
-                </div>
-                <div class="form-group has-error">
-                  <label class="col-sm-2 control-label col-lg-2" for="inputError">Input with error</label>
-                  <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputError">
-                  </div>
-                </div>
-              </form>
-            </div>
-            <!-- /form-panel -->
-          </div>
-          <!-- /col-lg-12 -->
-        </div>
-        <!-- /row -->
-        <!-- INPUT MESSAGES -->
-        <!--<div class="row mt">
-          <div class="col-lg-12">
-            <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Checkboxes, Radios & Selects</h4>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                  Option one is this and that&mdash;be sure to include why it's great
-                  </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                  Option one is this and that&mdash;be sure to include why it's great
-                  </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                  Option two can be something else and selecting it will deselect option one
-                  </label>
-              </div>
-              <hr>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
-                </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
-                </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-                </label>
-              <hr>
-              <select class="form-control">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              <br>
-              <select multiple class="form-control">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-            </div>
-            <!-- /form-panel -->
-          </div>
-          <!-- /col-lg-12 -->
-          <!-- CUSTOM TOGGLES -->
-          <!--<div class="col-lg-12">
-            <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Custom Toggles</h4>
-              <div class="row mt">
-                <div class="col-sm-6 text-center">
-                  <input type="checkbox" checked="" data-toggle="switch" />
-                </div>
-                <div class="col-sm-6 text-center">
-                  <input type="checkbox" data-toggle="switch" />
-                </div>
-              </div>
-              <div class="row mt">
-                <div class="col-sm-6 text-center">
-                  <div class="switch switch-square" data-on-label="<i class=' fa fa-check'></i>" data-off-label="<i class='fa fa-times'></i>">
-                    <input type="checkbox" />
-                  </div>
-                </div>
-                <div class="col-sm-6 text-center">
-                  <div class="switch switch-square" data-on-label="<i class=' fa fa-check'></i>" data-off-label="<i class='fa fa-times'></i>">
-                    <input type="checkbox" checked="" />
-                  </div>
-                </div>
-              </div>
-              <div class="row mt">
-                <div class="col-sm-6 text-center">
-                  <input type="checkbox" disabled data-toggle="switch" />
-                </div>
-                <div class="col-sm-6 text-center">
-                  <input type="checkbox" checked disabled data-toggle="switch" />
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- /col-lg-9 END SECTION MIDDLE -->
+          <!-- **********************************************************************************************************************************************************
+              RIGHT SIDEBAR CONTENT
+              *********************************************************************************************************************************************************** -->
+          <!-- /col-lg-3 -->
         </div>
         <!-- /row -->
       </section>
-      <!-- /wrapper -->
     </section>
-    <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->
     <footer class="site-footer">
       <div class="text-center">
         <p>
-          &copy; Copyrights <strong>iCan</strong>. All Rights Reserved
+          &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
         </p>
         <div class="credits">
           <!--
@@ -627,9 +516,9 @@ if($login)
             Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
             Licensing information: https://templatemag.com/license/
           -->
-          Designed by <a href="https://templatemag.com/">aryasyama402@gmail.com</a>
+          Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
         </div>
-        <a href="form_component.html#" class="go-top">
+        <a href="index.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
           </a>
       </div>
@@ -638,107 +527,82 @@ if($login)
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="lib/jquery/jquery.min.js"></script>
+
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
   <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
   <script src="lib/jquery.scrollTo.min.js"></script>
   <script src="lib/jquery.nicescroll.js" type="text/javascript"></script>
+  <script src="lib/jquery.sparkline.js"></script>
   <!--common script for all pages-->
   <script src="lib/common-scripts.js"></script>
+  <script type="text/javascript" src="lib/gritter/js/jquery.gritter.js"></script>
+  <script type="text/javascript" src="lib/gritter-conf.js"></script>
   <!--script for this page-->
-  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
-  <!--custom switch-->
-  <script src="lib/bootstrap-switch.js"></script>
-  <!--custom tagsinput-->
-  <script src="lib/jquery.tagsinput.js"></script>
-  <!--custom checkbox & radio-->
-  <script type="text/javascript" src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/date.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-  <script src="lib/form-component.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/abc.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="form-validation.js"></script>
+  <script src="lib/sparkline-chart.js"></script>
+  <script src="lib/zabuto_calendar.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var unique_id = $.gritter.add({
+        // (string | mandatory) the heading of the notification
+        title: 'Welcome to Dashio!',
+        // (string | mandatory) the text inside the notification
+        text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
+        // (string | optional) the image to display on the left
+        image: 'img/ui-sam.jpg',
+        // (bool | optional) if you want it to fade out on its own or just sit there
+        sticky: false,
+        // (int | optional) the time you want it to be alive for before fading out
+        time: 8000,
+        // (string | optional) the class name you want to apply to that specific message
+        class_name: 'my-sticky-class'
+      });
 
-  
-  <script type='text/Javascript'>
-               function swtalert(swlt)
-                {
-                  if(swlt==1)
-                  {
-                    swal({  type: 'success',
-                            title: 'staff Added' },
-                            function()
-                            {
-                              window.location="form_component.php";
-                            });
-                  }
-                  else
-                    {
-                    swal({  type: 'error',
-                            title: 'Oops!!!',
-                            text: 'staff already exists'},
-                            function()
-                            {
-                              window.location="form_component.php";
-                            });
-                  }
-                }
-            </script>
+      return false;
+    });
+  </script>
+  <script type="application/javascript">
+    $(document).ready(function() {
+      $("#date-popover").popover({
+        html: true,
+        trigger: "manual"
+      });
+      $("#date-popover").hide();
+      $("#date-popover").click(function(e) {
+        $(this).hide();
+      });
 
+      $("#my-calendar").zabuto_calendar({
+        action: function() {
+          return myDateFunction(this.id, false);
+        },
+        action_nav: function() {
+          return myNavFunction(this.id);
+        },
+        ajax: {
+          url: "show_data.php?action=1",
+          modal: true
+        },
+        legend: [{
+            type: "text",
+            label: "Special event",
+            badge: "00"
+          },
+          {
+            type: "block",
+            label: "Regular event",
+          }
+        ]
+      });
+    });
+
+    function myNavFunction(id) {
+      $("#date-popover").hide();
+      var nav = $("#" + id).data("navigation");
+      var to = $("#" + id).data("to");
+      console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+    }
+  </script>
 </body>
 
 </html>
-<?php
-  // $lin=$_GET['id'];
-  
-  if(isset($_POST['submitclk']))
-  {
-	$name=$_POST['nm'];
-    $email=$_POST['em'];
-     $gender=$_POST['gen'];
-     $des=$_POST['desig'];
-     $sub=$_POST['sub'];
-     $phone=$_POST['phone'];
-     $password=$_POST['pi'];
-     
-     $chid="SELECT emailid from logintbl where emailid='$email'";
-     $chsq=mysqli_query($con,$chid);
-     $rchsq=mysqli_fetch_array($chsq,MYSQLI_ASSOC);
-     if($rchsq['emailid']!="")
-     {
-      $swlt=0;
-      echo "<script>swtalert($swlt);</script>";
-     }
-     else
-     {
-        //$d=date("Y-m-d",strtotime($dob));
-        $ps=md5($password);
-        $sq="INSERT INTO logintbl (emailid,password,usertype,status) VALUES ('$email','$ps','ostaff','1')";
-        $qu=mysqli_query($con,$sq);
-        if($qu)
-        {
-          $sqq="SELECT loginid from logintbl where emailid='$email'";
-          $que=mysqli_query($con,$sqq);
-          $row=mysqli_fetch_array($que,MYSQLI_ASSOC);
-          $lin=$row['loginid'];
-          $sqll="INSERT INTO tlb_staff (`loginid`,`name`,`gender`,`designation`,`subject`,`phone`) VALUES ('$lin','$name','$gender','$des','$sub','$phone')";
-          $quer=mysqli_query($con,$sqll);
-          if($quer)
-          {
-            $swlt=1;
-            echo "<script>swtalert($swlt);</script>";
-          }
-        }
-      }
-  }
-?>
-<?php
-}
-else
-header("location:/ican/login.php");
-?>
+
