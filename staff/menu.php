@@ -57,6 +57,19 @@
                     <li><a href="/staff/pages/tables/status.php"><i class="fa fa-circle-o"></i> Leave Status</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>Attendance</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/staff/attendance.php"><i class="fa fa-circle-o"></i> Add Attendance</a></li>
+                    <li><a href="/staff/attendance_report.php"><i class="fa fa-circle-o"></i> Attendance Report</a></li>
+                </ul>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

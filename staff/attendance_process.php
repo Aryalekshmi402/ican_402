@@ -43,4 +43,13 @@ if (isset($_GET['type'])) {
         }
         echo json_encode(['sessions' => $myArray]);
     }
+    if ($_GET['type'] == 'REPORT') {
+        $student=$_GET['student'];
+        $res = mysqli_query($con, "select * from tbl_attendance where student_id=$student");
+        echo "select * from tbl_attendance where student_id=$student group by date";
+        while ($row = mysqli_fetch_array($res)) {
+            $myArray[] = $row;
+        }
+        echo json_encode(['reports' => $myArray]);
+    }
 }
