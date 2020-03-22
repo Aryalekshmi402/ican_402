@@ -21,11 +21,11 @@ if (isset($_GET['type'])) {
         $syllabus = $_GET['syllabus'];
 
 
-        $query="SELECT DISTINCT loginid FROM `studentsub` WHERE syid='$syllabus' ";
-        $result = mysqli_query($con,$query);
+        $query = "SELECT DISTINCT loginid FROM `studentsub` WHERE syid='$syllabus' ";
+        $result = mysqli_query($con, $query);
 
 
-        while($row = mysqli_fetch_array($result)) {
+        while ($row = mysqli_fetch_array($result)) {
             $a = $row['loginid'];
 
             $res = mysqli_query($con, "select * from studtbl where loginid='$a'AND course=$class");
@@ -44,9 +44,15 @@ if (isset($_GET['type'])) {
         echo json_encode(['sessions' => $myArray]);
     }
     if ($_GET['type'] == 'REPORT') {
-        $student=$_GET['student'];
-        $res = mysqli_query($con, "select * from tbl_attendance where student_id=$student");
-        echo "select * from tbl_attendance where student_id=$student group by date";
+        $student = $_GET['student'];
+        $date = $_GET['date'];
+        if ($date == '') {
+            $query = "select * from tbl_attendance where student_id=$student";
+        } else {
+            $query = "select * from tbl_attendance where student_id=$student and date='$date'";
+        }
+
+        $res = mysqli_query($con, $query);
         while ($row = mysqli_fetch_array($res)) {
             $myArray[] = $row;
         }
