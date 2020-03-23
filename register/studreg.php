@@ -220,17 +220,7 @@ function getdistrict(val) {
 						<div class="form-row form-row-3">
 							<input type="file" name="file"  id="file" autocomplete="off"  accept="(jpg?|jpeg|pdf)" class="street" title="upload proof" placeholder="proof" required>
 						</div>
-						
-					
 
-
-
-					
-
-
-					
-
-					
 					<div class="form-group">
 						<div class="form-row form-row-3">
 							<input type="password" name="pwd" id="pwd" autocomplete="off"  class="pwd" placeholder="Password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>

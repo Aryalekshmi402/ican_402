@@ -7,7 +7,11 @@ include 'config.php';
 <html lang="en">
 
 <head>
-
+    <style>
+        .error{
+            color:#e36969;
+        }
+    </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -99,10 +103,10 @@ include 'config.php';
 
       <div class="row" style="margin-top: -600px; margin-left: 160px;>
         <div class="col-lg-8" >
-          <form class="form-contact contact_form" action="contact.php" method="post" id="contactForm" novalidate="novalidate">
+          <form class="form-contact contact_form" action="contact.php" method="post" name="form1" id="form1" novalidate="novalidate">
               <h1 style="font-family:'Malgun Gothic Semilight';"><b>Reset Your Password</b></h1>
               <div class="col-lg-8" style="margin-left: 120px;margin-top: 100px;">
-                  <form class="form-contact contact_form" action="contact.php" method="post" id="contactForm" novalidate="novalidate">
+                  <form class="form-contact contact_form" action="contact.php" method="post" id="form1" novalidate="novalidate">
                       <div class="row">
                           <div class="col-12">
 
@@ -114,13 +118,13 @@ include 'config.php';
                           </div>
                           <div class="col-sm-6">
                               <div class="form-group">
-                                  <input class="form-control" name="pass" id="name" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder = 'Enter your New Password'>
+                                  <input class="form-control" name="pass" id="pass" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your password'" placeholder = 'Enter your New Password'>
                               </div>
                           </div>
 
                           <div class="col-12">
                               <div class="form-group">
-                                  <input class="form-control" name="rpass" id="subject" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder = 'ReEnter Password'>
+                                  <input class="form-control" name="rpass" id="rpass" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ReEnter password'" placeholder = 'ReEnter Password'>
                               </div>
                           </div>
                       </div>
@@ -168,6 +172,11 @@ include 'config.php';
     <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/abc.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="contact.js"></script>
     <script type='text/Javascript'>
         function swtalert(swlt)
         {
@@ -208,7 +217,7 @@ include 'config.php';
                         text: 'welcome,now you can login!!!!'},
                     function()
                     {
-                        window.location="contact.php";
+                        window.location="index.php";
                     });
             }
 

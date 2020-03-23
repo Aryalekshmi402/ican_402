@@ -39,70 +39,35 @@ if($registrationForm.length){
     $registrationForm.validate({
         rules:{
             //username is the name of the textbox
-            nm: {
-                required: true,
-                noSpace: true,
-                alphabetsnspace: true
-
-            },
-            em: {
+            email: {
                 required: true,
                 customEmail: true
             },
-
-            gen: {
+            pass: {
                 required: true,
+                passstrength: true,
+                minlength:8
             },
-            desig: {
+            rpass: {
                 required: true,
-                noSpace: true,
-                alphabetsnspace: true
-            },
-            sub: {
-                required: true,
-                noSpace: true,
-                alphabetsnspace: true
-
-            },
-            phone:{
-                required:true,
-                number:true,
-                maxlength:10,
-                minlength:10
-            },
-            pi:{
-                required: true,
-                CheckDOB: true
+                equalTo: '#pass'
             },
         },
         messages:{
-            nm: {
-                required: 'Please enter full name!',
-                alphabetsnspace:'invalid format!'
-            },
-            em: {
+            email: {
                 required: 'Please enter email!',
                 email: 'Please enter valid email!'
             },
-            gen:{
-                required: 'Select Gender!'
+            pass: {
+                required: 'Please enter password!',
+                passstrength: 'weak password!',
+                minlength:'too short!'
             },
-            desig: {
-                required: 'Please enter designation!',
-                alphabetsnspace:'invalid format!'
-            },
-            sub: {
-                required: 'Please enter  subject name!',
-                alphabetsnspace:'invalid format!'
-            },
-            phone:{
-                required:'mobile number required!',
-                number:'invalid format!',
-                minlength:'invalid!',
-                maxlength:'invalid!'
-            },
-            pi:{
-                required: 'please enter Date of birth!'
+            rpass: {
+                required: 're-enter password!',
+                passstrength: 'weak password!',
+                minlength:'too short!',
+                equalTo: 'Same password please!'
             },
         },
 

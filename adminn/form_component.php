@@ -12,6 +12,11 @@ if($login)
 <html lang="en">
 
 <head>
+    <style>
+        .error{
+            color:#e36969;
+        }
+    </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
@@ -454,9 +459,9 @@ if($login)
                   <input type="email" class="form-control" id="em" name="em" placeholder="Enter email" style="width:200px;" >
                 </div><br><br>
                 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="form-group">Choose Gender : <label class="sr-only" for="exampleInputEmail2" required>Gender</label>
-                  <select name="gen" id="gen" class="form-control" style="width:200px;" required>
-                                                <option value="0">Please select</option>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="form-group">Choose Gender : <label class="sr-only" for="exampleInputEmail2">Gender</label>
+                  <select name="gen" id="gen" class="form-control" style="width:200px;">
+                                                <option value="0" disabled selected>Please select</option>
                                                 <option value="male">male</option>
                                                 <option value="female">female</option>
                                                 <option value="others">others</option>
