@@ -53,8 +53,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/staff/pages/forms/leave.php"><i class="fa fa-circle-o"></i> Apply Leave</a></li>
-                    <li><a href="/staff/pages/tables/status.php"><i class="fa fa-circle-o"></i> Leave Status</a></li>
+                    <li><a href="/staff/pages/forms/leave.php"><i class="fa fa-circle-o"></i>Apply Leave</a></li>
+                    <li><a href="/staff/pages/tables/status.php"><i class="fa fa-circle-o"></i>Leave Status</a></li>
                 </ul>
             </li>
             <li class="treeview">
