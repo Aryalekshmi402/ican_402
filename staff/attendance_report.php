@@ -62,7 +62,7 @@ include('header.php');
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3" v-for="(reports,date) in sorted_report">
+                            <div class="col-md-4" v-for="(reports,date) in sorted_report">
                                 <div class="text-center report-box">
                                     <strong>{{date}}</strong>
                                     <table class="table text-center table-bordered">
@@ -72,7 +72,7 @@ include('header.php');
                                                 Session No
                                             </th>
                                             <th>
-                                                Duration
+                                                Duration / Status
                                             </th>
                                         </tr>
                                         </thead>
@@ -80,7 +80,7 @@ include('header.php');
                                         <template v-for="items in reports">
                                             <tr v-for="item in items">
                                                 <td>{{item.session_number}}</td>
-                                                <td>{{item.duration}} Hrs</td>
+                                                <td v-text="item.duration>0?item.duration+' Hr':'AB'"></td>
                                             </tr>
                                         </template>
 

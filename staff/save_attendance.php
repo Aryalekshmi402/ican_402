@@ -4,7 +4,8 @@ include('../config.php');
 $request_body = file_get_contents('php://input');
 $data = json_decode($request_body);
 foreach ($data->students as $student) {
-    $q="insert into tbl_attendance values(NULL,$student,$data->session_number,$data->session,$data->duration,1,'$data->date')";
-    echo $q;
+    $status = $student->status==1?1:0;
+    $duration = $status==1 ? $data->duration : 0;
+    $q = "insert into tbl_attendance values(NULL,$student->signid,$data->session_number,$data->session,$duration,$status,'$data->date')";
     mysqli_query($con, $q);
 }

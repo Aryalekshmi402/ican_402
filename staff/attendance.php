@@ -24,90 +24,99 @@ include('header.php');
             <!-- Default box -->
             <div class="box">
                 <form action="" @submit.prevent="save">
-                <br>
-                <div class="box-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="class">Class</label>
-                                <select name="" v-model="form.class" class="form-control" id="class">
-                                    <option v-for="cls in classes" :value="cls.classid">{{cls.classname}}</option>
-                                </select>
+                    <br>
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="class">Class</label>
+                                    <select @change="get_students" name="" v-model="form.class" class="form-control" id="class">
+                                        <option v-for="cls in classes" :value="cls.classid">{{cls.classname}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="syllubus">Syllabus</label>
+                                    <select @change="get_students" v-model="form.syllabus" name="" class="form-control" id="syllubus">
+                                        <option v-for="syll in syllabus" :value="syll.syid">{{syll.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="session">Session</label>
+                                    <select v-model="form.session" name="" class="form-control" id="session">
+                                        <option v-for="session in sessions" :value="session.session_id">{{session.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="session">Session Number</label>
+                                    <select v-model="form.session_number" name="" class="form-control" id="session">
+                                        <option v-for="session in 5" :value="session">{{session}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="syllubus">Date</label>
+                                    <input type="date" class="form-control" v-model="form.date">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="duration">Duration</label>
+                                    <input type="number" id="duration" class="form-control" v-model="form.duration">
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="syllubus">Syllabus</label>
-                                <select v-model="form.syllabus" name="" class="form-control" id="syllubus">
-                                    <option v-for="syll in syllabus" :value="syll.syid">{{syll.Name}}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="session">Session</label>
-                                <select v-model="form.session" name="" class="form-control" id="session">
-                                    <option v-for="session in sessions" :value="session.session_id">{{session.name}}
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="session">Session Number</label>
-                                <select v-model="form.session_number" name="" class="form-control" id="session">
-                                    <option v-for="session in 5" :value="session">{{session}}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="syllubus">Date</label>
-                                <input type="date" class="form-control" v-model="form.date">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="duration">Duration</label>
-                                <input type="number" id="duration" class="form-control" v-model="form.duration">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Mobile No</th>
-                                    <th>
-                                        Status
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <template v-if="students.length">
-                                    <tr v-for="(student,index) in students">
-                                        <td>{{student.fname}}</td>
-                                        <td>{{student.mob}}</td>
-                                        <td>
-                                            <input :value="student.signid" type="checkbox"
-                                                   @click="select_student(student.signid)">
-                                        </td>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Mobile No</th>
+                                        <th>
+                                            Status
+                                        </th>
                                     </tr>
-                                </template>
-                                <tr v-else>
-                                    <td colspan="4" class="text-center">No Student Selected</td>
-                                </tr>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                    <template v-if="students.length">
+                                        <tr v-for="(student,index) in form.students">
+                                            <td>{{student.fname}}</td>
+                                            <td>{{student.mob}}</td>
+                                            <td>
+                                                <!--                                            <input :value="student.signid" type="checkbox"-->
+                                                <!--                                                   @click="select_student(student.signid)">-->
+                                                <label class="radio-inline">
+                                                    <input type="radio" :value="true"
+                                                           v-model="student.status"
+                                                           :name="student.mob"
+                                                           checked>Present</label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" :value="false"
+                                                           v-model="student.status"
+                                                           :name="student.mob">Absent</label>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                    <tr v-else>
+                                        <td colspan="4" class="text-center">No Student Selected</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
 
-                </div>
-                <div class="box-footer text-right" v-if="students.length">
-                    <button class="btn btn-success">Save</button>
-                </div>
+                    </div>
+                    <div class="box-footer text-right" v-if="students.length">
+                        <button class="btn btn-success">Save</button>
+                    </div>
                 </form>
                 <!-- /.box-body -->
                 <!-- /.box-footer-->
@@ -129,11 +138,11 @@ include('header.php');
                 form: {
                     class: '',
                     syllabus: '',
-                    date: new Date(),
+                    date:'',
                     duration: '',
                     session: '',
                     session_number: '',
-                    students: []
+                    students: {}
                 }
             },
             methods: {
@@ -177,8 +186,13 @@ include('header.php');
                             type: 'STUDENTS',
                             ...this.form
                         }
-                     })
+                    })
                         .then(({data}) => {
+
+                            for (const student of  data.students) {
+                                student['status'] = true;
+                            }
+                            this.form.students = data.students;
                             this.students = data.students;
                         })
                         .catch(function (error) {
@@ -199,8 +213,8 @@ include('header.php');
                         })
                 },
                 save() {
-                    for (const index in this.form){
-                        if (this.form[index]==='' || this.form[index]===[]){
+                    for (const index in this.form) {
+                        if (this.form[index] === '' || this.form[index] === []) {
                             swal({
                                 title: "Oops",
                                 text: "Please Enter Correct Details",
@@ -218,7 +232,7 @@ include('header.php');
                                 text: "Attendance Added!",
                                 icon: "success",
                             });
-                            this.students= [];
+                            this.students = [];
                             this.form = {
                                 class: '',
                                 syllabus: '',
@@ -239,16 +253,7 @@ include('header.php');
                 this.get_syllabus();
                 this.get_session();
             },
-            watch: {
-                form: {
-                    deep: true,
-                    handler() {
-                        if (this.form.class !== '' && this.form.syllabus !== '') {
-                            this.get_students();
-                        }
-                    }
-                }
-            }
+
         })
     </script>
 
