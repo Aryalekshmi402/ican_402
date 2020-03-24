@@ -27,7 +27,7 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
                 <a href="/staff/home.php">
-                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    <i class="fa fa-dashboard"></i> <span>Home</span>
 
                 </a>
             </li>
