@@ -389,6 +389,12 @@ if ($login) {
                             <span class="label label-theme pull-right mail-info">3</span>
                         </a>
                     </li>
+                    <li>
+                        <a  href="student_fees.php">
+                            <i class="fa fa-envelope"></i>
+                            <span>Student Fees </span>
+                        </a>
+                    </li>
 
 
                     <li class="sub-menu">

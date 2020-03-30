@@ -473,6 +473,14 @@ else
            <!-- <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>-->
           </ul>
         </li>
+        <li>
+          <a href="pages/tables/student_fees.php">
+            <i class="fa fa-edit"></i> <span>Fees Details</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+        </li>
 
 
 
