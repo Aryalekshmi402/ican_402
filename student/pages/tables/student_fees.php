@@ -4,8 +4,30 @@ include('../../../config.php');
 
 $l=$_SESSION['loginid'];
 if($l)
-{	
-?>
+{
+
+    $res=mysqli_query($con,"select * from studtbl where loginid=$l ");
+
+    $result=mysqli_query($con,"select * from tlb_stud where loginid=$l ");
+
+
+    if(mysqli_num_rows($res)!=0){
+        $row=mysqli_fetch_assoc($res);
+
+        $fname=$row['fname'];
+    }
+    else if(mysqli_num_rows($result)!=0){
+        $row=mysqli_fetch_assoc($result);
+
+        $fname=$row['name'];
+
+    }
+    else
+    {
+        echo "<script>alert('error');</script>";
+    }
+    ?>
+
 
 
 
@@ -267,7 +289,8 @@ if($l)
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!--<img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
-              <span class="hidden-xs">Profile</span>
+                <img src="logo.jpg" class="user-image" alt="User Image">
+                <span class="hidden-xs"><?php echo $fname;?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -275,20 +298,7 @@ if($l)
               <img src="logo.jpg" class="img-circle" alt="User Image">
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
+
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
@@ -318,7 +328,7 @@ if($l)
         <img src="logo.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>&nbsp;&nbsp;</p>
+          <p>&nbsp;&nbsp;<?php echo $fname;?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -520,7 +530,7 @@ if($l)
       <ol class="breadcrumb">
         <li><a href="../../studenthome.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <!--<li><a href="/ican/staff/pages/forms/leave.php">Apply</a></li>-->
-        <li class="active">staff</li>
+        <li class="active">student</li>
       </ol>
     </section>
 

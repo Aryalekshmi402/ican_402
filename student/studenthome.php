@@ -288,8 +288,8 @@ else
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="/pages/forms/general.html" class="dropdown-toggle" data-toggle="dropdown">
-             
-              <span class="hidden-xs">Profile</span>
+                <img src="logo.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs"><?php echo $fname;?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -307,12 +307,6 @@ else
                   <div class="col-xs-4 text-center">
                     <a href="pages/forms/general.php">Change password</a>
                   </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
                 </div>
                 <!-- /.row -->
               </li>
@@ -328,9 +322,7 @@ else
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+          
         </ul>
       </div>
     </nav>
@@ -433,19 +425,7 @@ else
             <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
           </ul>
         </li>-->
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Course</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-           <!-- <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>-->
-            <li><a href="pages/forms/regcourse.php"><i class="fa fa-circle-o"></i>Registered Courses</a></li>
-           <!-- <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>-->
-          </ul>
-        </li>
+
         <li class="treeview">
           <a href="#">
             <i class="fa fa-edit"></i> <span>iCan Staff</span>
@@ -660,19 +640,69 @@ else
           </div>
         </div>
         <!-- ./col -->
-           <!--<div class="col-lg-3 col-xs-6">
+           <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-            <!-- <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3>44</h3>
+            <div >
+            <div >
 
-              <p>User Registrations</p>
+                <table class="table table-striped table-advance table-hover" style="margin-left: 80px;">
+                    <h3 ><i class="fa fa-angle-right"  style="margin-left: 60px;">Your Subjects </i> </h3>
+
+                    <thead>
+                    <tr>
+                        <th>sl no:</th>
+
+                        <th> Subject</th>
+
+                        <th>Action</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <?php
+                    $sql="SELECT * FROM studentsub where loginid='$l' ";
+                    $no=1;
+                    $result = mysqli_query($con,$sql);
+                    while($row = mysqli_fetch_array($result)) {
+
+
+                        ?>
+
+                        <tr>
+                            <td style="font-size: 25px;">
+                                <?php
+                                echo $no;
+
+                                ?>
+                            </td>
+                            <td style="font-size: 25px;">
+                                <?php
+                                echo $row['sub'];
+                                ?>
+                            </td>
+
+
+                            <td style="font-size: 25px;">
+
+
+                                <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                                <!-- <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>-->
+                                <!--<a href="del.php?id=<?php echo $li;?>"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>-->
+
+                            </td>
+
+                        </tr>
+                        <?php
+                        ++$no;
+                    }
+                    ?>
+
+                    </tbody>
+                </table>
+
             </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
+
         </div>
         <!-- ./col -->
            <!--<div class="col-lg-3 col-xs-6">

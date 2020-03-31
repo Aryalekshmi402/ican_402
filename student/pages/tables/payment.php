@@ -69,7 +69,7 @@ $('.cc-brand').text(cardType);
                                 <div class="form-group"> <label for="cc-exp" class="control-label">CARD EXPIRY</label> <input id="cc-exp" name="expiry" type="tel" class="input-lg form-control cc-exp" autocomplete="cc-exp" placeholder="•• / ••" required> </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group"> <label for="cc-cvc" class="control-label">CARD CVC</label> <input id="cc-cvc" name="cvv" type="tel" class="input-lg form-control cc-cvc" autocomplete="off" placeholder="••••" required> </div>
+                                <div class="form-group"> <label for="cc-cvc" class="control-label">CARD CVV</label> <input id="cc-cvc" name="cvv" type="tel" class="input-lg form-control cc-cvc" autocomplete="off" placeholder="•••" required> </div>
                             </div>
                         </div>
                         <div class="form-group"> <label for="numeric" class="control-label">CARD HOLDER NAME</label> <input name="holder" type="text" class="input-lg form-control"> </div>
