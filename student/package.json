@@ -29,6 +29,7 @@
     "less": "^3"
   },
   "dependencies": {
+    "@rahulreghunath/vue-suggestion-list": "1.0.2",
     "bootstrap": "^3.4",
     "bootstrap-colorpicker": "^2.5.3",
     "bootstrap-datepicker": "^1.8",

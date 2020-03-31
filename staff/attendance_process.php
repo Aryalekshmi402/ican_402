@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('../config.php');
 if (isset($_GET['type'])) {
     $myArray = array();
@@ -50,6 +51,22 @@ if (isset($_GET['type'])) {
             $query = "select * from tbl_attendance where student_id=$student";
         } else {
             $query = "select * from tbl_attendance where student_id=$student and date='$date'";
+        }
+
+        $res = mysqli_query($con, $query);
+        while ($row = mysqli_fetch_array($res)) {
+            $myArray[] = $row;
+        }
+        echo json_encode(['reports' => $myArray]);
+    }
+
+    if ($_GET['type'] == 'INDIVIDUAL_REPORT') {
+        $student = $_SESSION['loginid'];
+        $date = $_GET['date'];
+        if ($date == '') {
+           $query = "select * from tbl_attendance where student_id=(select signid from studtbl where loginid=$student)";
+        } else {
+            $query = "select * from tbl_attendance where student_id=(select signid from studtbl where loginid=$student) and date='$date'";
         }
 
         $res = mysqli_query($con, $query);
