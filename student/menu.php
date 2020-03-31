@@ -104,7 +104,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <!-- <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>-->
-                    <li><a href="pages/forms/regcourse.php"><i class="fa fa-circle-o"></i>Registered Courses</a></li>
+                    <li><a href="/student/pages/forms/regcourse.php"><i class="fa fa-circle-o"></i>Registered Courses</a></li>
                     <!-- <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>-->
                 </ul>
             </li>
@@ -117,7 +117,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <!-- <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>-->
-                    <li><a href="pages/tables/viewstaff.php"><i class="fa fa-circle-o"></i>staff details</a></li>
+                    <li><a href="/student/pages/tables/viewstaff.php"><i class="fa fa-circle-o"></i>staff details</a></li>
                     <!-- <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>-->
                 </ul>
             </li>
@@ -130,8 +130,8 @@
                 </a>
                 <ul class="treeview-menu">
                     <!-- <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>-->
-                    <li><a href="pages/forms/studleave.php"><i class="fa fa-circle-o"></i>Apply Leave</a></li>
-                    <li><a href="pages/tables/studstatus.php"><i class="fa fa-circle-o"></i>View Status</a></li>
+                    <li><a href="/student/pages/forms/studleave.php"><i class="fa fa-circle-o"></i>Apply Leave</a></li>
+                    <li><a href="/student/pages/tables/studstatus.php"><i class="fa fa-circle-o"></i>View Status</a></li>
                     <!-- <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>-->
                 </ul>
             </li>
@@ -144,8 +144,16 @@
                 </a>
                 <ul class="treeview-menu">
                     <!-- <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>-->
-                    <li><a href="attendence_report.php"><i class="fa fa-circle-o"></i>Report</a></li>
+                    <li><a href="/student/attendence_report.php"><i class="fa fa-circle-o"></i>Report</a></li>
                     <!-- <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>-->
                 </ul>
+            </li>
+            <li>
+                <a href="/student/pages/tables/student_fees.php">
+                    <i class="fa fa-edit"></i> <span>Fees Details</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
             </li>
 </aside>
