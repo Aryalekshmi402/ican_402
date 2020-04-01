@@ -359,7 +359,7 @@ if ($l) {
                         $stuc = mysqli_num_rows($stu);
 
                         ?>
-                        <div class="col-lg-4 col-xs-6">
+                        <div class="col-lg-4 col-xs-6" >
                             <!-- small box -->
                             <div class="small-box bg-yellow">
                                 <div class="inner">

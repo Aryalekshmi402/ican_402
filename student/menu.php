@@ -95,19 +95,7 @@
                   <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
                 </ul>
               </li>-->
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-edit"></i> <span>Course</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <!-- <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>-->
-                    <li><a href="/student/pages/forms/regcourse.php"><i class="fa fa-circle-o"></i>Registered Courses</a></li>
-                    <!-- <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>-->
-                </ul>
-            </li>
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-edit"></i> <span>iCan Staff</span>

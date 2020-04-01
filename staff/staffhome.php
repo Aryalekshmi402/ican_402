@@ -75,7 +75,7 @@ else
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b></b></span>
       <!-- logo for regular state and mobile devices -->
      
     </a>
@@ -355,22 +355,9 @@ else
       <!-- Small boxes (Stat box) -->
       <div class="row">
       <br>
-        <div class="col-lg-3 col-xs-6" style="margin-left:50px;">
-          <!-- small box -->
-         <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3>150</h3>
 
-              <p>Pay</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-            <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-4 col-xs-6" style="margin-left: 120px;">
         <?php
 									   $stu=mysqli_query($con,"select * from studtbl");
                         $stuc=mysqli_num_rows($stu);
@@ -390,7 +377,7 @@ else
           </div>
         </div>
         <!-- ./col -->
-           <div class="col-lg-3 col-xs-6">
+           <div class="col-lg-4 col-xs-6">
            <?php
 									   $stu=mysqli_query($con,"select * from tlb_staff");
 												$stuc=mysqli_num_rows($stu);
