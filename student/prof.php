@@ -373,19 +373,13 @@ if($l)
                                         <div class="col-xs-4 text-center">
                                             <a href="pages/forms/general.php">Change password</a>
                                         </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Sales</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Friends</a>
-                                        </div>
                                     </div>
                                     <!-- /.row -->
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="/adminn/editable.php" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="/student/prof.php" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
@@ -410,11 +404,11 @@ if($l)
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Attendance
+                    Edit Your Profile
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="#">Attendance Report </a></li>
+                    <li><a href="#">your profile</a></li>
                 </ol>
             </section>
 
@@ -508,22 +502,6 @@ if($l)
                                             </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </form>
                 </div>
         </div>
@@ -531,41 +509,8 @@ if($l)
     </div
     </div>
 
-                            <div class="row">
-                                <div class="col-md-4" v-for="(reports,date) in sorted_report">
-                                    <div class="text-center report-box">
-                                        <strong>{{date}}</strong>
-                                        <table class="table text-center table-bordered">
-                                            <thead>
-                                            <tr>
-                                                <th>
-                                                    Session No
-                                                </th>
-                                                <th>
-                                                    Duration / Status
-                                                </th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <template v-for="items in reports">
-                                                <tr v-for="item in items">
-                                                    <td>{{item.session_number}}</td>
-                                                    <td v-text="item.duration>0?item.duration+' Hr':'AB'"></td>
-                                                </tr>
-                                            </template>
 
-                                            </tbody>
-                                        </table>
-                                    </div>
 
-                                </div>
-                            </div>
-
-                        </div>
-                    </form>
-                    <!-- /.box-body -->
-                    <!-- /.box-footer-->
-                </div>
                 <!-- /.box -->
 
             </section>
@@ -683,8 +628,60 @@ if($l)
         <script src="dist/js/pages/dashboard.js"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="dist/js/demo.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/abc.js"></script>
+
+    <script type='text/Javascript'>
+        function swtalert(swlt)
+        {
+            if(swlt==1)
+            {
+                swal({  type: 'success',
+                        title: 'Profile Updated',
+                    },
+                    function()
+                    {
+                        window.location="prof.php";
+                    });
+            }
+            else
+            {
+                swal({  type: 'error',
+                        title: 'Oops!!!',
+                        text: 'Something went wrong'},
+                    function()
+                    {
+                        window.location="prof.php";
+                    });
+            }
+        }
+    </script>
     </body>
     </html>
+    <?php
+
+    if(isset($_POST['submit']))
+    {
+
+        $phn=$_POST['phone'];
+        $lin=$_POST['lid'];
+           echo $lin;
+        $sqll="UPDATE studtbl SET mob='$phn' where loginid='$lin' ";
+        $quer=mysqli_query($con,$sqll);
+        if($quer)
+        {
+
+            $swlt=1;
+            echo "<script>swtalert($swlt);</script>";
+        }
+        else {
+            $swlt=0;
+
+            echo "<script>alert($swlt);</script>";
+        }
+    }
+    ?>
 
     <?php
 }

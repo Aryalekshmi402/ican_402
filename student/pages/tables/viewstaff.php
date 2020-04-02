@@ -301,7 +301,7 @@ else
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="/student/prof.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
@@ -1083,7 +1083,7 @@ echo $row['phone'];
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.18
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    <strong>Copyright &copy; 2019-2020 <a href="https://adminlte.io">iCan</a>.</strong> All rights
     reserved.
   </footer>
 

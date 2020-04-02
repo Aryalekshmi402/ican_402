@@ -322,7 +322,7 @@ else
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="/adminn/editable.php" class="btn btn-default btn-flat">Profile</a>
+                  <a href="/student/prof.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
@@ -350,7 +350,7 @@ else
                 Attendance
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="/student/studenthome.php"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li><a href="#">Attendance Report </a></li>
             </ol>
         </section>
