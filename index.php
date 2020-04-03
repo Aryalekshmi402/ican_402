@@ -306,7 +306,7 @@ span.psw {
                                     <a class="nav-link" href="cource.html">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="adminn/gallary/index.php">Gallary</a>
+                                    <a class="nav-link" href="/adminn/gallary/index.php">Gallary</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -27,7 +27,7 @@ if(isset($_SESSION['login']))
             {
                 $rowno=$("#employee_table tr").length;
                 $rowno=$rowno+1;
-                $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input type='file' name='file[]' class='form-control' placeholder='Choose documents '></td><td><input type='button' class='btn btn-primary' value='DELETE' onclick=delete_row('row"+$rowno+"')></td></tr>");
+                $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input type='file' name='file[]' class='form-control' placeholder='Choose documents ' required></td><td><input type='button' class='btn btn-primary' value='DELETE' onclick=delete_row('row"+$rowno+"')></td></tr>");
             }
             function delete_row(rowno)
             {
@@ -502,7 +502,7 @@ if(isset($_SESSION['login']))
                                         <div>
                                             <table id="employee_table" align="center">
                                                 <tr id="row1">
-                                                    <td><input type="file" name="file[]" class="form-control" placeholder="Choose documents " multiple></td>
+                                                    <td><input type="file" name="file[]" class="form-control" placeholder="Choose documents " multiple required></td>
                                                     <td><input type="button" class="btn btn-primary" onclick="add_row();" value="ADD ROW"></td>
                                                 </tr>
                                             </table>
@@ -725,7 +725,6 @@ if(isset($_SESSION['login']))
                 else
                 {
                     move_uploaded_file($_FILES['file']['tmp_name'][$i],'gallary/images/'.$filename);
-
                     $p= mysqli_query($con,"insert into tlb_documents (docs)values('$filename')");
                     echo mysqli_error($con);
                     if($p)
