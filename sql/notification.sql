@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Apr 04, 2020 at 11:02 PM
+-- Generation Time: Apr 05, 2020 at 05:35 AM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.8
 
@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `notification` (
   `notification_id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
+  `date` date DEFAULT NULL,
+  `time` time DEFAULT NULL,
   `type` int(11) NOT NULL,
   `audiance` varchar(11) NOT NULL COMMENT 'student/staff',
   `message` varchar(1000) NOT NULL,
@@ -43,7 +43,12 @@ CREATE TABLE `notification` (
 --
 
 INSERT INTO `notification` (`notification_id`, `date`, `time`, `type`, `audiance`, `message`, `seen_by`) VALUES
-(1, '2020-04-15', '14:13:18', 1, 'STAFF', 'salary may be delayed due to covid 19', '');
+(1, '2020-04-15', '14:13:18', 1, 'STAFF', 'salary may be delayed due to covid 19', ''),
+(2, '2020-04-01', '25:19:19', 1, 'STAFF', 'SAMPLE MESSAGE', ''),
+(3, '2020-04-08', '44:25:00', 1, 'STAFF', 'Sample 2', ''),
+(4, NULL, NULL, 1, 'STAFF', '                  asd', ''),
+(5, NULL, NULL, 1, 'STAFF', '                  asd', ''),
+(6, NULL, NULL, 1, 'STUDENT', 'sdfsdf', '');
 
 --
 -- Indexes for dumped tables
@@ -63,7 +68,7 @@ ALTER TABLE `notification`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
