@@ -138,6 +138,12 @@
                     <span>Student Fees </span>
                 </a>
             </li>
+            <li>
+                <a  href="add_notification.php">
+                    <i class="fa fa-envelope"></i>
+                    <span>Add Notification </span>
+                </a>
+            </li>
 
 
             <li class="sub-menu">
@@ -146,9 +152,6 @@
                     <span>Leave Details</span>
                 </a>
                 <ul class="sub">
-                    <!-- <li><a href="pending.php">Pending Requests</a></li>-->
-                    <!-- <li><a href="responsive_table.html">Registered Users</a></li> -->
-                    <!-- <li><a href="advanced_table.php">Registered Students</a></li>-->
 
                     <li class="sub-menu">
                         <a class="active" href="javascript:;">
@@ -164,36 +167,7 @@
                     </li>
 
 
-                    <!--<li class="sub-menu">
-                      <a href="javascript:;">
-                        <i class=" fa fa-bar-chart-o"></i>
-                        <span>Charts</span>
-                        </a>
-                      <ul class="sub">
-                        <li><a href="morris.html">Morris</a></li>
-                        <li><a href="chartjs.html">Chartjs</a></li>
-                        <li><a href="flot_chart.html">Flot Charts</a></li>
-                        <li><a href="xchart.html">xChart</a></li>
-                      </ul>
-                    </li>
-                    <li class="sub-menu">
-                      <a href="javascript:;">
-                        <i class="fa fa-comments-o"></i>
-                        <span>Chat Room</span>
-                        </a>
-                      <ul class="sub">
-                        <li><a href="lobby.html">Lobby</a></li>
-                        <li><a href="chat_room.html"> Chat Room</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="google_maps.html">
-                        <i class="fa fa-map-marker"></i>
-                        <span>Google Maps </span>
-                        </a>
-                    </li>
-                  </ul>
-                  <!-- sidebar menu end-->
+
     </div>
 </aside>
 
