@@ -50,7 +50,7 @@
             get_notifications() {
                 axios.get('/process_notifications.php', {
                     params: {
-                        type: 'STAFF'
+                        type: 'STUDENT'
                     }
                 })
                     .then(({data}) => {
