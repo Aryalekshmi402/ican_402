@@ -452,9 +452,9 @@ if($login)
                     unset($_SESSION['message']);
                 }?>
               <form class="form-inline" role="form" action="process_notification.php" method="post" name="form1" id="form1" align="center">
-                <div class="form-group">
+                <div class="form-group" style="margin-left:-25px;">
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Audience
-                    <select class="form-control" name="audience" style="width:200px;" >
+                    <select class="form-control" name="audience" id="audience" style="width:200px;" >
                         <option value="STAFF">Staff</option>
                         <option value="STUDENT">Student</option>
                     </select>
@@ -464,7 +464,7 @@ if($login)
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Message :
                   <textarea class="form-control" name="message" id="desig" style="width:200px;"></textarea>
                 </div><br><br>
-                <pre><button type="submit" name="submitclk" class="btn btn-theme">Submit</button></pre>
+                <pre><button type="submit" name="submitclk" class="btn btn-theme" style="margin-left: 60px;">Submit</button></pre>
               </form>
             </div>
             <!-- /form-panel -->
@@ -616,6 +616,7 @@ if($login)
   <!--custom tagsinput-->
   <script src="lib/jquery.tagsinput.js"></script>
   <!--custom checkbox & radio-->
+
   <script type="text/javascript" src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
   <script type="text/javascript" src="lib/bootstrap-daterangepicker/date.js"></script>
   <script type="text/javascript" src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
@@ -628,6 +629,10 @@ if($login)
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="form-validation.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="val.js"></script>
 
   
   <script type='text/Javascript'>
