@@ -254,20 +254,16 @@ $se="SELECT * FROM `tbl_leave`,`tlb_staff` WHERE tlb_staff.staffid=tbl_leave.sta
         *********************************************************************************************************************************************************** -->
     <!--sidebar start-->
     <aside>
-        <?php include('menu.php');?>
+
       <div id="sidebar" class="nav-collapse ">
+          <?php include('menu1.php');?>
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered">
             <a href="profile.html"><img src="img/adm.png" class="img-circle" width="80"></a>
           </p>
           <h5 class="centered"><?php echo "$type";?></h5>
-          <li class="mt">
-            <a href="index.php">
-              <i class="fa fa-dashboard"></i>
-              <span>Home</span>
-              </a>
-          </li>
+
           <!--<li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-desktop"></i>

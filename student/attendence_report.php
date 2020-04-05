@@ -380,7 +380,7 @@ else
                                         <thead>
                                         <tr>
                                             <th>
-                                                Session No
+                                                Period
                                             </th>
                                             <th>
                                                 Duration / Status
@@ -436,6 +436,7 @@ else
                     axios.get('/staff/attendance_process.php', {
                         params: {
                             type: 'INDIVIDUAL_REPORT',
+                            date:this.form.date
                         }
                     })
                         .then(({data}) => {

@@ -255,6 +255,7 @@ $se="SELECT * FROM `stud_leave`,`studtbl` WHERE studtbl.signid=stud_leave.signid
     <!--sidebar start-->
     <aside>
       <div id="sidebar" class="nav-collapse ">
+          <?php include('menu1.php');?>
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered">

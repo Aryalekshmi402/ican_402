@@ -46,7 +46,7 @@
 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-pie-chart"></i>
+                    <i class="fa fa-files-o"></i>
                     <span>Leave</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -59,7 +59,7 @@
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-users"></i>
+                    <i class="fa fa-files-o"></i>
                     <span>Attendance</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -68,6 +68,20 @@
                 <ul class="treeview-menu">
                     <li><a href="attendance.php"><i class="fa fa-circle-o"></i>Attendance</a></li>
                     <li><a href="attendance_report.php"><i class="fa fa-circle-o"></i> Attendance Report</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Course Details</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/staff/pages/forms/upload.php"><i class="fa fa-circle-o"></i>Upload Materials</a></li>
+                    <!--<li><a href="attendance_report.php"><i class="fa fa-circle-o"></i> Attendance Report</a></li>-->
                 </ul>
             </li>
         </ul>
