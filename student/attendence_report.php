@@ -290,8 +290,9 @@ else
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="/pages/forms/general.html" class="dropdown-toggle" data-toggle="dropdown">
-             
-              <span class="hidden-xs">Profile</span>
+
+                <img src="logo.jpg" class="user-image" alt="User Image">
+                <span class="hidden-xs"><?php echo $fname;?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -321,7 +322,7 @@ else
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="/adminn/editable.php" class="btn btn-default btn-flat">Profile</a>
+                  <a href="/student/prof.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
@@ -349,7 +350,7 @@ else
                 Attendance
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="/student/studenthome.php"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li><a href="#">Attendance Report </a></li>
             </ol>
         </section>

@@ -24,10 +24,10 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">MAIN NAVIGATION</li>
+            <li class="header">HOME</li>
             <li class="treeview">
                 <a href="/staff/home.php">
-                    <i class="fa fa-dashboard"></i> <span>Home</span>
+                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
 
                 </a>
             </li>

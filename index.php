@@ -305,6 +305,9 @@ span.psw {
 								 <li class="nav-item">
                                     <a class="nav-link" href="cource.html">About</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/adminn/gallary/index.php">Gallary</a>
+                                </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         SIGN UP
@@ -321,7 +324,7 @@ span.psw {
                                 </li>
 											<div id="id01" class="modal">
   
-  <form class="modal-content animate" action="index.php" method="post" >
+  <form class="modal-content animate" action="index.php" method="post" name="fm" id="fm">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close">&times;</span>
       
@@ -345,8 +348,8 @@ span.psw {
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-        <input type="email" placeholder="Enter email" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"  name="uname" required>
-        <label for="psw"><b>Password</b></label>
+        <input type="email" placeholder="Enter email" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"  name="uname" id="uname">
+        <label for="psw" ><b>Password</b></label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	&nbsp;&nbsp;&nbsp;&nbsp;
@@ -914,6 +917,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- jquery plugins here-->
     <!-- jquery -->
+    <script src="js/custom.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="check.js"></script>
     <script src="js/jquery-1.12.1.min.js"></script>
     <!-- popper js -->
     <script src="js/popper.min.js"></script>
@@ -933,8 +941,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/jquery.counterup.min.js"></script>
     <script src="js/waypoints.min.js"></script>
     <!-- custom js -->
-    <script src="js/custom.js"></script>
-	
 </body>
 
 </html>

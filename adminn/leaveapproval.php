@@ -254,6 +254,7 @@ $se="SELECT * FROM `tbl_leave`,`tlb_staff` WHERE tlb_staff.staffid=tbl_leave.sta
         *********************************************************************************************************************************************************** -->
     <!--sidebar start-->
     <aside>
+        <?php include('menu.php');?>
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">

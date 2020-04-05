@@ -302,7 +302,7 @@ if($l)
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="/student/prof.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
@@ -332,7 +332,7 @@ if($l)
       <ol class="breadcrumb">
         <li><a href="../../studenthome.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <!--<li><a href="/ican/staff/pages/forms/leave.php">Apply</a></li>-->
-        <li class="active">student</li>
+        <li class="active">fees</li>
       </ol>
     </section>
 
