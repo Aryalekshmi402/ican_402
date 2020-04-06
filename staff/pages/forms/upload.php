@@ -10,6 +10,7 @@ if($l)
     $result=mysqli_query($con,"select * from tlb_staff where loginid=$l ");
 
 
+
     if(mysqli_num_rows($res)!=0){
         $row=mysqli_fetch_assoc($res);
 
@@ -372,12 +373,21 @@ if($l)
                             </div>
                             <!-- /.col -->
                             <div class="col-md-6" style="margin-right:200px;margin-left:220px;">
-                                <form action="upload.php" method="POST" style="color:blue;">
+                                <form class="form-horizontal style-form" method="post" id="pswform" action="upload.php" enctype="multipart/form-data">
                                     <!-- /.form-group -->
+                                    <div class="form-group" style="margin-left: 4px;">
+                                        <label>Subject</label>
+                                        <?php
+                                        echo "<input type='text'  style=\"width: 200px; height:40px;margin-left: 80px;\" value='$row[subject]'/>";
+                                        ?>
+                                    </div>
 
-                                    <div class="form-group" style="margin-right: 180px;">
+
+
+
+                                    <div class="form-group" style="margin-right: 190px;margin-left: 2px;">
                                         <label>Syllabus</label>
-                                        <select class="form-control select2" name="syllabus" id="syllabus" style="width: 100%;" >
+                                        <select class="form-control select2" name="syllabus" id="syllabus" style="width: 100%; margin-top:-20px;margin-left: 130px;" >
                                             <option value="place" selected>Syllabus</option>
 
                                             <?php
@@ -392,10 +402,13 @@ if($l)
                                             ?>
                                         </select>
                                     </div>
-
-                                    <div class="form-group" style="margin-left:400px;margin-top: -73px;width:300px; ">
+<br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <div class="form-group" style="margin-left:5px;margin-top: -73px;width:300px; ">
                                         <label>Class</label>
-                                        <select class="form-control select2" name="class" id="class" style="width: 100%;" onChange="sel()">
+                                        <select class="form-control select2" name="class" id="class" style="width: 320px; margin-left:130px;margin-top:-20px;" onChange="sel()">
                                             <option value="place" selected>Choose Class</option>
 
                                             <?php
@@ -412,7 +425,7 @@ if($l)
 
                                     </div>
                                     <br>
-                                    <div class="form-group">
+                                    <div class="form-group" style="margin-left: 13.5px;">
                                         <div>
                                             <table id="employee_table" align="center" style="margin-left: 120px;">
                                                 <tr id="row1">
@@ -888,6 +901,7 @@ if($l)
     // $lin=$_GET['id'];
 
     if(isset($_POST['submit'])) {
+
         $countfiles = count($_FILES['file']['name']);
         $bc = $_POST['syllabus'];
         $de = $_POST['class'];
