@@ -66,7 +66,12 @@ else
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 
     <script src="https://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
-    <link href="https://cdn.alloyui.com/3.0.1/aui-css/css/bootstrap.min.css" rel="stylesheet"></link>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" rel="stylesheet"/>
+
+
 
     <script type="application/javascript" language="javascript">
     function sel() {
@@ -354,7 +359,7 @@ else
               <br>
               <br><br>
               <label  for="inline3mail" class="block form-control-label">Leave Date</label><br>
-                  <textarea id="date" style="margin-left:100px; margin-top:-30px; " name="ldate" class="form-control" type="text" placeholder="dd/mm/yyyy" required></textarea>
+                  <input type="text" class="form-control" name="ldate" style="margin-left:100px; margin-top:-30px;" id="datepicker" required>
               </div>
               
               <div class="form-group" style="margin-left:100px; width:220px;">
@@ -815,25 +820,27 @@ else
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/abc.js"></script>
 <script>
-
-    YUI().use(
-        'aui-datepicker',
-        function(Y) {
-            new Y.DatePicker(
-                {
-                    trigger: '#date',
-                    mask: '%d/%m/%Y',
-                    calendar: {
-                        selectionMode: 'multiple'
-                    },
-                    popover: {
-                        zIndex: 1
-                    },
-                    panes: 1
-                }
-            );
-        }
-    );
+    $('#datepicker').datepicker({
+        multidate: true
+    });
+    // YUI().use(
+    //     'aui-datepicker',
+    //     function(Y) {
+    //         new Y.DatePicker(
+    //             {
+    //                 trigger: '#date',
+    //                 mask: '%d/%m/%Y',
+    //                 calendar: {
+    //                     selectionMode: 'multiple'
+    //                 },
+    //                 popover: {
+    //                     zIndex: 1
+    //                 },
+    //                 panes: 2
+    //             }
+    //         );
+    //     }
+    // );
 </script>
 <script type='text/Javascript'>
                function swtalert(swlt)
@@ -871,15 +878,13 @@ else
       $c=$_POST['sess'];
       $d=$_POST['res'];
 
-        $dates=explode("—",$date_string);
-        $formatted_date=implode(", ",$dates);
 
     
       
     $s=mysqli_query($con,"select signid from studtbl where loginid='$l'");
               $r=mysqli_fetch_array($s,MYSQLI_ASSOC);
               $lid=$r['signid'];
-    $sql="INSERT INTO `stud_leave`(signid,ldate,session,reason,status) VALUES ('$lid','$formatted_date','$c','$d',0)";
+    $sql="INSERT INTO `stud_leave`(signid,ldate,session,reason,status) VALUES ('$lid','$date_string','$c','$d',0)";
       
       $ch=mysqli_query($con,$sql);
               
