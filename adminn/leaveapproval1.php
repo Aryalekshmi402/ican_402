@@ -535,7 +535,7 @@ if ($login) {
                             <div class="row mt">
                                 <div class="col-md-12">
                                     <div class="content-panel">
-                                        <form action="leaveapprove1.php" method="POST">
+
                                             <table class="table table-striped table-advance table-hover">
                                                 <h4><i class="fa fa-angle-right"></i>Staff</h4>
                                                 <hr>
@@ -560,6 +560,7 @@ if ($login) {
                                                 {
                                                 ?>
                                                 <tbody>
+                                                <form action="leaveapprove1.php" method="POST">
                                                 <tr>
                                                     <td style="font-size: 15px;">
                                                         <?php
@@ -611,6 +612,7 @@ if ($login) {
                                                     </td>
 
                                                 </tr>
+                                                </form>
                                                 <?php
                                                 ++$no;
                                                 }
@@ -618,7 +620,7 @@ if ($login) {
 
                                                 </tbody>
                                             </table>
-                                        </form>
+
                                     </div>
                                     <!-- /content-panel -->
                                 </div>

@@ -9,7 +9,7 @@
         <li>
             <!-- inner menu: contains the actual data -->
             <ul class="menu">
-                <li v-for="(notification,index) in notifications" :class="index<count?'new':''" >
+                <li v-for="(notification,index) in notifications" :class="index<count?'new':''">
                     <a href="#">
                         <i class="fa fa-users text-aqua" :title="notification.message"></i>{{notification.message}}
                     </a>
@@ -49,11 +49,11 @@
     new Vue({
         el: '#notif',
         data: {
-            notifications:[],
-            count:0,
+            notifications: [],
+            count: 0,
         },
         methods: {
-            notification_status(){
+            notification_status() {
                 axios.get('/process_notifications.php', {
                     params: {
                         type: 'UPDATE_STUDENT'
@@ -74,7 +74,7 @@
                 })
                     .then(({data}) => {
                         this.notifications = data.notifications;
-                        this.count=data.count;
+                        this.count = data.count;
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -83,7 +83,7 @@
         },
         mounted() {
             this.get_notifications();
-            setInterval(this.get_notifications,10000);
+            setInterval(this.get_notifications, 10000);
         },
     })
 </script>

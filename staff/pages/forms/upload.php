@@ -1,36 +1,29 @@
 <?php
 session_start();
 include('../../../config.php');
-$l=$_SESSION['loginid'];
-if($l)
-{
+$l = $_SESSION['loginid'];
+if ($l) {
 
-    $res=mysqli_query($con,"select * from stafftbl where loginid=$l ");
+    $res = mysqli_query($con, "select * from stafftbl where loginid=$l ");
 
-    $result=mysqli_query($con,"select * from tlb_staff where loginid=$l ");
-
+    $result = mysqli_query($con, "select * from tlb_staff where loginid=$l ");
 
 
-    if(mysqli_num_rows($res)!=0){
-        $row=mysqli_fetch_assoc($res);
+    if (mysqli_num_rows($res) != 0) {
+        $row = mysqli_fetch_assoc($res);
 
-        $fname=$row['fname'];
-        $staffid=$row['staffid'];
-    }
-    else if(mysqli_num_rows($result)!=0){
-        $row=mysqli_fetch_assoc($result);
+        $fname = $row['fname'];
+        $staffid = $row['staffid'];
+    } else if (mysqli_num_rows($result) != 0) {
+        $row = mysqli_fetch_assoc($result);
 
-        $fname=$row['name'];
-        $staffid=$row['staffid'];
+        $fname = $row['name'];
+        $staffid = $row['staffid'];
 
-    }
-    else
-    {
+    } else {
         echo "<script>alert('error');</script>";
     }
     ?>
-
-
 
 
     <!DOCTYPE html>
@@ -54,7 +47,8 @@ if($l)
         <!-- iCheck for checkboxes and radio inputs -->
         <link rel="stylesheet" href="../../plugins/iCheck/all.css">
         <!-- Bootstrap Color Picker -->
-        <link rel="stylesheet" href="../../bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+        <link rel="stylesheet"
+              href="../../bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
         <!-- Bootstrap time Picker -->
         <link rel="stylesheet" href="../../plugins/timepicker/bootstrap-timepicker.min.css">
         <!-- Select2 -->
@@ -84,8 +78,8 @@ if($l)
                 $.ajax({
                     url: "/ican/staff/pages/forms/load.php",
                     type: "POST",
-                    data: { syl:a, cls:cls, exam:ex },
-                    success: function(data){
+                    data: {syl: a, cls: cls, exam: ex},
+                    success: function (data) {
                         $("#result").html(data);
                     }
                 });
@@ -93,15 +87,14 @@ if($l)
 
         </script>
         <script type="text/javascript">
-            function add_row()
-            {
-                $rowno=$("#employee_table tr").length;
-                $rowno=$rowno+1;
-                $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input type='text' name='docname[]' class='form-control' placeholder='Document Title'></td><td><input type='file' name='file[]' class='form-control' placeholder='Choose documents '></td><td><input type='button' class='btn btn-primary' value='DELETE' onclick=delete_row('row"+$rowno+"')></td></tr>");
+            function add_row() {
+                $rowno = $("#employee_table tr").length;
+                $rowno = $rowno + 1;
+                $("#employee_table tr:last").after("<tr id='row" + $rowno + "'><td><input type='text' name='docname[]' class='form-control' placeholder='Document Title'></td><td><input type='file' name='file[]' class='form-control' placeholder='Choose documents '></td><td><input type='button' class='btn btn-primary' value='DELETE' onclick=delete_row('row" + $rowno + "')></td></tr>");
             }
-            function delete_row(rowno)
-            {
-                $('#'+rowno).remove();
+
+            function delete_row(rowno) {
+                $('#' + rowno).remove();
             }
         </script>
 
@@ -146,7 +139,8 @@ if($l)
                                         <li><!-- start message -->
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle"
+                                                         alt="User Image">
                                                 </div>
                                                 <h4>
                                                     Support Team
@@ -159,7 +153,8 @@ if($l)
                                         <li>
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                    <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
+                                                         alt="User Image">
                                                 </div>
                                                 <h4>
                                                     AdminLTE Design Team
@@ -171,7 +166,8 @@ if($l)
                                         <li>
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                    <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
+                                                         alt="User Image">
                                                 </div>
                                                 <h4>
                                                     Developers
@@ -183,7 +179,8 @@ if($l)
                                         <li>
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                    <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
+                                                         alt="User Image">
                                                 </div>
                                                 <h4>
                                                     Sales Department
@@ -195,7 +192,8 @@ if($l)
                                         <li>
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                    <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
+                                                         alt="User Image">
                                                 </div>
                                                 <h4>
                                                     Reviewers
@@ -210,7 +208,7 @@ if($l)
                             </ul>
                         </li>
                         <!-- Notifications: style can be found in dropdown.less -->
-                        <?php include('../../notification.php');?>
+                        <?php include('../../notification.php'); ?>
 
                         <!-- Tasks: style can be found in dropdown.less -->
                         <li class="dropdown tasks-menu">
@@ -230,7 +228,8 @@ if($l)
                                                     <small class="pull-right">20%</small>
                                                 </h3>
                                                 <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
+                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                         role="progressbar"
                                                          aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                         <span class="sr-only">20% Complete</span>
                                                     </div>
@@ -245,7 +244,8 @@ if($l)
                                                     <small class="pull-right">40%</small>
                                                 </h3>
                                                 <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar"
+                                                    <div class="progress-bar progress-bar-green" style="width: 40%"
+                                                         role="progressbar"
                                                          aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                         <span class="sr-only">40% Complete</span>
                                                     </div>
@@ -260,7 +260,8 @@ if($l)
                                                     <small class="pull-right">60%</small>
                                                 </h3>
                                                 <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar"
+                                                    <div class="progress-bar progress-bar-red" style="width: 60%"
+                                                         role="progressbar"
                                                          aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                         <span class="sr-only">60% Complete</span>
                                                     </div>
@@ -275,7 +276,8 @@ if($l)
                                                     <small class="pull-right">80%</small>
                                                 </h3>
                                                 <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar"
+                                                    <div class="progress-bar progress-bar-yellow" style="width: 80%"
+                                                         role="progressbar"
                                                          aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                         <span class="sr-only">80% Complete</span>
                                                     </div>
@@ -294,7 +296,7 @@ if($l)
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="logo.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs"><?php echo $fname;?></span>
+                                <span class="hidden-xs"><?php echo $fname; ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -338,7 +340,7 @@ if($l)
             </nav>
         </header>
         <!-- Left side column. contains the logo and sidebar -->
-        <?php include('../../menu.php');?>
+        <?php include('../../menu.php'); ?>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -359,8 +361,7 @@ if($l)
 
                 <!-- SELECT2 EXAMPLE -->
                 <div class="box box-default" style="height:800px;">
-                    <div class="box-header with-border" >
-
+                    <div class="box-header with-border">
 
 
                     </div>
@@ -375,7 +376,8 @@ if($l)
                             </div>
                             <!-- /.col -->
                             <div class="col-md-6" style="margin-right:200px;margin-left:220px;">
-                                <form class="form-horizontal style-form" method="post" id="pswform" action="upload.php" enctype="multipart/form-data">
+                                <form class="form-horizontal style-form" method="post" id="pswform" action="upload.php"
+                                      enctype="multipart/form-data">
                                     <!-- /.form-group -->
                                     <div class="form-group" style="margin-left: 4px;">
                                         <label>Subject</label>
@@ -385,41 +387,42 @@ if($l)
                                     </div>
 
 
-
-
                                     <div class="form-group" style="margin-right: 190px;margin-left: 2px;">
                                         <label>Syllabus</label>
-                                        <select class="form-control select2" name="syllabus" id="syllabus" style="width: 100%; margin-top:-20px;margin-left: 130px;" >
+                                        <select class="form-control select2" name="syllabus" id="syllabus"
+                                                style="width: 100%; margin-top:-20px;margin-left: 130px;">
                                             <option value="place" selected>Syllabus</option>
 
                                             <?php
 
-                                            $result=mysqli_query($con,"select * from syllabustbl");
-                                            while($row=mysqli_fetch_array($result)){
-                                                $t=$row['Name'];
+                                            $result = mysqli_query($con, "select * from syllabustbl");
+                                            while ($row = mysqli_fetch_array($result)) {
+                                                $t = $row['Name'];
                                                 ?>
-                                                <option value="<?php echo $row['syid'];?>"> <?php  echo $t; ?></option>
+                                                <option value="<?php echo $row['syid']; ?>"> <?php echo $t; ?></option>
                                                 <?php
                                             }
                                             ?>
                                         </select>
                                     </div>
-<br>
+                                    <br>
                                     <br>
                                     <br>
                                     <br>
                                     <div class="form-group" style="margin-left:5px;margin-top: -73px;width:300px; ">
                                         <label>Class</label>
-                                        <select class="form-control select2" name="class" id="class" style="width: 320px; margin-left:130px;margin-top:-20px;" onChange="sel()">
+                                        <select class="form-control select2" name="class" id="class"
+                                                style="width: 320px; margin-left:130px;margin-top:-20px;"
+                                                onChange="sel()">
                                             <option value="place" selected>Choose Class</option>
 
                                             <?php
 
-                                            $result=mysqli_query($con,"select * from tbl_class");
-                                            while($row=mysqli_fetch_array($result)){
-                                                $t=$row['classname'];
+                                            $result = mysqli_query($con, "select * from tbl_class");
+                                            while ($row = mysqli_fetch_array($result)) {
+                                                $t = $row['classname'];
                                                 ?>
-                                                <option value="<?php echo $row['classid'];?>"> <?php  echo $t; ?></option>
+                                                <option value="<?php echo $row['classid']; ?>"> <?php echo $t; ?></option>
                                                 <?php
                                             }
                                             ?>
@@ -431,9 +434,13 @@ if($l)
                                         <div>
                                             <table id="employee_table" align="center" style="margin-left: 120px;">
                                                 <tr id="row1">
-                                                    <td><input type="text" name="docname[]" class="form-control" style="width: 240px; " placeholder="Document Title"></td>
-                                                    <td><input type="file" name="file[]" class="form-control" style="width: 240px;" placeholder="Choose documents " multiple></td>
-                                                    <td><input type="button" class="btn btn-primary" onclick="add_row();" value="ADD ROW"></td>
+                                                    <td><input type="text" name="docname[]" class="form-control"
+                                                               style="width: 240px; " placeholder="Document Title"></td>
+                                                    <td><input type="file" name="file[]" class="form-control"
+                                                               style="width: 240px;" placeholder="Choose documents "
+                                                               multiple></td>
+                                                    <td><input type="button" class="btn btn-primary"
+                                                               onclick="add_row();" value="ADD ROW"></td>
                                                 </tr>
                                             </table>
 
@@ -441,19 +448,23 @@ if($l)
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-10">
-                                            <input type="hidden" class="form-control" name="lid" id="lid" placeholder="" value="<?php echo $l; ?>"/>
+                                            <input type="hidden" class="form-control" name="lid" id="lid" placeholder=""
+                                                   value="<?php echo $l; ?>"/>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="col-sm-10">
-                                            <input type="hidden" class="form-control" name="st" id="st" placeholder="" value="<?php echo $staffid; ?>"/>
+                                            <input type="hidden" class="form-control" name="st" id="st" placeholder=""
+                                                   value="<?php echo $staffid; ?>"/>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="col-sm-10">
-                                            <button style="margin-left:350px;" type="submit" value="submit" name="submit" class="btn btn-primary">Submit</button>
+                                            <button style="margin-left:350px;" type="submit" value="submit"
+                                                    name="submit" class="btn btn-primary">Submit
+                                            </button>
                                         </div>
                                     </div>
 
@@ -542,7 +553,6 @@ if($l)
 
 
     <!-- /.box-body -->
-
 
 
     <!-- radio -->
@@ -770,7 +780,6 @@ if($l)
      <!-- /.form-group -->
 
 
-
     <!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
@@ -808,7 +817,7 @@ if($l)
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
     <!-- Page script -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/abc.js"></script>
     <script>
@@ -817,29 +826,33 @@ if($l)
         $('.select2').select2()
 
         //Datemask dd/mm/yyyy
-        $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+        $('#datemask').inputmask('dd/mm/yyyy', {'placeholder': 'dd/mm/yyyy'})
         //Datemask2 mm/dd/yyyy
-        $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+        $('#datemask2').inputmask('mm/dd/yyyy', {'placeholder': 'mm/dd/yyyy'})
         //Money Euro
         $('[data-mask]').inputmask()
 
         //Date range picker
         $('#reservation').daterangepicker()
         //Date range picker with time picker
-        $('#reservationtime').daterangepicker({ timePicker: true, timePickerIncrement: 30, locale: { format: 'MM/DD/YYYY hh:mm A' }})
+        $('#reservationtime').daterangepicker({
+            timePicker: true,
+            timePickerIncrement: 30,
+            locale: {format: 'MM/DD/YYYY hh:mm A'}
+        })
         //Date range as a button
         $('#daterange-btn').daterangepicker(
             {
-                ranges   : {
-                    'Today'       : [moment(), moment()],
-                    'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                    'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
                     'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                    'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-                    'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
                 },
                 startDate: moment().subtract(29, 'days'),
-                endDate  : moment()
+                endDate: moment()
             },
             function (start, end) {
                 $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
@@ -854,17 +867,17 @@ if($l)
         //iCheck for checkbox and radio inputs
         $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
             checkboxClass: 'icheckbox_minimal-blue',
-            radioClass   : 'iradio_minimal-blue'
+            radioClass: 'iradio_minimal-blue'
         })
         //Red color scheme for iCheck
         $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
             checkboxClass: 'icheckbox_minimal-red',
-            radioClass   : 'iradio_minimal-red'
+            radioClass: 'iradio_minimal-red'
         })
         //Flat red color scheme for iCheck
         $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
             checkboxClass: 'icheckbox_flat-green',
-            radioClass   : 'iradio_flat-green'
+            radioClass: 'iradio_flat-green'
         })
 
         //Colorpicker
@@ -879,25 +892,23 @@ if($l)
         })
     </script>
     <script type='text/Javascript'>
-        function swtalert(swlt)
-        {
-            if(swlt==1)
-            {
-                swal({  type: 'success',
-                        title: 'documents uploaded' },
-                    function()
-                    {
-                        window.location="upload.php";
+        function swtalert(swlt) {
+            if (swlt == 1) {
+                swal({
+                        type: 'success',
+                        title: 'documents uploaded'
+                    },
+                    function () {
+                        window.location = "upload.php";
                     });
-            }
-            else
-            {
-                swal({  type: 'error',
+            } else {
+                swal({
+                        type: 'error',
                         title: 'Oops!!!',
-                        text: 'documents not Applied'},
-                    function()
-                    {
-                        window.location="upload.php";
+                        text: 'documents not Applied'
+                    },
+                    function () {
+                        window.location = "upload.php";
                     });
             }
         }
@@ -908,7 +919,7 @@ if($l)
     <?php
     // $lin=$_GET['id'];
 
-    if(isset($_POST['submit'])) {
+    if (isset($_POST['submit'])) {
 
         $countfiles = count($_FILES['file']['name']);
         $bc = $_POST['syllabus'];
@@ -918,7 +929,7 @@ if($l)
         $li = $_POST['st'];
         echo $lin;
         echo mysqli_error($con);
-       // echo "<script>alert($countfiles);</script>";
+        // echo "<script>alert($countfiles);</script>";
 
         for ($i = 0; $i < $countfiles; $i++) {
             $filename = $_FILES['file']['name'][$i];
@@ -926,8 +937,7 @@ if($l)
             if ($filename != "") {
                 if ($filename == '') {
                     continue;
-                } else
-                    {
+                } else {
                     move_uploaded_file($_FILES['file']['tmp_name'][$i], 'materials/' . $filename);
 
                     $p = mysqli_query($con, "insert into tlb_material (syid,classid,loginid,staffid,docname,docs)values('$bc','$de',' $lin',' $li','$docname[$i]','$filename')");
@@ -936,18 +946,16 @@ if($l)
                         $swlt = 1;
                         echo "<script> swtalert($swlt);
                      </script>";
-                          }
+                    }
                 }
 
             }
         }
     }
     ?>
-        <?php
-    }
-    else
-    {
-        echo "<script>window.location=('/ican/index.php')</script>";
-    }
+    <?php
+} else {
+    echo "<script>window.location=('/ican/index.php')</script>";
+}
 
-    ?>
+?>
