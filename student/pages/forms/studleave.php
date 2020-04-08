@@ -64,13 +64,10 @@ else
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/i18n/jquery.ui.datepicker-af.min.js"></script>
-  <![endif]-->
-    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-          rel = "stylesheet">
+
+    <script src="https://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
+    <link href="https://cdn.alloyui.com/3.0.1/aui-css/css/bootstrap.min.css" rel="stylesheet"></link>
+
     <script type="application/javascript" language="javascript">
     function sel() {
       var a;
@@ -350,15 +347,14 @@ else
             <!-- /.col -->
             <div class="col-md-6" style="margin-right:200px;margin-left:220px; ">
               <form action="studleave.php" method="POST" style="color:blue;">
-                  rahul
-                  <input type="text" id="datepicker-13">
+
               <!-- /.form-group -->
 
               <div class="form-group" style="margin-left:100px; width:220px;">
               <br>
               <br><br>
               <label  for="inline3mail" class="block form-control-label">Leave Date</label><br>
-              <input id="inline3mail" type="Date" class="form-control" placeholder="Enter email" name="ldate" style="margin-left:100px; margin-top:-30px; "required >
+                  <textarea id="date" style="margin-left:100px; margin-top:-30px; " name="ldate" class="form-control" type="text" placeholder="dd/mm/yyyy" required></textarea>
               </div>
               
               <div class="form-group" style="margin-left:100px; width:220px;">
@@ -819,12 +815,25 @@ else
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/abc.js"></script>
 <script>
-  
 
-    $(function() {
-        $( "#datepicker-13" ).datepicker();
-
-    });
+    YUI().use(
+        'aui-datepicker',
+        function(Y) {
+            new Y.DatePicker(
+                {
+                    trigger: '#date',
+                    mask: '%d/%m/%Y',
+                    calendar: {
+                        selectionMode: 'multiple'
+                    },
+                    popover: {
+                        zIndex: 1
+                    },
+                    panes: 1
+                }
+            );
+        }
+    );
 </script>
 <script type='text/Javascript'>
                function swtalert(swlt)
@@ -858,16 +867,19 @@ else
     
     if(isset($_POST['submit']))
     {
-      $as=$_POST['ldate'];
+      $date_string=$_POST['ldate'];
       $c=$_POST['sess'];
       $d=$_POST['res'];
-     
+
+        $dates=explode("—",$date_string);
+        $formatted_date=implode(", ",$dates);
+
     
       
     $s=mysqli_query($con,"select signid from studtbl where loginid='$l'");
               $r=mysqli_fetch_array($s,MYSQLI_ASSOC);
               $lid=$r['signid'];
-    $sql="INSERT INTO `stud_leave`(signid,ldate,session,reason,status) VALUES ('$lid','$as','$c','$d',0)";
+    $sql="INSERT INTO `stud_leave`(signid,ldate,session,reason,status) VALUES ('$lid','$formatted_date','$c','$d',0)";
       
       $ch=mysqli_query($con,$sql);
               
