@@ -31,6 +31,20 @@ else
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        div.scroll {
+            margin:4px, 4px;
+            padding:4px;
+            background-color: green;
+            width: 900px;
+            height: 310px;
+            overflow-x: hidden;
+            overflow-x: auto;
+            text-align:justify;
+            font-size: medium;
+
+        }
+    </style>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>icanstaff | Dashboard</title>
@@ -357,6 +371,35 @@ else
             <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+<div>
+          <div class="scroll" style="margin-top:170px; margin-left: 580px;background-color: #0b97c4;width:500px;overflow:scroll;">
+             <table>
+                 <thead>
+                 <th >
+                     <h3 style="margin-left: 160px;">office alerts</h3>
+                 </th>
+                 </thead>
+                 <tbody>
+                 <?php
+                 $sql="SELECT * FROM notification ";
+    $result = mysqli_query($con,$sql);
+    while($row = mysqli_fetch_array($result)) {
+        ?>
+        <tr><td >
+            <?php
+            echo $row['message'];
+            ?>
+            </td>
+        </tr>
+
+        <?php
+
+    }
+    ?>
+                 </tbody>
+          </table>
+          </div>
+          </div>
         <!-- ./col -->
            <!--<div class="col-lg-3 col-xs-6">
           <!-- small box -->
