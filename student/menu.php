@@ -144,4 +144,12 @@
             </span>
                 </a>
             </li>
+            <li>
+                <a href="/student/pages/tables/download_course.php">
+                    <i class="fa fa-edit"></i> <span>Course Details</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+            </li>
 </aside>
