@@ -517,96 +517,100 @@ $se="SELECT * FROM `tbl_leave`,`tlb_staff` WHERE tlb_staff.staffid=tbl_leave.sta
           <!-- /col-md-12 -->
         </div>
         <!-- row -->
-        <div class="row mt">
-          <div class="col-md-12">
-            <div class="content-panel">
-              <table class="table table-striped table-advance table-hover">
-                <h4><i class="fa fa-angle-right"></i>Staff</h4>
-                <hr>
-                <thead>
-                  <tr>
-                    <th>sl no:</th>
-                    <th>Name</th>
-                    <th>Leave date</th>
-                    <th> Type</th>
-                    <th> Reason</th>
-                    <th>Action</th>
-                    <th>Action</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                <?php
-                                      $no=1;
-                                       while($row=mysqli_fetch_array($re))
-  
-                                        {
-                                          ?>
-                                          <tbody>
-                                        <tr>
-                               <td style="font-size: 15px;"> 
-                               <?php 
-                                echo $no;
-                                 ?>
-                               </td>
-                               <td style="font-size: 15px;"> 
-                                  <?php 
-                               echo $row['name'];
-                                ?>
-                                   </td>
-                                <td style="font-size: 15px;"> 
-                                  <?php 
-                               echo $row['ldate'];
-                                ?>
-                                   </td>
-                                   <td style="font-size: 15px;"> 
-                                  <?php 
-                               echo $row['session'];
-                                ?>
-                                   </td>
-                              <td style="font-size: 15px;">
-                                <?php
-                                 echo $row['reason'];
-                                 ?>
-                              </td>    
-                                 <td>
-                          <form action="leaveapprove.php" method="POST">
-    <input type="hidden" name="id" value="<?php echo $row['leaveid']; ?>"/>
-    <input type="submit" value="Approval" style="background-color:green; color:white;">
-  </form>
+                <div class="row mt">
+                    <div class="col-md-12">
+                        <div class="content-panel">
 
-                  </td>
-                  <td>
-                          <form action="leavereject.php" method="POST">
-    <input type="hidden" name="id" value="<?php echo $row['leaveid']; ?>"/>
-    <input type="submit" value="Reject" style="background-color:red; color:white;">
-  </form>
-  
-                  </td>
-              
-</tr>
-<?php
-++$no; 
-}
-?>
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                </tbody>
-              </table>
-            </div>
-            <!-- /content-panel -->
-          </div>
-          <!-- /col-md-12 -->
-        </div>
+                            <table class="table table-striped table-advance table-hover">
+                                <h4><i class="fa fa-angle-right"></i>Staff</h4>
+                                <hr>
+                                <thead>
+                                <tr>
+                                    <th>sl no:</th>
+                                    <th>Name</th>
+                                    <th>Leave date</th>
+                                    <th> Type</th>
+                                    <th> Reason</th>
+                                    <th>Action</th>
+                                    <th>Action</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <?php
+                                $no = 1;
+                                while ($row = mysqli_fetch_array($re))
+
+                                {
+                                ?>
+                                <tbody>
+                                <form action="leaveapprove.php" method="POST">
+                                    <tr>
+                                        <td style="font-size: 15px;">
+                                            <?php
+                                            echo $no;
+                                            ?>
+                                        </td>
+                                        <td style="font-size: 15px;">
+                                            <?php
+                                            echo $row['name'];
+                                            ?>
+                                        </td>
+                                        <td style="font-size: 15px;">
+                                            <select class="form-control" name="dates[]" id="" multiple>
+                                                <?php $dates = explode(',', $row['ldate']);
+                                                foreach ($dates as $date) {
+                                                    ?>
+                                                    <option selected><?php echo $date; ?></option>
+                                                <?php }
+                                                ?>
+                                            </select>
+                                        </td>
+                                        <td style="font-size: 15px;">
+                                            <?php
+                                            echo $row['session'];
+                                            ?>
+                                        </td>
+                                        <td style="font-size: 15px;">
+                                            <?php
+                                            echo $row['reason'];
+                                            ?>
+                                        </td>
+                                        <td>
+
+                                            <input type="hidden" name="id"
+                                                   value="<?php echo $row['leaveid']; ?>"/>
+                                            <input type="submit" value="Approval"
+                                                   style="background-color:green; color:white;">
+
+
+                                        </td>
+                                        <td>
+
+                                            <a href="/adminn/leavereject1.php?id=<?php echo $row['leaveid']; ?>">
+                                                <input type="button" value="Reject"
+                                                       style="background-color:red; color:white;">
+                                            </a>
+
+
+                                        </td>
+
+                                    </tr>
+                                </form>
+                                <?php
+                                ++$no;
+                                }
+                                ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <!-- /content-panel -->
+                    </div>
+                    <!-- /col-md-12 -->
+                </div>
         <!-- /row -->
       </section>
     </section>

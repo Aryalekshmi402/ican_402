@@ -2,10 +2,10 @@
 
 <?php
 
-
+$date_string=implode(',',$_POST['dates']);
 $b=$_POST['id'];
  
-$sql=mysqli_query($con,"UPDATE `tbl_leave` SET status=1 where leaveid='$b'");
+$sql=mysqli_query($con,"UPDATE `tbl_leave` SET status=1 ,ldate='$date_string' where leaveid='$b'");
 
 if ( $sql){
 echo "<script>alert('Approved');

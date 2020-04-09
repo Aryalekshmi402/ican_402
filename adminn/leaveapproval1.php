@@ -536,31 +536,31 @@ if ($login) {
                                 <div class="col-md-12">
                                     <div class="content-panel">
 
-                                            <table class="table table-striped table-advance table-hover">
-                                                <h4><i class="fa fa-angle-right"></i>Staff</h4>
-                                                <hr>
-                                                <thead>
-                                                <tr>
-                                                    <th>sl no:</th>
-                                                    <th>Name</th>
-                                                    <th>Leave date</th>
-                                                    <th> Type</th>
-                                                    <th> Reason</th>
-                                                    <th>Action</th>
-                                                    <th>Action</th>
-                                                    <th></th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
+                                        <table class="table table-striped table-advance table-hover">
+                                            <h4><i class="fa fa-angle-right"></i>Staff</h4>
+                                            <hr>
+                                            <thead>
+                                            <tr>
+                                                <th>sl no:</th>
+                                                <th>Name</th>
+                                                <th>Leave date</th>
+                                                <th> Type</th>
+                                                <th> Reason</th>
+                                                <th>Action</th>
+                                                <th>Action</th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
 
-                                                <?php
-                                                $no = 1;
-                                                while ($row = mysqli_fetch_array($re))
+                                            <?php
+                                            $no = 1;
+                                            while ($row = mysqli_fetch_array($re))
 
-                                                {
-                                                ?>
-                                                <tbody>
-                                                <form action="leaveapprove1.php" method="POST">
+                                            {
+                                            ?>
+                                            <tbody>
+                                            <form action="leaveapprove1.php" method="POST">
                                                 <tr>
                                                     <td style="font-size: 15px;">
                                                         <?php
@@ -574,12 +574,12 @@ if ($login) {
                                                     </td>
                                                     <td style="font-size: 15px;">
                                                         <select class="form-control" name="dates[]" id="" multiple>
-                                                        <?php $dates=explode(',',$row['ldate']);
-                                                        foreach ($dates as $date){
-                                                        ?>
-                                                            <option selected><?php echo $date;?></option>
+                                                            <?php $dates = explode(',', $row['ldate']);
+                                                            foreach ($dates as $date) {
+                                                                ?>
+                                                                <option selected><?php echo $date; ?></option>
                                                             <?php }
-                                                        ?>
+                                                            ?>
                                                         </select>
                                                     </td>
                                                     <td style="font-size: 15px;">
@@ -612,14 +612,14 @@ if ($login) {
                                                     </td>
 
                                                 </tr>
-                                                </form>
-                                                <?php
-                                                ++$no;
-                                                }
-                                                ?>
+                                            </form>
+                                            <?php
+                                            ++$no;
+                                            }
+                                            ?>
 
-                                                </tbody>
-                                            </table>
+                                            </tbody>
+                                        </table>
 
                                     </div>
                                     <!-- /content-panel -->
