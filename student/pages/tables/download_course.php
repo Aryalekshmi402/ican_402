@@ -947,7 +947,8 @@ if($l)
                     <!-- /.box -->
 
                     <div class="box">
-                        <div class="box-header">
+                        <div class="box-body">
+                            <form action="download_files.php">
                             <div class="form-group" style="margin-left:120px; ">
                                 <label>Syllabus</label>
                                 <select class="form-control select2" name="syllabus" id="syllabus" style="width: 300px;" >
@@ -965,11 +966,14 @@ if($l)
                                     ?>
                                 </select>
                             </div>
+                            </form>
+                        </div>
+                    </div
 
 
 
 
-                                <!-- /.row -->
+                            <!-- /.row -->
             </section>
             <!-- /.content -->
         </div>
