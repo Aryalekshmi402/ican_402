@@ -41,6 +41,7 @@ if ($l) {
 
             }
         </style>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>icanstaff | Dashboard</title>
@@ -219,7 +220,7 @@ if ($l) {
                 </div>
                 <div>
                     <div class="scroll"
-                         style="margin-top:170px; margin-left: 580px;background-color: #0b97c4;width:500px;overflow:scroll;">
+                         style="margin-top:200px; margin-left: 580px;background-color: #0b97c4;width:500px;overflow:scroll;">
                         <table>
                             <thead>
                             <th>
@@ -947,6 +948,26 @@ if ($l) {
     <script src="dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = x.length}
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex-1].style.display = "block";
+        }
+    </script>
+
     </body>
     </html>
 
