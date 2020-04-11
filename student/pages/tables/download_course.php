@@ -1,28 +1,24 @@
 <?php
 session_start();
 include('../../../config.php');
-$l=$_SESSION['loginid'];
-if($l)
-{
+$l = $_SESSION['loginid'];
+if ($l) {
 
-    $res=mysqli_query($con,"select * from studtbl where loginid=$l ");
+    $res = mysqli_query($con, "select * from studtbl where loginid=$l ");
 
-    $result=mysqli_query($con,"select * from tlb_stud where loginid=$l ");
+    $result = mysqli_query($con, "select * from tlb_stud where loginid=$l ");
 
 
-    if(mysqli_num_rows($res)!=0){
-        $row=mysqli_fetch_assoc($res);
+    if (mysqli_num_rows($res) != 0) {
+        $row = mysqli_fetch_assoc($res);
 
-        $fname=$row['fname'];
-    }
-    else if(mysqli_num_rows($result)!=0){
-        $row=mysqli_fetch_assoc($result);
+        $fname = $row['fname'];
+    } else if (mysqli_num_rows($result) != 0) {
+        $row = mysqli_fetch_assoc($result);
 
-        $fname=$row['name'];
+        $fname = $row['name'];
 
-    }
-    else
-    {
+    } else {
         echo "<script>alert('error');</script>";
     }
     ?>
@@ -30,13 +26,13 @@ if($l)
 
 
 //$se="select staffid form staff where loginid='$loginid'";
-    $re=mysqli_query($con,"SELECT * FROM `studtbl` WHERE  loginid='$l'");
-    $row1=mysqli_fetch_array($re);
-    $sid=$row1['signid'];
+    $re = mysqli_query($con, "SELECT * FROM `studtbl` WHERE  loginid='$l'");
+    $row1 = mysqli_fetch_array($re);
+    $sid = $row1['signid'];
 
 
-    $se="SELECT * FROM `stud_leave` WHERE signid='$sid'";
-    $rel=mysqli_query($con,$se) or die(mysqli_error($con));
+    $se = "SELECT * FROM `stud_leave` WHERE signid='$sid'";
+    $rel = mysqli_query($con, $se) or die(mysqli_error($con));
     ?>
 
 
@@ -67,6 +63,7 @@ if($l)
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <script src="/js/axios.min.js"></script>
         <![endif]-->
 
         <!-- Google Font -->
@@ -110,7 +107,8 @@ if($l)
                                         <li><!-- start message -->
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle"
+                                                         alt="User Image">
                                                 </div>
                                                 <h4>
                                                     Support Team
@@ -123,7 +121,8 @@ if($l)
                                         <li>
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                    <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
+                                                         alt="User Image">
                                                 </div>
                                                 <h4>
                                                     AdminLTE Design Team
@@ -135,7 +134,8 @@ if($l)
                                         <li>
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                    <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
+                                                         alt="User Image">
                                                 </div>
                                                 <h4>
                                                     Developers
@@ -147,7 +147,8 @@ if($l)
                                         <li>
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                    <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
+                                                         alt="User Image">
                                                 </div>
                                                 <h4>
                                                     Sales Department
@@ -159,7 +160,8 @@ if($l)
                                         <li>
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                    <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
+                                                         alt="User Image">
                                                 </div>
                                                 <h4>
                                                     Reviewers
@@ -194,7 +196,8 @@ if($l)
                                                     <small class="pull-right">20%</small>
                                                 </h3>
                                                 <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
+                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                         role="progressbar"
                                                          aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                         <span class="sr-only">20% Complete</span>
                                                     </div>
@@ -209,7 +212,8 @@ if($l)
                                                     <small class="pull-right">40%</small>
                                                 </h3>
                                                 <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar"
+                                                    <div class="progress-bar progress-bar-green" style="width: 40%"
+                                                         role="progressbar"
                                                          aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                         <span class="sr-only">40% Complete</span>
                                                     </div>
@@ -224,7 +228,8 @@ if($l)
                                                     <small class="pull-right">60%</small>
                                                 </h3>
                                                 <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar"
+                                                    <div class="progress-bar progress-bar-red" style="width: 60%"
+                                                         role="progressbar"
                                                          aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                         <span class="sr-only">60% Complete</span>
                                                     </div>
@@ -239,7 +244,8 @@ if($l)
                                                     <small class="pull-right">80%</small>
                                                 </h3>
                                                 <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar"
+                                                    <div class="progress-bar progress-bar-yellow" style="width: 80%"
+                                                         role="progressbar"
                                                          aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                         <span class="sr-only">80% Complete</span>
                                                     </div>
@@ -259,7 +265,7 @@ if($l)
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!--<img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
                                 <img src="logo.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs"><?php echo $fname;?></span>
+                                <span class="hidden-xs"><?php echo $fname; ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -287,7 +293,7 @@ if($l)
         </header>
         <!-- Left side column. contains the logo and sidebar -->
         <aside class="main-sidebar">
-            <?php include('../../menu.php');?>
+            <?php include('../../menu.php'); ?>
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
                 <!-- Sidebar user panel -->
@@ -296,7 +302,7 @@ if($l)
                         <img src="logo.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>&nbsp;<?php echo $fname;?></p>
+                        <p>&nbsp;<?php echo $fname; ?></p>
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
@@ -948,32 +954,45 @@ if($l)
 
                     <div class="box">
                         <div class="box-body">
-                            <form action="download_files.php">
                             <div class="form-group" style="margin-left:120px; ">
                                 <label>Syllabus</label>
-                                <select class="form-control select2" name="syllabus" id="syllabus" style="width: 300px;" >
+                                <select id="syl" class="form-control select2" name="syllabus" id="syllabus"
+                                        style="width: 300px;">
                                     <option value="place" selected>Subjects</option>
 
                                     <?php
 
-                                    $result=mysqli_query($con,"select * from studentsub where loginid='$l' ");
-                                    while($row=mysqli_fetch_array($result)){
-                                        $t=$row['sub'];
+                                    $result = mysqli_query($con, "select * from studentsub where loginid='$l' ");
+                                    while ($row = mysqli_fetch_array($result)) {
+                                        $t = $row['sub'];
                                         ?>
-                                        <option value="<?php echo $row['syid'];?>"> <?php  echo $t; ?></option>
+                                        <option value="<?php echo $row['syid']; ?>"> <?php echo $t; ?></option>
                                         <?php
                                     }
                                     ?>
                                 </select>
                             </div>
-                            </form>
                         </div>
-                    </div
+                    </div>
+                    <script>
+                        document.getElementById('syl').addEventListener('click', e => {
+
+                            axios.get('download_files.php', {
+                                params: {
+                                    sy_id: e.target.value,
+                                }
+                            })
+                                .then(({data}) => {
+                                   console.log(data.materials)
+                                })
+                                .catch(function (error) {
+
+                                })
+                        });
+                    </script>
 
 
-
-
-                            <!-- /.row -->
+                    <!-- /.row -->
             </section>
             <!-- /.content -->
         </div>
@@ -1166,7 +1185,8 @@ if($l)
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Delete chat history
-                                <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+                                <a href="javascript:void(0)" class="text-red pull-right"><i
+                                            class="fa fa-trash-o"></i></a>
                             </label>
                         </div>
                         <!-- /.form-group -->
@@ -1202,21 +1222,19 @@ if($l)
         $(function () {
             $('#example1').DataTable()
             $('#example2').DataTable({
-                'paging'      : true,
+                'paging': true,
                 'lengthChange': false,
-                'searching'   : false,
-                'ordering'    : true,
-                'info'        : true,
-                'autoWidth'   : false
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
             })
         })
     </script>
     </body>
     </html>
     <?php
-}
-else
-{
+} else {
     echo "<script>window.location=('/ican/index.php')</script>";
 }
 

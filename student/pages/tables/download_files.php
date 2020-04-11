@@ -9,4 +9,4 @@ $myArray = array();
 while ($row = mysqli_fetch_array($res)) {
     $myArray[] = $row;
 }
-echo json_encode(['reports' => $myArray]);
+echo json_encode(['materials' => $myArray]);
