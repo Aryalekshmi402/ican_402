@@ -103,9 +103,7 @@ table, td, th {
                 <th>Fee on : <?php echo $rr11['year']; ?></th>
                 <th>Installment No : <?php echo $rr11['installment_no']; ?></th>
                 <th>Payment Date : <?php echo $rr['payment_date']; ?></th>
-                <th>Card Number  : <?php echo $rr['card_no']; ?></th>
-                <th>Card Expiry : <?php echo $rr['expiry']; ?></th>
-                <th>Holder Name : <?php echo $rr['holder_name']; ?></th>
+                <th>Payment Mode  : <?php echo $rr['payment_mode']; ?></th>
                 <th>------------------------------------------------------------------------------------------------------------------------------</th>
                 <th>Thank You,</th>
                 <th>I can Tution Center</th>

@@ -137,7 +137,7 @@
                 </ul>
             </li>
             <li>
-                <a href="/student/pages/tables/student_fees.php">
+                <a href="http://localhost/ican_402/student/pages/tables/student_fees.php">
                     <i class="fa fa-edit"></i> <span>Fees Details</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>

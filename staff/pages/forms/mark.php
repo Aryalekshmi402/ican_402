@@ -2,6 +2,7 @@
 session_start(); 
 include('../../../config.php');
 $l=$_SESSION['loginid'];
+
 if($l)
 {
 	
@@ -83,7 +84,7 @@ else
         ex = $('#exam').val();
       //alert(ex);
       $.ajax({
-        url: "/ican/staff/pages/forms/load.php",
+        url: "load.php",
         type: "POST",
         data: { syl:a, cls:cls, exam:ex },
         success: function(data){
@@ -216,29 +217,31 @@ else
              
               <!-- /.form-group -->
             </div>
+
+            <?php
+            $result11=mysqli_query($con,"select * from tlb_staff where loginid='$l'");
+            $sub_de=mysqli_fetch_array($result11)
+            ?>
             <!-- /.col -->
-            <div class="col-md-6" style="margin-right:200px;margin-left:220px; ">
+            <div class="col-md-12">
               <form id="form1" method="POST">
               <!-- /.form-group -->
-
-              <div class="form-group" style="margin-left:120px; ">
+          <div class="row">
+              <div class="form-group col-md-3" >
                <label>Subject </label><br>
-              <input type="text" class="form-control select2" id="exam" name="sub" placeholder="Enter subject name"/>
+              <input type="text" value="<?php echo $sub_de['subject']; ?>" readonly class="form-control select2" id="exam" name="sub" placeholder="Enter subject name"/>
               </div>
 
-
-              <div class="form-group" style="margin-left:120px; ">
+              <div class="form-group col-md-3" >
                <label>Name of Exam</label><br>
               <input type="text" class="form-control select2" id="exam" name="exam" placeholder="Enter name of exam"/>
               </div>
-
-              <div class="form-group" style="margin-left:120px; ">
+              <div class="form-group col-md-3">
                <label>Syllabus</label>
-                <select class="form-control select2" name="syllabus" id="syllabus" style="width: 100%;" >
+                <select class="form-control select2" name="syllabus" id="syllabus"  onChange="sel()">
                   <option value="place" selected>Syllabus</option>
 							
                            <?php 
-						   
                            $result=mysqli_query($con,"select * from syllabustbl");
                            while($row=mysqli_fetch_array($result)){
 								              $t=$row['Name'];
@@ -249,10 +252,9 @@ else
                         ?>     
                 </select>
               </div>
-              
-              <div class="form-group" style="margin-left:120px; ">
+              <div class="form-group col-md-3">
                <label>Class</label>
-                <select class="form-control select2" name="class" id="class" style="width: 100%;" onChange="sel()">
+                <select class="form-control select2" name="class" id="class"  onChange="sel()">
                   <option value="place" selected>Choose Class</option>
 							
                            <?php 
@@ -266,21 +268,23 @@ else
                             }
                         ?>
                 </select>
+                </div>
                 <br>
                 <br>
 
                 <div class="row mt">
                   <div class="col-md-12">
                     <div class="content-panel">
-                      <table id="result" class="table table-striped table-advance table-hover" border='0' >       
-                      </table>
+                    <div id="result" class="col-md-12 "></div>
                     </div>
                   </div>
                 </div>
 
-                <div class="form-group" id="btnmark" name="btnmark" style="margin-left:120px; display:none; ">
-                    <button type="submit" name="submit">ADD MARKS</button>
+                <center>
+        <div class="form-group" id="btnmark" name="btnmark" style="margin-left:120px; display:none; ">
+                    <button type="submit" class="btn btn-success" name="submit">ADD MARKS</button>
                 </div>
+        </center>
               </form>
 
               </div>
@@ -731,31 +735,7 @@ else
     })
   })
 </script>
-<script type='text/Javascript'>
-               function swtalert(swlt)
-                {
-                  if(swlt==1)
-                  {
-                    swal({  type: 'success',
-                            title: 'Marks Added',
-							text: 'Try Another' },
-                            function()
-                            {
-                              window.location="mark.php";
-                            });
-                  }
-                  else
-                    {
-                    swal({  type: 'error',
-                            title: 'Oops!!!',
-                            text: 'Marks not Added'},
-                            function()
-                            {
-                              window.location="mark.php";
-                            });
-                  }
-                }
-            </script>
+
 </body>
 </html>
 
@@ -763,24 +743,30 @@ else
 
   if(isset($_POST['submit']))
   {  
-    $bc=$_POST['syllabus'];
-    $de=$_POST['class'];
-	  $ab=$_POST['log'];
-    $fg=$_POST['exam'];
-    $gh=$_POST['nm'];
-    $ij=$_POST['sub'];
-    $p= mysqli_query($con,"insert into tbl_exam (syid,classid,loginid,exam,mark,subject)values('$bc','$de','$ab',' $fg','$gh','$ij')");
-    echo mysqli_error($con);  
-    if($p)
-			  {
-          $swlt=1;
-          echo "<script> swtalert($swlt);</script>";
-				}  
-        else
-        {
-          echo mysqli_error($con);
-      }	
+    $sub=$_POST['sub'];
+    $exam=$_POST['exam'];
+    $syllabus=$_POST['syllabus'];
+    $class=$_POST['class'];
+    $teach_id=$l;
+    $row_count= $_POST['row_count'];
+      for($i=1;$i<=$row_count;$i++){
+          $student_id= $_POST['student_id_'.$i];
+          $mark= $_POST['mark_'.$i];
+          $p= mysqli_query($con,"insert into student_marks (exam_name,student_id,syllabus_id,class_id,teacher_id,mark,subject)values('$exam','$student_id','$syllabus',' $class','$teach_id','$mark','$sub')");
+      }
+      ?>
+      <script>
+      swal({  type: 'success',
+                            title: 'Good',
+                            text: 'Marks Saved !'},
+                            function()
+                            {
+                              window.location="mark.php";
+                            });
+                            </script>
+      <?php
   }
+
 
 ?>
 

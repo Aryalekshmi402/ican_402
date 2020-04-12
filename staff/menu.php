@@ -40,7 +40,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/staff/pages/forms/mark.php"><i class="fa fa-circle-o"></i> Add Mark</a></li>
+                    <li><a href="pages/forms/mark.php"><i class="fa fa-circle-o"></i> Add Mark</a></li>
                 </ul>
             </li>
 

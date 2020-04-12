@@ -772,12 +772,52 @@ if($l)
                                 <td>
                                 <?php
                                 $fee_idd=$rr['id'];
+                                $stuid=$rr['student_id'];
+                                $r11=mysqli_query($con,"select * from studtbl where loginid='$stuid'");
+                                $stu_data=mysqli_fetch_array($r11);
                                 $pay_count2 = "SELECT count(*) as total from payments where fees_id='$fee_idd' and status='Completed'";
                                 $pay_count12=mysqli_query($con, $pay_count2);
                                 $count2=mysqli_fetch_assoc($pay_count12);
                                 if($count2['total']==0){
                                 ?>
-                                <a class="btn btn-success btn-sm" href="payment.php?stu_id=<?php echo $rr['student_id']; ?>&fee_id=<?php echo $rr['id']; ?>">Pay Now</a>
+        <form id="redirectForm" method="post" action="request.php">
+        <div class="form-group">
+          <input type="hidden" class="form-control" name="appId" value="15095cf9f6a90fb78a12bc8f959051" 
+        </div>
+        <div class="form-group">
+          <?php $order_id=$rr['id'].'_'.$rr['student_id']; ?>
+          <input type="hidden" class="form-control" name="orderId" value="<?php echo $order_id; ?>" placeholder="Enter Order ID here (Ex. order00001)"/>
+        </div>
+        <div class="form-group">
+          <input type="hidden" class="form-control" name="orderAmount" value="<?php echo $rr['amount']; ?>" placeholder="Enter Order Amount here (Ex. 100)"/>
+        </div>
+        <div class="form-group">
+          <input type="hidden" class="form-control" name="orderCurrency" value="INR" placeholder="Enter Currency here (Ex. INR)"/>
+        </div>
+        <div class="form-group">
+          <input type="hidden" class="form-control" value="Fee Payment" name="orderNote" placeholder="Enter Order Note here (Ex. Test order)"/>
+        </div>    
+        <div class="form-group">
+          <input type="hidden" class="form-control" value="<?php echo $stu_data['fname']; ?>" name="customerName" placeholder="Enter your name here (Ex. John Doe)"/>
+        </div>
+        <div class="form-group">
+          <input type="hidden" class="form-control" value="<?php echo $stu_data['mob']; ?>" name="customerPhone" placeholder="Enter your phone number here (Ex. 9999999999)"/>
+        </div>
+        <div class="form-group">
+          <input type="hidden" class="form-control" value="icanpayment@gmail.com" name="customerEmail" placeholder="Enter your phone number here (Ex. 9999999999)"/>
+        </div>
+        <div class="form-group">
+          <input type="hidden" value="http://localhost/ican_402/student/pages/tables/response.php" class="form-control" name="returnUrl" placeholder="Enter the URL to which customer will be redirected (Ex. www.example.com)"/>
+        </div>        
+        <div class="form-group">
+          <input type="hidden" class="form-control" name="notifyUrl" placeholder="Enter the URL to get server notificaitons (Ex. www.example.com)"/>
+        </div>
+        <input type="hidden" name="student_id" value="<?php echo $rr['student_id']; ?>">
+        <input type="hidden" name="fee_id" value="<?php echo $rr['id']; ?>">
+        <button type="submit" class="btn btn-primary btn-sm" value="Pay">Pay Now</button>
+        <br> 
+        <br>
+      </form>
                                 <?php }else{
                                     ?>
                                     <a class="btn btn-primary btn-sm" href="print.php?stu_id=<?php echo $rr['student_id']; ?>&fee_id=<?php echo $rr['id']; ?>">Print Receipt</a>
