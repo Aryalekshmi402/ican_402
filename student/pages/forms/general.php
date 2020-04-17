@@ -127,10 +127,6 @@ else
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
           <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
-            </a>
             <ul class="dropdown-menu">
               <li class="header">You have 4 messages</li>
               <li>
@@ -203,11 +199,8 @@ else
             </ul>
           </li>
           <!-- Notifications: style can be found in dropdown.less -->
+            <?php include('../../notification.php'); ?>
           <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
             <ul class="dropdown-menu">
               <li class="header">You have 10 notifications</li>
               <li>
@@ -247,10 +240,6 @@ else
           </li>
           <!-- Tasks: style can be found in dropdown.less -->
           <li class="dropdown tasks-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
-            </a>
             <ul class="dropdown-menu">
               <li class="header">You have 9 tasks</li>
               <li>
@@ -370,6 +359,7 @@ else
   </header>
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
+      <?php include('../../menu.php');?>
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->

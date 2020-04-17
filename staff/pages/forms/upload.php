@@ -783,8 +783,8 @@ if ($l) {
         $lin = $_POST['lid'];
         $li = $_POST['st'];
         $sub = $_POST['s'];
-        echo  $sub;
-        echo mysqli_error($con);
+        //echo  $sub;
+       // echo mysqli_error($con);
         // echo "<script>alert($countfiles);</script>";
 
         for ($i = 0; $i < $countfiles; $i++) {
