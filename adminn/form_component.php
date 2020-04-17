@@ -674,7 +674,8 @@ if($login)
                   if(swlt==1)
                   {
                     swal({  type: 'success',
-                            title: 'staff Added' },
+                            title: 'staff Added'
+                            },
                             function()
                             {
                               window.location="form_component.php";

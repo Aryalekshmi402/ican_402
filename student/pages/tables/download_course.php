@@ -968,7 +968,7 @@ if ($l) {
                                     while ($row = mysqli_fetch_array($result)) {
                                         $t = $row['sub'];
                                         ?>
-                                        <option value="<?php echo $row['syid']; ?>"> <?php echo $t; ?></option>
+                                        <option value="<?php echo $row['subid']; ?>"> <?php echo $t; ?></option>
                                         <?php
                                     }
                                     ?>
@@ -986,13 +986,13 @@ if ($l) {
                             el: '#materials',
                             data: {
                                 materials: [],
-                                syl_id: ''
+                                subid: ''
                             },
                             methods: {
                                 load_materials() {
                                     axios.get('download_files.php', {
                                         params: {
-                                            sy_id: this.syl_id,
+                                            sub_id: this.subid,
                                         }
                                     })
                                         .then(({data}) => {

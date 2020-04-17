@@ -20,7 +20,9 @@ if ($l) {
         $fname = $row['name'];
         $staffid = $row['staffid'];
 
-    } else {
+    }
+
+    else {
         echo "<script>alert('error');</script>";
     }
     ?>
@@ -295,6 +297,21 @@ if ($l) {
                                         <div class="col-sm-10">
                                             <input type="hidden" class="form-control" name="st" id="st" placeholder=""
                                                    value="<?php echo $staffid; ?>"/>
+                                        </div>
+                                    </div>
+                                    <?php
+
+                                    $re = mysqli_query($con, "select * from studentsub");
+                                    while ($row = mysqli_fetch_array($re)) {
+                                        $sub = $row['subid'];
+                                        ?>
+                                        <?php
+                                    }
+                                    ?>
+                                    <div class="form-group">
+                                        <div class="col-sm-10">
+                                            <input type="hidden" class="form-control" name="s" id="s" placeholder=""
+                                                   value="<?php echo $sub; ?>"/>
                                         </div>
                                     </div>
 
@@ -765,7 +782,8 @@ if ($l) {
         $docname = $_POST['docname'];
         $lin = $_POST['lid'];
         $li = $_POST['st'];
-        echo $lin;
+        $sub = $_POST['s'];
+        echo  $sub;
         echo mysqli_error($con);
         // echo "<script>alert($countfiles);</script>";
 
@@ -778,7 +796,7 @@ if ($l) {
                 } else {
                     move_uploaded_file($_FILES['file']['tmp_name'][$i], 'materials/' . $filename);
 
-                    $p = mysqli_query($con, "insert into tlb_material (syid,classid,loginid,staffid,docname,docs)values('$bc','$de',' $lin',' $li','$docname[$i]','$filename')");
+                    $p = mysqli_query($con, "insert into tlb_material (syid,classid,loginid,staffid,subid,docname,docs)values('$bc','$de',' $lin',' $li','$sub','$docname[$i]','$filename')");
                     echo mysqli_error($con);
                     if ($p) {
                         $swlt = 1;
