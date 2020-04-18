@@ -101,6 +101,7 @@
                     <span>Subject Details</span>
                 </a>
                 <ul class="sub">
+                    <li><a href="add_all.php">Add All Subject</a></li>
                     <li><a href="addcourse.php">Add Subject</a></li>
                     <!-- <li><a href="viewsub.php">View Subjects</a></li>-->
                     <!--<li><a href="advanced_form_components.html">iCan staff</a></li>-->

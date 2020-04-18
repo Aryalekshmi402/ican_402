@@ -966,8 +966,8 @@ if ($l) {
                                     ?>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <a v-for="material in materials" download :href="'/staff/pages/forms/materials/'+material.docs">
+                            <div class="row" v-for="material in materials">
+                                <a download :href="'/staff/pages/forms/materials/'+material.docs">
                                     <button class="btn btn-success">Download {{material.docs}}</button>
                                 </a>
                             </div>
