@@ -470,8 +470,29 @@ if($login)
                   <input type="text" class="form-control" name="desig" id="desig" placeholder="Enter designation" style="width:200px;">
                 </div><br><br>
                 <div class="form-group">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Subject :<label class="sr-only" for="exampleInputEmail2">subject</label>
-                  <input type="text" class="form-control" name="sub" id="sub" placeholder="Enter subject" style="width:200px;" >
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Subject :<label class="sr-only" for="exampleInputEmail2">subject</label>
+                    <select class="form-control select2" name="syllabus" id="syllabus"
+                            style="width:200px;"">
+                        <option value="place" selected>Subject</option>
+
+                        <?php
+
+                        $result = mysqli_query($con, "select distinct sub from studentsub");
+                        while ($row = mysqli_fetch_array($result)) {
+                            $t = $row['sub'];
+                            ?>
+                            <option value="<?php echo $row['subid']; ?>"> <?php echo $t; ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+
+
+
+
+
+
+
                 </div><br><br>
                 
                 <div class="form-group">
