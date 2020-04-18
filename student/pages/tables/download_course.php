@@ -949,7 +949,7 @@ if ($l) {
                         <div class="box-body">
                             <div class="form-group" style="margin-left:120px; ">
                                 <label>Syllabus</label>
-                                <select v-model="syl_id" @change="load_materials" class="form-control select2"
+                                <select v-model="sub_id" @change="load_materials" class="form-control select2"
                                         name="syllabus" id="syllabus"
                                         style="width: 300px;">
                                     <option value="place" selected>Subjects</option>
@@ -978,13 +978,13 @@ if ($l) {
                             el: '#materials',
                             data: {
                                 materials: [],
-                                subid: ''
+                                sub_id: ''
                             },
                             methods: {
                                 load_materials() {
                                     axios.get('download_files.php', {
                                         params: {
-                                            sub_id: this.subid,
+                                            sub_id: this.sub_id,
                                         }
                                     })
                                         .then(({data}) => {
