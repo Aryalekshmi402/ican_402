@@ -23,9 +23,14 @@
 				{
 					while($result1=mysqli_fetch_array($s1))
 					{
-						$t=$result1['type'];
+                        $t=$result1['type'];
+					    $a="select subject_name from tbl_subject_master where subject_id=$t";
+                        $s=mysqli_query($con,$a);
+                        $row=mysqli_fetch_array($s);
+                        $p=$row['subject_name'];
+
 ?>
-						<input type="checkbox" name="course[]" value="<?php echo $t; ?>"> <?php echo $t; ?> <br>
+						<input type="checkbox" name="course[]" value="<?php echo $p; ?>"> <?php echo $p; ?> <br>
 <?php
 					}
 				}
@@ -43,9 +48,13 @@
 				{
 					while($result1=mysqli_fetch_array($s2))
 					{
-						$t=$result1['type'];
+                        $t=$result1['type'];
+                        $a="select subject_name from tbl_subject_master where subject_id=$t";
+                        $s=mysqli_query($con,$a);
+                        $row=mysqli_fetch_array($s);
+                        $p=$row['subject_name'];
 ?>
-						<input type="checkbox" name="course[]" value="<?php echo $t; ?>"> <?php echo $t; ?> <br>
+						<input type="checkbox" name="course[]" value="<?php echo $p; ?>"> <?php echo $p; ?> <br>
 <?php
 					}
 				}
@@ -63,9 +72,13 @@
 				{
 					while($result2=mysqli_fetch_array($s3))
 					{
-						$t=$result2['type'];
+                        $t=$result2['type'];
+                        $a="select subject_name from tbl_subject_master where subject_id=$t";
+                        $s=mysqli_query($con,$a);
+                        $row=mysqli_fetch_array($s);
+                        $p=$row['subject_name'];
 ?>
-						<input type="checkbox" name="course[]" value="<?php echo $t; ?>"> <?php echo $t; ?>  <br>
+						<input type="checkbox" name="course[]" value="<?php echo $p; ?>"> <?php echo $p; ?>  <br>
 <?php
 					}
 				}
