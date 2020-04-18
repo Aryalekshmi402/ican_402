@@ -64,6 +64,7 @@ if ($l) {
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <script src="/js/axios.min.js"></script>
+        <script src="/js/vue.js"></script>
         <![endif]-->
 
         <!-- Google Font -->
@@ -95,10 +96,6 @@ if ($l) {
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
                         <li class="dropdown messages-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-envelope-o"></i>
-                                <span class="label label-success">4</span>
-                            </a>
                             <ul class="dropdown-menu">
                                 <li class="header">You have 4 messages</li>
                                 <li>
@@ -180,10 +177,6 @@ if ($l) {
 
                         <!-- Tasks: style can be found in dropdown.less -->
                         <li class="dropdown tasks-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-flag-o"></i>
-                                <span class="label label-danger">9</span>
-                            </a>
                             <ul class="dropdown-menu">
                                 <li class="header">You have 9 tasks</li>
                                 <li>
@@ -952,11 +945,12 @@ if ($l) {
                     </div>
                     <!-- /.box -->
 
-                    <div class="box">
+                    <div class="box" id="materials">
                         <div class="box-body">
                             <div class="form-group" style="margin-left:120px; ">
                                 <label>Syllabus</label>
-                                <select id="syl" class="form-control select2" name="syllabus" id="syllabus"
+                                <select v-model="syl_id" @change="load_materials" class="form-control select2"
+                                        name="syllabus" id="syllabus"
                                         style="width: 300px;">
                                     <option value="place" selected>Subjects</option>
 
@@ -966,29 +960,43 @@ if ($l) {
                                     while ($row = mysqli_fetch_array($result)) {
                                         $t = $row['sub'];
                                         ?>
-                                        <option value="<?php echo $row['syid']; ?>"> <?php echo $t; ?></option>
+                                        <option value="<?php echo $row['subid']; ?>"> <?php echo $t; ?></option>
                                         <?php
                                     }
                                     ?>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <a v-for="material in materials" download :href="'/staff/pages/forms/materials/'+material.docs">
+                                    <button class="btn btn-success">Download {{material.docs}}</button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <script>
-                        document.getElementById('syl').addEventListener('click', e => {
+                        new Vue({
+                            el: '#materials',
+                            data: {
+                                materials: [],
+                                subid: ''
+                            },
+                            methods: {
+                                load_materials() {
+                                    axios.get('download_files.php', {
+                                        params: {
+                                            sub_id: this.subid,
+                                        }
+                                    })
+                                        .then(({data}) => {
+                                            this.materials = data.materials;
+                                        })
+                                        .catch(function (error) {
 
-                            axios.get('download_files.php', {
-                                params: {
-                                    sy_id: e.target.value,
+                                        })
                                 }
-                            })
-                                .then(({data}) => {
-                                   console.log(data.materials)
-                                })
-                                .catch(function (error) {
-
-                                })
+                            }
                         });
+
                     </script>
 
 

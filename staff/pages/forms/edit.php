@@ -1,32 +1,42 @@
 <?php
 session_start();
 include('../../../config.php');
-$l = $_SESSION['loginid'];
-if ($l) {
+$l=$_SESSION['loginid'];
 
-    $res = mysqli_query($con, "select * from stafftbl where loginid=$l ");
+if($l)
+{
 
-    $result = mysqli_query($con, "select * from tlb_staff where loginid=$l ");
+    $res=mysqli_query($con,"select * from stafftbl where loginid=$l ");
+
+    $result=mysqli_query($con,"select * from tlb_staff where loginid=$l ");
 
 
-    if (mysqli_num_rows($res) != 0) {
-        $row = mysqli_fetch_assoc($res);
+    if(mysqli_num_rows($res)!=0){
+        $row=mysqli_fetch_assoc($res);
 
-        $fname = $row['fname'];
-    } else if (mysqli_num_rows($result) != 0) {
-        $row = mysqli_fetch_assoc($result);
+        $fname=$row['fname'];
+    }
+    else if(mysqli_num_rows($result)!=0){
+        $row=mysqli_fetch_assoc($result);
 
-        $fname = $row['name'];
+        $fname=$row['name'];
 
-    } else {
+    }
+    else
+    {
         echo "<script>alert('error');</script>";
     }
     ?>
 
 
+
+
     <!DOCTYPE html>
     <html>
     <head>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/abc.js"></script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>iCan</title>
@@ -45,8 +55,7 @@ if ($l) {
         <!-- iCheck for checkboxes and radio inputs -->
         <link rel="stylesheet" href="../../plugins/iCheck/all.css">
         <!-- Bootstrap Color Picker -->
-        <link rel="stylesheet"
-              href="../../bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+        <link rel="stylesheet" href="../../bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
         <!-- Bootstrap time Picker -->
         <link rel="stylesheet" href="../../plugins/timepicker/bootstrap-timepicker.min.css">
         <!-- Select2 -->
@@ -59,16 +68,13 @@ if ($l) {
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-
-        <script src="https://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css"
-              rel="stylesheet"/>
-
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
         <script type="application/javascript" language="javascript">
+
             function sel() {
                 var a;
                 a = $('#syllabus option:selected').attr('value');
@@ -78,16 +84,19 @@ if ($l) {
                 ex = $('#exam').val();
                 //alert(ex);
                 $.ajax({
-                    url: "/ican/staff/pages/forms/load.php",
+                    url: "load.php",
                     type: "POST",
-                    data: {syl: a, cls: cls, exam: ex},
-                    success: function (data) {
+                    data: { syl:a, cls:cls, exam:ex },
+                    success: function(data){
                         $("#result").html(data);
                     }
                 });
+                document.getElementById("btnmark").style.display='block';
             }
 
         </script>
+
+
 
         <!-- Google Font -->
         <link rel="stylesheet"
@@ -117,17 +126,22 @@ if ($l) {
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
+                        <li class="dropdown messages-menu">
 
+
+                        </li>
                         <!-- Notifications: style can be found in dropdown.less -->
-                        <?php include('../../notification.php'); ?>
+                        <?php include('../../notification.php');?>
                         <!-- Tasks: style can be found in dropdown.less -->
+                        <li class="dropdown tasks-menu">
+                            </a>
+
                         </li>
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
                                 <img src="logo.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs"><?php echo $fname; ?></span>
+                                <span class="hidden-xs"><?php echo $fname;?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -137,11 +151,24 @@ if ($l) {
 
                                 </li>
                                 <!-- Menu Body -->
-
+                                <li class="user-body">
+                                    <div class="row">
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#"></a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#"></a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#"></a>
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="/student/prof.php" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
@@ -155,14 +182,14 @@ if ($l) {
             </nav>
         </header>
         <!-- Left side column. contains the logo and sidebar -->
-        <?php include('../../menu.php'); ?>
+        <?php include('../../menu.php')?>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Apply Leave
+                    Edit Marks
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
@@ -175,8 +202,9 @@ if ($l) {
             <section class="content">
 
                 <!-- SELECT2 EXAMPLE -->
-                <div class="box box-default" style="height:520px;">
-                    <div class="box-header with-border">
+                <div class="box box-default" style="height:1500px;">
+                    <div class="box-header with-border" >
+
 
 
                     </div>
@@ -189,86 +217,74 @@ if ($l) {
 
                                 <!-- /.form-group -->
                             </div>
+
+                            <?php
+                            $result11=mysqli_query($con,"select * from tlb_staff where loginid='$l'");
+                            $sub_de=mysqli_fetch_array($result11)
+                            ?>
                             <!-- /.col -->
-                            <div class="col-md-6" style="margin-right:200px;margin-left:220px; ">
-                                <form action="leave.php" method="POST" style="color:blue;">
-
+                            <div class="col-md-12">
+                                <form id="form1" method="POST">
                                     <!-- /.form-group -->
-
-                                    <div class="form-group" style="margin-left:100px; width:220px;">
-                                        <br>
-                                        <br><br>
-                                        <label for="inline3mail" class="block form-control-label">Leave Date</label><br>
-                                        <input type="text" class="form-control" name="ldate"
-                                               style="margin-left:100px; margin-top:-30px;" id="datepicker" required>
-                                    </div>
-
-                                    <div class="form-group" style="margin-left:100px; width:220px;">
-                                        <br>
-                                        <br><br>
-                                        <label for="inline3pwd" class="block form-control-label">Session</label>
-                                        <select class="form-control" id="exampleSelect1" name="sess"
-                                                style="margin-left:100px; margin-top:-30px;" required>
-                                            <option value="choose">choose</option>
-                                            <option value="AN">AN</option>
-                                            <option value="FN">FN</option>
-                                            <option value="Full Day">Full Day</option>
-                                        </select>
-
-                                    </div>
-
-                                    <div class="form-group" style="margin-left:100px; width:220px;">
-                                        <br>
-                                        <br><br>
-
-                                        <label for="inline3pwd" class="block form-control-label">Reason</label>
-                                        <textarea class="form-control" id="exampleTextarea" rows="4" cols="40"
-                                                  name="res" style="margin-left:100px; margin-top:-30px; "
-                                                  required></textarea>
-
-                                    </div>
-
-
-                                    <div class="form-group" style="margin-left:200px; width:420px;">
-
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <div class="form-check p-t-35">
-                                            <button type="submit" class="btn btn-success waves-effect waves-light"
-                                                    name="submit" style="width:200px" ;>Apply
-                                            </button>
+                                    <div class="row">
+                                        <div class="form-group col-md-3" >
+                                            <label>Subject </label><br>
+                                            <input type="text" value="<?php echo $sub_de['subject']; ?>" readonly class="form-control select2" id="exam" name="sub" placeholder="Enter subject name"/>
                                         </div>
 
+                                        <div class="form-group col-md-3">
+                                            <label>Syllabus</label>
+                                            <select class="form-control select2" name="syllabus" id="syllabus"  onChange="sel()">
+                                                <option value="place" selected>Syllabus</option>
 
-                                    </div>
+                                                <?php
+                                                $result=mysqli_query($con,"select * from syllabustbl");
+                                                while($row=mysqli_fetch_array($result)){
+                                                    $t=$row['Name'];
+                                                    ?>
+                                                    <option value="<?php echo $row['syid'];?>"> <?php  echo $t; ?></option>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label>Class</label>
+                                            <select class="form-control select2" name="class" id="class"  onChange="sel()">
+                                                <option value="place" selected>Choose Class</option>
 
+                                                <?php
 
+                                                $result=mysqli_query($con,"select * from tbl_class");
+                                                while($row=mysqli_fetch_array($result)){
+                                                    $t=$row['classname'];
+                                                    ?>
+                                                    <option value="<?php echo $row['classid'];?>"> <?php  echo $t; ?></option>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <br>
+                                        <br>
+
+                                        <div class="row mt">
+                                            <div class="col-md-12">
+                                                <div class="content-panel">
+                                                    <div id="result" class="col-md-12 "></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <center>
+                                            <div class="form-group" id="btnmark" name="btnmark" style="margin-left:120px; display:none; ">
+                                                <button type="submit" class="btn btn-success" name="submit"> EDIT MARKS</button>
+                                            </div>
+                                        </center>
                                 </form>
 
                             </div>
-
-
-                            <div class="row mt">
-                                <div class="col-md-12">
-                                    <div class="content-panel">
-                                        <table id="result" class="table table-striped table-advance table-hover"
-                                               border='0'>
-                                            <!--<h4><i class="fa fa-angle-right"></i>Staff</h4>-->
-
-
-                                        </table>
-                                    </div>
-                                    <!-- /content-panel -->
-                                </div>
-                                <!-- /col-md-12 -->
-                            </div>
+                            <br>
 
 
                             <!-- /.form-group -->
@@ -648,92 +664,112 @@ if ($l) {
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
     <!-- Page script -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/abc.js"></script>
     <script>
-        $('#datepicker').datepicker({
-            multidate: true
-        });
-        // YUI().use(
-        //     'aui-datepicker',
-        //     function(Y) {
-        //         new Y.DatePicker(
-        //             {
-        //                 trigger: '#date',
-        //                 mask: '%d/%m/%Y',
-        //                 calendar: {
-        //                     selectionMode: 'multiple'
-        //                 },
-        //                 popover: {
-        //                     zIndex: 1
-        //                 },
-        //                 panes: 2
-        //             }
-        //         );
-        //     }
-        // );
-    </script>
-    <script type='text/Javascript'>
-        function swtalert(swlt) {
-            if (swlt == 1) {
-                swal({
-                        type: 'success',
-                        title: 'Leave Applied'
-                    },
-                    function () {
-                        window.location = "leave.php";
-                    });
-            } else {
-                swal({
-                        type: 'error',
-                        title: 'Oops!!!',
-                        text: 'Leave not Applied'
-                    },
-                    function () {
-                        window.location = "leave.php";
-                    });
+
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        //Datemask dd/mm/yyyy
+        $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+        //Datemask2 mm/dd/yyyy
+        $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+        //Money Euro
+        $('[data-mask]').inputmask()
+
+        //Date range picker
+        $('#reservation').daterangepicker()
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({ timePicker: true, timePickerIncrement: 30, locale: { format: 'MM/DD/YYYY hh:mm A' }})
+        //Date range as a button
+        $('#daterange-btn').daterangepicker(
+            {
+                ranges   : {
+                    'Today'       : [moment(), moment()],
+                    'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate  : moment()
+            },
+            function (start, end) {
+                $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
             }
-        }
+        )
+
+        //Date picker
+        $('#datepicker').datepicker({
+            autoclose: true
+        })
+
+        //iCheck for checkbox and radio inputs
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+            checkboxClass: 'icheckbox_minimal-blue',
+            radioClass   : 'iradio_minimal-blue'
+        })
+        //Red color scheme for iCheck
+        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+            checkboxClass: 'icheckbox_minimal-red',
+            radioClass   : 'iradio_minimal-red'
+        })
+        //Flat red color scheme for iCheck
+        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass   : 'iradio_flat-green'
+        })
+
+        //Colorpicker
+        $('.my-colorpicker1').colorpicker()
+        //color picker with addon
+        $('.my-colorpicker2').colorpicker()
+
+        //Timepicker
+        $('.timepicker').timepicker({
+            showInputs: false
+        })
+        })
     </script>
+
     </body>
     </html>
 
     <?php
 
-
-    if (isset($_POST['submit'])) {
-        $date_string = $_POST['ldate'];
-        $c = $_POST['sess'];
-        $d = $_POST['res'];
-
-
-        $s = mysqli_query($con, "select staffid from tlb_staff where loginid='$l'");
-        $r = mysqli_fetch_array($s, MYSQLI_ASSOC);
-        $lid = $r['staffid'];
-        $sql = "INSERT INTO `tbl_leave`(staffid,ldate,session,reason,status) VALUES ('$lid','$date_string','$c','$d',0)";
-
-        $ch = mysqli_query($con, $sql);
-
-        if ($ch) {
-            ?>
-            <?php
-            $swlt = 1;
-            echo "<script> swtalert($swlt);
-          		 </script>";
-
-        } else {
-            echo "error :" . $sql . "<br>" . mysqli_error($con);
+    if(isset($_POST['submit']))
+    {
+        $sub=$_POST['sub'];
+        $exam=$_POST['exam'];
+        $syllabus=$_POST['syllabus'];
+        $class=$_POST['class'];
+        $teach_id=$l;
+        $row_count= $_POST['row_count'];
+        for($i=1;$i<=$row_count;$i++){
+            $student_id= $_POST['student_id_'.$i];
+            $mark= $_POST['mark_'.$i];
+            $p= mysqli_query($con,"insert into student_marks (exam_name,student_id,syllabus_id,class_id,teacher_id,mark,subject)values('$exam','$student_id','$syllabus',' $class','$teach_id','$mark','$sub')");
         }
+        ?>
+        <script>
+            swal({  type: 'success',
+                    title: 'Good',
+                    text: 'Marks Saved !'},
+                function()
+                {
+                    window.location="mark.php";
+                });
+        </script>
+        <?php
     }
 
-    mysqli_close($con);
 
     ?>
 
-
     <?php
-} else {
+}
+else
+{
     echo "<script>window.location=('/ican/index.php')</script>";
 }
 

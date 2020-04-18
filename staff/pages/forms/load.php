@@ -1,53 +1,39 @@
 <?php
 session_start();
 $con=mysqli_connect("localhost","root","","ican");
-$s=$_POST["syl"];
-$cls=$_POST["cls"];
+$syll_id=$_POST["syl"];
+$cls_id=$_POST["cls"];
 $exam=$_POST["exam"];
-$query="SELECT DISTINCT loginid FROM `studentsub` WHERE syid='$s' ";
+$query="SELECT * from  studtbl  WHERE syllabus_id='$syll_id' and course='$cls_id' ";
 $result = mysqli_query($con,$query);
-$cl="select classname from tbl_class where classname='$cls'";
-$c=mysqli_query($con,$cl);
-$res=mysqli_fetch_array($c);
-$clas=$res['classname'];
-?>
-<form name="form2" action="#" method="POST">
-    <thead>
-    <tr>
-        <th> Names</th>
-        <th> Marks</th>
-    </tr>
-    </thead>
 
-    <tbody>
+?>
+<input type="hidden" name="row_count" value="<?php echo $result->num_rows; ?>">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th> Names</th>
+                <th> Marks</th>
+            </tr>
+        </thead>
     <?php
+    $i=1;
     while($row = mysqli_fetch_array($result))
     {
-        $a=$row['loginid'] ;
-        $b="select fname from studtbl where loginid='$a'AND course='$clas' ";
-        $bres=mysqli_query($con,$b);
-        //echo mysqli_error($con);
-
-        while($r=mysqli_fetch_array($bres))
-        {
-
-            echo '<tr><td>';
-            echo  $r['fname'];
-            echo '<td>';
-            echo"<input type='hidden'  name='log' value='$a'>";
-            echo "<input type='text' name='nm'>";
-            echo '</td>';
-            echo '</td>';
-            echo '</tr>';
-        }
+        $mark='mark_'.$i;
+        $student_id='student_id_'.$i;
+        ?>
+        <tr>
+            <td>
+                <?php echo $row['fname'].' '.$row['gname']; ?>
+            </td>
+            <td>
+                <input type="text" name="<?php echo $mark; ?>" style="width:350px;">
+                <input type="hidden" name="<?php echo $student_id; ?>"  value="<?php echo $row['signid']; ?>">
+            </td>
+        </tr>
+        <?php
+       $i++;    
     }
-    echo '<br> <br>';
-    echo '<tr>  <td colspan="2" align="center">';
-
-
-
-    echo '</td>';
-    echo '</tr>';
     ?>
-    </tbody>
-</form>
+    </table>
