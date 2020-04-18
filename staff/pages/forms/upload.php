@@ -301,11 +301,12 @@ if ($l) {
                                     </div>
                                     <?php
 
-                                    $re = mysqli_query($con, "select * from studentsub");
+                                    $re = mysqli_query($con, "select * from studentsub  ");
                                     while ($row = mysqli_fetch_array($re)) {
                                         $sub = $row['subid'];
                                         ?>
                                         <?php
+
                                     }
                                     ?>
                                     <div class="form-group">
@@ -783,7 +784,7 @@ if ($l) {
         $lin = $_POST['lid'];
         $li = $_POST['st'];
         $sub = $_POST['s'];
-        //echo  $sub;
+        echo  $sub;
        // echo mysqli_error($con);
         // echo "<script>alert($countfiles);</script>";
 
