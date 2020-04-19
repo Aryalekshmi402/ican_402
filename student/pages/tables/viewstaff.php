@@ -961,6 +961,11 @@ else
 							$se=" select * from `tlb_staff` WHERE loginid='$li'";
                             $re=mysqli_query($con,$se);
                             $row=mysqli_fetch_assoc($re);
+                                $t=$row['subject_id'];
+                                $a="select subject_name from tbl_subject_master where subject_id=$t";
+                                $s=mysqli_query($con,$a);
+                                $rows=mysqli_fetch_array($s);
+                                //$p=$rows['subject_name'];
                             ?>
                             <tr>
 <td style="font-size: 15px;"> 
@@ -980,7 +985,7 @@ echo $row['designation'];
 ?>
 <td style="font-size: 15px;">
 <?php
-echo $row['subject'];
+echo $rows['subject_name'];
 ?>
 </td>
 <td style="font-size: 15px;">

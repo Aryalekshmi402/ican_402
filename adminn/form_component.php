@@ -736,7 +736,7 @@ if($login)
      if($rchsq['emailid']!="")
      {
       $swlt=0;
-      echo "<script>swtalert($swlt);</script>";
+//      echo "<script>swtalert($swlt);</script>";
      }
      else
      {
@@ -750,7 +750,8 @@ if($login)
           $que=mysqli_query($con,$sqq);
           $row=mysqli_fetch_array($que,MYSQLI_ASSOC);
           $lin=$row['loginid'];
-          $sqll="INSERT INTO tlb_staff (`loginid`,`name`,`gender`,`designation`,`subject`,`phone`) VALUES ('$lin','$name','$gender','$des','$sub','$phone')";
+          $sqll="INSERT INTO tlb_staff (`loginid`,`name`,`gender`,`designation`,`subject_id`,`phone`) VALUES ('$lin','$name','$gender','$des','$sub','$phone')";
+          //echo $sqll;
           $quer=mysqli_query($con,$sqll);
           if($quer)
           {

@@ -386,7 +386,11 @@ if ($l) {
                         $no=1;
                         $result = mysqli_query($con,$sql);
                         while($row = mysqli_fetch_array($result)) {
-
+                            $t=$row['subject_id'];
+                            $a="select subject_name from tbl_subject_master where subject_id=$t";
+                            $s=mysqli_query($con,$a);
+                            $row=mysqli_fetch_array($s);
+                            $p=$row['subject_name'];
 
                             ?>
 
@@ -399,7 +403,7 @@ if ($l) {
                                 </td>
                                 <td>
                                     <?php
-                                    echo $row['sub'];
+                                    echo $p;
                                     ?>
                                 </td>
 
