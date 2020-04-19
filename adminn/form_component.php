@@ -471,17 +471,17 @@ if($login)
                 </div><br><br>
                 <div class="form-group">
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Subject :<label class="sr-only" for="exampleInputEmail2">subject</label>
-                    <select class="form-control select2" name="syllabus" id="syllabus"
+                    <select class="form-control select2" name="sub" id="sub"
                             style="width:200px;"">
                         <option value="place" selected>Subject</option>
 
                         <?php
 
-                        $result = mysqli_query($con, "select distinct sub from studentsub");
+                        $result = mysqli_query($con, "select distinct subject_name from tbl_subject_master");
                         while ($row = mysqli_fetch_array($result)) {
-                            $t = $row['sub'];
+                            $t = $row['subject_name'];
                             ?>
-                            <option value="<?php echo $row['subid']; ?>"> <?php echo $t; ?></option>
+                            <option value="<?php echo $row['subject_name']; ?>"> <?php echo $t; ?></option>
                             <?php
                         }
                         ?>

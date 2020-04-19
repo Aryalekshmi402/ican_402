@@ -60,8 +60,6 @@ if($registrationForm.length){
             },
             sub: {
                 required: true,
-                noSpace: true,
-                alphabetsnspace: true
 
             },
             phone:{
@@ -92,8 +90,7 @@ if($registrationForm.length){
                 alphabetsnspace:'invalid format!'
             },
             sub: {
-                required: 'Please enter  subject name!',
-                alphabetsnspace:'invalid format!'
+                required: 'Select subject name!'
             },
             phone:{
                 required:'mobile number required!',
