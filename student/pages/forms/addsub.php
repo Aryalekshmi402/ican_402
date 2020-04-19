@@ -1296,7 +1296,8 @@ $drp=$_POST['syllabus'];
 		foreach($_POST["course"] as $course)
 		{       
 			$chc=$course;
-        $query="INSERT INTO studentsub (loginid,syid,sub) VALUES ( '$id','$drp','$chc')";     
+        $query="INSERT INTO studentsub (loginid,syid,subject_id) VALUES ( '$id','$drp','$chc')";
+        echo $query;
         $query1="UPDATE studtbl set syllabus_id='$drp' where loginid='$id'";     
 
     	//echo mysqli_error($con);

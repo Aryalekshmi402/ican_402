@@ -471,7 +471,7 @@ if($login)
                 </div><br><br>
                 <div class="form-group">
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Subject :<label class="sr-only" for="exampleInputEmail2">subject</label>
-                    <select class="form-control select2" name="sub" id="sub"
+                    <select class="form-control select2" name="sub" id="sub stud"
                             style="width:200px;"">
                         <option value="place" selected>Subject</option>
 
@@ -479,9 +479,8 @@ if($login)
 
                         $result = mysqli_query($con, "select distinct subject_name from tbl_subject_master");
                         while ($row = mysqli_fetch_array($result)) {
-                            $t = $row['subject_name'];
                             ?>
-                            <option value="<?php echo $row['subject_name']; ?>"> <?php echo $t; ?></option>
+                            <option value="<?php echo $row['subject_id']; ?>"> <?php echo $row['subject_name']; ?></option>
                             <?php
                         }
                         ?>
@@ -752,6 +751,7 @@ if($login)
           $row=mysqli_fetch_array($que,MYSQLI_ASSOC);
           $lin=$row['loginid'];
           $sqll="INSERT INTO tlb_staff (`loginid`,`name`,`gender`,`designation`,`subject`,`phone`) VALUES ('$lin','$name','$gender','$des','$sub','$phone')";
+          echo $sqll;
           $quer=mysqli_query($con,$sqll);
           if($quer)
           {
