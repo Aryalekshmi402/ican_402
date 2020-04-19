@@ -30,7 +30,7 @@
                         $p=$row['subject_name'];
 
 ?>
-						<input type="checkbox" name="course[]" value="<?php echo $p; ?>"> <?php echo $p; ?> <br>
+						<input type="checkbox" name="course[]" value="<?php echo  $t; ?>"> <?php echo $p; ?> <br>
 <?php
 					}
 				}
@@ -54,7 +54,7 @@
                         $row=mysqli_fetch_array($s);
                         $p=$row['subject_name'];
 ?>
-						<input type="checkbox" name="course[]" value="<?php echo $p; ?>"> <?php echo $p; ?> <br>
+						<input type="checkbox" name="course[]" value="<?php echo  $t; ?>"> <?php echo $p; ?> <br>
 <?php
 					}
 				}
@@ -78,7 +78,7 @@
                         $row=mysqli_fetch_array($s);
                         $p=$row['subject_name'];
 ?>
-						<input type="checkbox" name="course[]" value="<?php echo $p; ?>"> <?php echo $p; ?>  <br>
+						<input type="checkbox" name="course[]" value="<?php echo  $t; ?>"> <?php echo $p; ?>  <br>
 <?php
 					}
 				}
