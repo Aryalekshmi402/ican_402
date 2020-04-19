@@ -280,11 +280,11 @@ if ($login) {
                                         <div class="col-md-12">
                                             <div class="col-md-6">
                                             <form action="" method="POST">
-                                                <select class="form-control" name="class_id">
+                                                <select class="form-control" name="class_id_val">
                                                     <option>---Select Class ----</option>
                                                     <?php while ($row = mysqli_fetch_array($classes)) {
                                                         ?> 
-                                                        <option vale="<?php echo $row['classid']; ?>"><?php echo $row['classname']; ?></option>
+                                                        <option value="<?php echo $row['classid']; ?>"><?php echo $row['classname']; ?></option>
                                                     <?php } ?>
                                                     </select>
                                                 </div>
@@ -296,7 +296,7 @@ if ($login) {
                                     <?php 
                                     $class_id=null;
                                     if(isset($_POST['search_fee'])){ 
-                                      $class_id=$_POST['class_id'];
+                                      $class_id=$_POST['class_id_val'];
                                       $se = "SELECT * FROM studtbl where course='$class_id'";
                                       $courses = mysqli_query($con, $se);
                                       ?>
@@ -326,7 +326,11 @@ if ($login) {
                                                           $se1 = "SELECT * FROM studentsub where loginid='$loginid'";
                                                           $class_data = mysqli_query($con, $se1);
                                                           while($sub_detal=mysqli_fetch_array($class_data)){
-                                                            $subjects=$subjects.','. $sub_detal['sub'];
+                                                              $sub_id=$sub_detal['subject_id'];
+                                                              $se2 = "SELECT * FROM tbl_subject_master where subject_id='$sub_id'";
+                                                              $sub_data=mysqli_query($con, $se2);
+                                                              $sub_datas=mysqli_fetch_array($sub_data);
+                                                            $subjects=$subjects.','. $sub_datas['subject_name'];
                                                           }
                                                           $count = "SELECT count(*) as total from studentsub where loginid='$loginid'";
                                                           $sub_count=mysqli_query($con, $count);

@@ -774,10 +774,10 @@ if($l)
                                 ?>
         <form id="redirectForm" method="post" action="request.php">
         <div class="form-group">
-          <input type="hidden" class="form-control" name="appId" value="15095cf9f6a90fb78a12bc8f959051" 
+          <input type="hidden" class="form-control" name="appId" value="154198308469dc600994823fb91451"
         </div>
         <div class="form-group">
-          <?php $order_id=$rr['id'].'_'.$rr['student_id']; ?>
+          <?php $order_id=$rr['id'].'_'.$rr['student_id'].'_'.bin2hex(random_bytes(6)); ?>
           <input type="hidden" class="form-control" name="orderId" value="<?php echo $order_id; ?>" placeholder="Enter Order ID here (Ex. order00001)"/>
         </div>
         <div class="form-group">
@@ -799,7 +799,7 @@ if($l)
           <input type="hidden" class="form-control" value="icanpayment@gmail.com" name="customerEmail" placeholder="Enter your phone number here (Ex. 9999999999)"/>
         </div>
         <div class="form-group">
-          <input type="hidden" value="http://localhost/ican_402/student/pages/tables/response.php" class="form-control" name="returnUrl" placeholder="Enter the URL to which customer will be redirected (Ex. www.example.com)"/>
+          <input type="hidden" value="http://localhost:8000/student/pages/tables/response.php" class="form-control" name="returnUrl" placeholder="Enter the URL to which customer will be redirected (Ex. www.example.com)"/>
         </div>        
         <div class="form-group">
           <input type="hidden" class="form-control" name="notifyUrl" placeholder="Enter the URL to get server notificaitons (Ex. www.example.com)"/>

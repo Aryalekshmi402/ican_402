@@ -8,10 +8,10 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h1 align="center">Payment Success</h1>	
+	<h1 align="center"><?php echo $txMsg; ?></h1>
 
 	<?php  
-		 $secretkey = "bb8bd804cfaa1bc561e9103f371eb2ed2bca7c72";
+		 $secretkey = "3a69828dece5c5c30b89dd1b5b192a3ef8fb5dca";
 		 $orderId = $_POST["orderId"];
 		 $orderAmount = $_POST["orderAmount"];
 		 $referenceId = $_POST["referenceId"];
@@ -29,7 +29,7 @@
 	 ?>
 	<div class="container"> 
 	<div class="panel panel-success">
-	  <div class="panel-heading">Payment Success</div>
+	  <div class="panel-heading"><?php echo $txMsg; ?></div>
 	  <div class="panel-body">
 	  	<!-- <div class="container"> -->
 	 		<table class="table table-hover">
