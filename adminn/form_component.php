@@ -477,7 +477,7 @@ if($login)
 
                         <?php
 
-                        $result = mysqli_query($con, "select distinct subject_name from tbl_subject_master");
+                        $result = mysqli_query($con, "select distinct * from tbl_subject_master");
                         while ($row = mysqli_fetch_array($result)) {
                             ?>
                             <option value="<?php echo $row['subject_id']; ?>"> <?php echo $row['subject_name']; ?></option>
@@ -751,7 +751,6 @@ if($login)
           $row=mysqli_fetch_array($que,MYSQLI_ASSOC);
           $lin=$row['loginid'];
           $sqll="INSERT INTO tlb_staff (`loginid`,`name`,`gender`,`designation`,`subject`,`phone`) VALUES ('$lin','$name','$gender','$des','$sub','$phone')";
-          echo $sqll;
           $quer=mysqli_query($con,$sqll);
           if($quer)
           {
