@@ -948,7 +948,7 @@ if ($l) {
                     <div class="box" id="materials">
                         <div class="box-body">
                             <div class="form-group" style="margin-left:120px; ">
-                                <label>Syllabus</label>
+                                <label>Subjects</label>
                                 <select v-model="sub_id" @change="load_materials" class="form-control select2"
                                         name="syllabus" id="syllabus"
                                         style="width: 300px;">
@@ -958,9 +958,13 @@ if ($l) {
 
                                     $result = mysqli_query($con, "select * from studentsub where loginid='$l' ");
                                     while ($row = mysqli_fetch_array($result)) {
-                                        $t = $row['sub'];
+                                        $t = $row['subject_id'];
+                                        $a="select subject_name from tbl_subject_master where subject_id=$t";
+                                        $s=mysqli_query($con,$a);
+                                        $row=mysqli_fetch_array($s);
+                                        $p=$row['subject_name'];
                                         ?>
-                                        <option value="<?php echo $row['subid']; ?>"> <?php echo $t; ?></option>
+                                        <option value="<?php echo $p; ?>"> <?php echo $p; ?></option>
                                         <?php
                                     }
                                     ?>

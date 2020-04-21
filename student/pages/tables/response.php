@@ -8,7 +8,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h1 align="center"><?php echo $txMsg; ?></h1>
+	<h1 align="center">Payment Successful</h1>
 
 	<?php  
 		 $secretkey = "3a69828dece5c5c30b89dd1b5b192a3ef8fb5dca";
