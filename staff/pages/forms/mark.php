@@ -220,7 +220,10 @@ else
 
             <?php
             $result11=mysqli_query($con,"select * from tlb_staff where loginid='$l'");
-            $sub_de=mysqli_fetch_array($result11)
+            $sub_de=mysqli_fetch_array($result11);
+            $sub_id=$sub_de['subject_id'];
+            $result2=mysqli_query($con,"select * from tbl_subject_master where subject_id='$sub_id'");
+            $sub_deta=mysqli_fetch_array($result2)
             ?>
             <!-- /.col -->
             <div class="col-md-12">
@@ -229,7 +232,7 @@ else
           <div class="row">
               <div class="form-group col-md-3" >
                <label>Subject </label><br>
-              <input type="text" value="<?php echo $sub_de['subject']; ?>" readonly class="form-control select2" id="exam" name="sub" placeholder="Enter subject name"/>
+              <input type="text" value="<?php echo $sub_deta['subject_name']; ?>" readonly class="form-control select2" id="exam" name="sub" placeholder="Enter subject name"/>
               </div>
 
               <div class="form-group col-md-3" >
