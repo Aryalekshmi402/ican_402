@@ -230,19 +230,19 @@ else
               <form id="form1" method="POST">
               <!-- /.form-group -->
           <div class="row">
-              <div class="form-group col-md-3" >
+              <div class="form-group col-md-2" >
                <label>Subject </label><br>
-              <input type="text" value="<?php echo $sub_deta['subject_name']; ?>" readonly class="form-control select2" id="exam" name="sub" placeholder="Enter subject name"/>
+              <input type="text" required value="<?php echo $sub_deta['subject_name']; ?>" readonly class="form-control select2" id="exam" name="sub" placeholder="Enter subject name"/>
               </div>
 
-              <div class="form-group col-md-3" >
+              <div class="form-group col-md-2" >
                <label>Name of Exam</label><br>
-              <input type="text" class="form-control select2" id="exam" name="exam" placeholder="Enter name of exam"/>
+              <input type="text" class="form-control select2" required id="exam" name="exam" placeholder="Enter name of exam"/>
               </div>
               <div class="form-group col-md-3">
                <label>Syllabus</label>
-                <select class="form-control select2" name="syllabus" id="syllabus"  onChange="sel()">
-                  <option value="place" selected>Syllabus</option>
+                <select class="form-control select2" required name="syllabus" id="syllabus"  onChange="sel()">
+                  <option value="" selected>Syllabus</option>
 							
                            <?php 
                            $result=mysqli_query($con,"select * from syllabustbl");
@@ -257,8 +257,8 @@ else
               </div>
               <div class="form-group col-md-3">
                <label>Class</label>
-                <select class="form-control select2" name="class" id="class"  onChange="sel()">
-                  <option value="place" selected>Choose Class</option>
+                <select class="form-control select2" required name="class" id="class"  onChange="sel()">
+                  <option value="" selected>Choose Class</option>
 							
                            <?php 
 						   
@@ -272,6 +272,10 @@ else
                         ?>
                 </select>
                 </div>
+                <div class="form-group col-md-2" >
+               <label>Total Mark</label><br>
+                <input type="number" class="form-control select2" max="100" required id="total_mark" name="total_mark" placeholder="Enter Total Mark"/>
+              </div>
                 <br>
                 <br>
 
@@ -750,12 +754,13 @@ else
     $exam=$_POST['exam'];
     $syllabus=$_POST['syllabus'];
     $class=$_POST['class'];
+    $total_mark=$_POST['total_mark'];
     $teach_id=$l;
     $row_count= $_POST['row_count'];
       for($i=1;$i<=$row_count;$i++){
           $student_id= $_POST['student_id_'.$i];
           $mark= $_POST['mark_'.$i];
-          $p= mysqli_query($con,"insert into student_marks (exam_name,student_id,syllabus_id,class_id,teacher_id,mark,subject)values('$exam','$student_id','$syllabus',' $class','$teach_id','$mark','$sub')");
+          $p= mysqli_query($con,"insert into student_marks (exam_name,student_id,syllabus_id,class_id,teacher_id,mark,subject,total_mark)values('$exam','$student_id','$syllabus',' $class','$teach_id','$mark','$sub','$total_mark')");
       }
       ?>
       <script>

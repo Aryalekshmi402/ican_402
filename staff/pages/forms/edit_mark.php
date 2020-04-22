@@ -16,6 +16,7 @@ $result = mysqli_query($con,$query);
                 <th style="width: 20%"> Exam Name</th>
                 <th style="width: 15%"> Subject</th>
                 <th> Mark</th>
+                <th>Total Mark</th>
                 <th> Action</th>
             </tr>
         </thead>
@@ -43,6 +44,9 @@ $result = mysqli_query($con,$query);
             </td>
             <td>
                 <input required="required" min="2" type="text" value="<?php echo $row['mark']; ?>" id="mark_<?php echo $row['id']; ?>" style="width:250px;">
+            </td>
+            <td>
+                <?php echo $row['total_mark']; ?>
             </td>
             <td>
                 <button onclick='updateMark(<?php echo $row['id']; ?>)' class="btn btn-success btn-sm">Update</button>

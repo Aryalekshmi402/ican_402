@@ -28,7 +28,7 @@ $result = mysqli_query($con,$query);
                 <?php echo $row['fname'].' '.$row['gname']; ?>
             </td>
             <td>
-                <input type="text" name="<?php echo $mark; ?>" style="width:350px;">
+                <input required type="text" name="<?php echo $mark; ?>" style="width:350px;">
                 <input type="hidden" name="<?php echo $student_id; ?>"  value="<?php echo $row['signid']; ?>">
             </td>
         </tr>
