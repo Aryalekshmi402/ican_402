@@ -41,7 +41,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="pages/forms/mark.php"><i class="fa fa-circle-o"></i> Add Mark</a></li>
-                    <li><a href="edit.php"><i class="fa fa-circle-o"></i> Edit Mark</a></li>
+                    <li><a href="pages/forms/edit.php"><i class="fa fa-circle-o"></i> Edit Mark</a></li>
                 </ul>
             </li>
 
