@@ -970,9 +970,9 @@ if ($l) {
                                     ?>
                                 </select>
                             </div>
-                            <div class="row text-center" v-for="material in materials">
-                                <a download :href="'/staff/pages/forms/materials/'+material.docs" style="margin-bottom:10px">
-                                    <button class="btn btn-success">Download {{material.docname}}</button>
+                            <div class="row text-center text-capitalize" v-for="material in materials">
+                                <a download :href="'/staff/pages/forms/materials/'+material.docs">
+                                    <button style="margin-bottom:10px" class="btn btn-success">{{material.docname}}</button>
                                 </a>
                             </div>
                         </div>
