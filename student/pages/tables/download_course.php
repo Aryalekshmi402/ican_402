@@ -964,7 +964,7 @@ if ($l) {
                                         $row=mysqli_fetch_array($s);
                                         $p=$row['subject_name'];
                                         ?>
-                                        <option value="<?php echo $p; ?>"> <?php echo $p; ?></option>
+                                        <option value="<?php echo $t; ?>"> <?php echo $p; ?></option>
                                         <?php
                                     }
                                     ?>
@@ -972,7 +972,7 @@ if ($l) {
                             </div>
                             <div class="row" v-for="material in materials">
                                 <a download :href="'/staff/pages/forms/materials/'+material.docs">
-                                    <button class="btn btn-success">Download {{material.docs}}</button>
+                                    <button class="btn btn-success">Download {{material.docname}}</button>
                                 </a>
                             </div>
                         </div>

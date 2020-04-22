@@ -11,25 +11,23 @@ if ($l) {
 
     if (mysqli_num_rows($res) != 0) {
         $row = mysqli_fetch_assoc($res);
-        $t=$row['subject_id'];
-        $a="select subject_name from tbl_subject_master where subject_id=$t";
-        $s=mysqli_query($con,$a);
-        $rows=mysqli_fetch_array($s);
+        $t = $row['subject_id'];
+        $a = "select subject_name from tbl_subject_master where subject_id=$t";
+        $s = mysqli_query($con, $a);
+        $rows = mysqli_fetch_array($s);
         $fname = $row['fname'];
         $staffid = $row['staffid'];
     } else if (mysqli_num_rows($result) != 0) {
         $row = mysqli_fetch_assoc($result);
-        $t=$row['subject_id'];
-        $a="select subject_name from tbl_subject_master where subject_id=$t";
-        $s=mysqli_query($con,$a);
-        $rows=mysqli_fetch_array($s);
+        $t = $row['subject_id'];
+        $a = "select subject_name from tbl_subject_master where subject_id=$t";
+        $s = mysqli_query($con, $a);
+        $rows = mysqli_fetch_array($s);
 
         $fname = $row['name'];
         $staffid = $row['staffid'];
 
-    }
-
-    else {
+    } else {
         echo "<script>alert('error');</script>";
     }
     ?>
@@ -226,11 +224,9 @@ if ($l) {
                                 <form class="form-horizontal style-form" method="post" id="pswform" action="upload.php"
                                       enctype="multipart/form-data">
                                     <!-- /.form-group -->
-                                    <div class="form-group" style="margin-left: 4px;">
+                                    <div class="form-group" style="margin-right: 190px;margin-left: 2px;">
                                         <label>Subject</label>
-                                        <?php
-                                        echo "<input type='text'  style=\"width: 200px; height:40px;margin-left: 80px;\" value='$rows[subject_name]'/>";
-                                        ?>
+                                       <input type='text' readonly  style="width: 100%; margin-top:-20px;margin-left: 130px;" class='form-control' value="<?php echo $rows[subject_name];?>"/>
                                     </div>
 
 
@@ -304,22 +300,6 @@ if ($l) {
                                         <div class="col-sm-10">
                                             <input type="hidden" class="form-control" name="st" id="st" placeholder=""
                                                    value="<?php echo $staffid; ?>"/>
-                                        </div>
-                                    </div>
-                                    <?php
-
-                                    $re = mysqli_query($con, "select * from studentsub ");
-                                    while ($row = mysqli_fetch_array($re)) {
-                                        $sub = $row['subject_id'];
-                                        ?>
-                                        <?php
-
-                                    }
-                                    ?>
-                                    <div class="form-group">
-                                        <div class="col-sm-10">
-                                            <input type="hidden" class="form-control" name="s" id="s" placeholder=""
-                                                   value="<?php echo $sub; ?>"/>
                                         </div>
                                     </div>
 
@@ -785,14 +765,19 @@ if ($l) {
     if (isset($_POST['submit'])) {
 
         $countfiles = count($_FILES['file']['name']);
-        $bc = $_POST['syllabus'];
-        $de = $_POST['class'];
+        $syllabus = $_POST['syllabus'];
+        $class = $_POST['class'];
         $docname = $_POST['docname'];
-        $lin = $_POST['lid'];
-        $li = $_POST['st'];
+        $loginid = $_POST['lid'];
+        $staffid = $_POST['st'];
         $sub = $_POST['s'];
-        echo  $sub;
-       // echo mysqli_error($con);
+        $sub_q = "select * from tlb_staff where staffid=$staffid";
+        echo $sub_q;
+        $sub_r = mysqli_query($con, $sub_q);
+        $sub_r = mysqli_fetch_array($sub_r);
+        $sub = $sub_r['subject_id'];
+        echo $sub;
+        // echo mysqli_error($con);
         // echo "<script>alert($countfiles);</script>";
 
         for ($i = 0; $i < $countfiles; $i++) {
@@ -804,7 +789,7 @@ if ($l) {
                 } else {
                     move_uploaded_file($_FILES['file']['tmp_name'][$i], 'materials/' . $filename);
 
-                    $p = mysqli_query($con, "insert into tlb_material (syid,classid,loginid,staffid,subject_id,docname,docs)values('$bc','$de',' $lin',' $li','$sub','$docname[$i]','$filename')");
+                    $p = mysqli_query($con, "insert into tlb_material (syid,classid,loginid,staffid,subject_id,docname,docs)values('$syllabus','$class',' $loginid',' $staffid','$sub','$docname[$i]','$filename')");
                     echo mysqli_error($con);
                     if ($p) {
                         $swlt = 1;
