@@ -4,6 +4,8 @@ $con=mysqli_connect("localhost","root","","ican");
 $syll_id=$_POST["syl"];
 $cls_id=$_POST["cls"];
 $exam=$_POST["exam"];
+$total_mark=$_POST["total_mark"];
+
 $query="SELECT * from  studtbl  WHERE syllabus_id='$syll_id' and course='$cls_id' ";
 $result = mysqli_query($con,$query);
 
@@ -28,7 +30,7 @@ $result = mysqli_query($con,$query);
                 <?php echo $row['fname'].' '.$row['gname']; ?>
             </td>
             <td>
-                <input required type="text" name="<?php echo $mark; ?>" style="width:350px;">
+                <input type="number" max="<?php echo $total_mark; ?>" required  name="<?php echo $mark; ?>" style="width:350px;">
                 <input type="hidden" name="<?php echo $student_id; ?>"  value="<?php echo $row['signid']; ?>">
             </td>
         </tr>

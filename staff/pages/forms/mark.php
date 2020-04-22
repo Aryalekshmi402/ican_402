@@ -82,16 +82,23 @@ else
         cls = $('#class option:selected').attr('value');
       var ex;
         ex = $('#exam').val();
+        var total_mark=$('#total_mark').val();
+        if(total_mark==0){
+            alert('Please enter the total mark..!');
+            $('#btnmark').hide();
+        }else{
       //alert(ex);
-      $.ajax({
-        url: "load.php",
-        type: "POST",
-        data: { syl:a, cls:cls, exam:ex },
-        success: function(data){
-           $("#result").html(data);
+          $.ajax({
+            url: "load.php",
+            type: "POST",
+            data: { syl:a, cls:cls, exam:ex ,total_mark:total_mark},
+            success: function(data){
+              $("#result").html(data);
+              $('#btnmark').show();
+            }
+          });
         }
-      });
-      document.getElementById("btnmark").style.display='block';
+          // document.getElementById("btnmark").style.display='block';
     }
 
     </script>
@@ -239,6 +246,10 @@ else
                <label>Name of Exam</label><br>
               <input type="text" class="form-control select2" required id="exam" name="exam" placeholder="Enter name of exam"/>
               </div>
+              <div class="form-group col-md-2" >
+               <label>Total Mark</label><br>
+                <input type="number" class="form-control select2" value="0" max="100" required id="total_mark" name="total_mark" placeholder="Enter Total Mark" onChange="sel()"/>
+              </div>
               <div class="form-group col-md-3">
                <label>Syllabus</label>
                 <select class="form-control select2" required name="syllabus" id="syllabus"  onChange="sel()">
@@ -272,10 +283,6 @@ else
                         ?>
                 </select>
                 </div>
-                <div class="form-group col-md-2" >
-               <label>Total Mark</label><br>
-                <input type="number" class="form-control select2" max="100" required id="total_mark" name="total_mark" placeholder="Enter Total Mark"/>
-              </div>
                 <br>
                 <br>
 
@@ -288,8 +295,8 @@ else
                 </div>
 
                 <center>
-        <div class="form-group" id="btnmark" name="btnmark" style="margin-left:120px; display:none; ">
-                    <button type="submit" class="btn btn-success" name="submit">ADD MARKS</button>
+        <div class="form-group"  name="btnmark" style="margin-left:120px; ">
+                    <button id="btnmark" type="submit" class="btn btn-success" name="submit">ADD MARKS</button>
                 </div>
         </center>
               </form>
