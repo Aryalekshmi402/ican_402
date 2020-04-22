@@ -403,7 +403,6 @@ if($l)
 
                 <!-- Default box -->
                 <div class="box">
-                    <form action="" @submit.prevent="save">
                         <br>
                         <div class="box-body">
                             <div class="row">
@@ -416,8 +415,7 @@ if($l)
                                                 <button class="btn btn-primary btn-xs" style="margin-left:750px; margin-top:-80px;" onclick="onBtnClick('1')"><i class="fa fa-pencil"></i></button>
                                                 <form class="form-horizontal style-form" id="myform" method="post" action="prof.php" enctype="multipart/form-data">
 
-
-                                                    <div class="form-group">
+                                                    <div class="form-group" style="margin-right: 290px;">
                                                         <label class="col-sm-2 col-sm-2 control-label">Name</label>
                                                         <label class="col-sm-3 col-sm-3 control-label"><?php echo $n; ?></label>
                                                         <label class="col-sm-1 col-sm-1 control-label"></label>
@@ -428,7 +426,7 @@ if($l)
                                                     <br>
                                                     <br>
 
-                                                    <div class="form-group">
+                                                    <div class="form-group" style="margin-right: 290px;">
                                                         <label class="col-sm-2 col-sm-2 control-label">Gender</label>
                                                         <label class="col-sm-3 col-sm-3 control-label"><?php echo $gen; ?></label>
                                                         <label class="col-sm-1 col-sm-1 control-label"></label>
@@ -438,7 +436,7 @@ if($l)
                                                     <br>
                                                     <br>
 
-                                                    <div class="form-group">
+                                                    <div class="form-group" style="margin-right: 290px;">
                                                         <label class="col-sm-2 col-sm-2 control-label">State</label>
                                                         <label class="col-sm-3 col-sm-3 control-label"><?php echo $state; ?></label>
                                                         <label class="col-sm-1 col-sm-1 control-label"></label>
@@ -448,7 +446,7 @@ if($l)
                                                     <br>
                                                     <br>
 
-                                                    <div class="form-group">
+                                                    <div class="form-group" style="margin-right: 290px;">
                                                         <label class="col-sm-2 col-sm-2 control-label">City</label>
                                                         <label class="col-sm-3 col-sm-3 control-label"><?php echo $city; ?></label>
                                                         <label class="col-sm-1 col-sm-1 control-label"></label>
@@ -502,58 +500,7 @@ if($l)
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        <script>
-            new Vue({
-                el: '#attendence',
-                data: {
-                    sessions: [],
-                    form: {
-                        date: '',
-                    },
-                    reports: [],
-                    sorted_report: {},
-                },
-                methods: {
-                    daily_duration(items) {
-                        let duration = 0;
-                        items.forEach(item => {
-                            duration += item.duration;
-                        })
-                        return duration;
-                    },
-                    get_attendance_report() {
-                        axios.get('/staff/attendance_process.php', {
-                            params: {
-                                type: 'INDIVIDUAL_REPORT',
-                            }
-                        })
-                            .then(({data}) => {
-                                this.reports = data.reports;
-                            })
-                            .catch(function (error) {
-                                console.log(error);
-                            })
-                    }
 
-                },
-
-                watch: {
-                    reports() {
-                        this.sorted_report= {};
-                        this.reports.forEach(report => {
-                            if (this.sorted_report[report.date] === undefined) {
-                                this.sorted_report[report.date] = {}
-                            }
-                            if (this.sorted_report[report.date][report.session_number] === undefined) {
-                                this.sorted_report[report.date][report.session_number] = [];
-                            }
-                            this.sorted_report[report.date][report.session_number].push(report);
-                        })
-
-                    }
-                }
-            })
-        </script>
         <style>
             .box {
                 border: 2px solid #ccc;
@@ -649,7 +596,7 @@ if($l)
 
         $phn=$_POST['phone'];
         $lin=$_POST['lid'];
-           //echo $lin;
+           echo $lin;
         $sqll="UPDATE studtbl SET mob='$phn' where loginid='$lin' ";
         $quer=mysqli_query($con,$sqll);
         echo mysqli_error($con);
