@@ -226,7 +226,7 @@ if ($l) {
                                     <!-- /.form-group -->
                                     <div class="form-group" style="margin-right: 190px;margin-left: 2px;">
                                         <label>Subject</label>
-                                       <input type='text' readonly  style="width: 100%; margin-top:-20px;margin-left: 130px;" class='form-control' value="<?php echo $rows[subject_name];?>"/>
+                                       <input type='text' readonly  style="width: 100%; margin-top:-20px;margin-left: 130px;" class='form-control' value="<?php echo $rows['subject_name'];?>"/>
                                     </div>
 
 
