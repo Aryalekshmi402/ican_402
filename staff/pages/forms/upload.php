@@ -770,13 +770,13 @@ if ($l) {
         $docname = $_POST['docname'];
         $loginid = $_POST['lid'];
         $staffid = $_POST['st'];
-        $sub = $_POST['s'];
+       // $sub = $_POST['s'];
         $sub_q = "select * from tlb_staff where staffid=$staffid";
-        echo $sub_q;
+        //echo $sub_q;
         $sub_r = mysqli_query($con, $sub_q);
         $sub_r = mysqli_fetch_array($sub_r);
         $sub = $sub_r['subject_id'];
-        echo $sub;
+       // echo $sub;
         // echo mysqli_error($con);
         // echo "<script>alert($countfiles);</script>";
 

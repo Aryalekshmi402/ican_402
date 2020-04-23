@@ -92,6 +92,13 @@ if ($l) {
         <!-- Google Font -->
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+        <style>
+            .error{
+                color:#e36969;
+            }
+        </style>
+
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -191,7 +198,7 @@ if ($l) {
                             </div>
                             <!-- /.col -->
                             <div class="col-md-6" style="margin-right:200px;margin-left:220px; ">
-                                <form action="leave.php" method="POST" style="color:blue;">
+                                <form action="leave.php" method="POST" style="color:blue;" name="fm" id="fm">
 
                                     <!-- /.form-group -->
 
@@ -206,8 +213,8 @@ if ($l) {
                                     <div class="form-group" style="margin-left:100px; width:220px;">
                                         <br>
                                         <br><br>
-                                        <label for="inline3pwd" class="block form-control-label">Session</label>
-                                        <select class="form-control" id="exampleSelect1" name="sess"
+                                        <label for="inline3pwd" class="block form-control-label" id="sess">Session</label>
+                                        <select class="form-control" id="exampleSelect1"  id="sess"
                                                 style="margin-left:100px; margin-top:-30px;" required>
                                             <option value="choose">choose</option>
                                             <option value="AN">AN</option>
@@ -623,6 +630,10 @@ if ($l) {
     <!-- Bootstrap 3.3.7 -->
     <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Select2 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="leave.js"></script>
     <script src="../../bower_components/select2/dist/js/select2.full.min.js"></script>
     <!-- InputMask -->
     <script src="../../plugins/input-mask/jquery.inputmask.js"></script>

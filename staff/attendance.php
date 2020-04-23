@@ -53,7 +53,7 @@ include('header.php');
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="session">Session Number</label>
+                                    <label for="session">Period</label>
                                     <select v-model="form.session_number" name="" class="form-control" id="session">
                                         <option v-for="session in 5" :value="session">{{session}}</option>
                                     </select>

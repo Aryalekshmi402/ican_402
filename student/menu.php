@@ -152,4 +152,12 @@
             </span>
                 </a>
             </li>
+            <li>
+                <a href="/student/pages/tables/view_mark.php">
+                    <i class="fa fa-edit"></i> <span>Mark Details</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+            </li>
 </aside>

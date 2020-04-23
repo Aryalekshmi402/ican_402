@@ -179,19 +179,20 @@ if ($l) {
                 <br>
 
                 <!-- ./col -->
-                <div class="col-lg-4 col-xs-6" style="margin-left: 120px;">
+                <div class="col-lg-3 col-xs-6" style="margin-left: 120px;">
                     <?php
                     $stu = mysqli_query($con, "select * from studtbl");
                     $stuc = mysqli_num_rows($stu);
 
                     ?>
                     <!-- small box -->
-                    <div class="small-box bg-yellow">
+                    <div class="small-box bg-yellow" style="margin-left:-80px;">
                         <div class="inner">
                             <h3><?php echo $stuc; ?></h3>
 
                             <p>Students</p>
                         </div>
+
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
@@ -212,15 +213,95 @@ if ($l) {
 
                             <p>Staff</p>
                         </div>
+
+
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
                         <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
+
+                <div class="col-lg-4 col-xs-6" style="margin-left: 780px;margin-top:-147px;">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>0.0<sup style="font-size: 20px">%</sup></h3>
+
+                            <p>Dues</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+                        <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-header">
+                <p style="margin-left: 40px;"><b>iCan staff</b></p>
+                <div style="margin-left: 40px; width:auto;height:auto;margin-top:10px; class="box-body">
+                    <table>
+                        <table  class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Designation</th>
+                                <th>Subject</th>
+                                <th>Phone number</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            $r=mysqli_query($con,"select * from logintbl where usertype='ostaff' and status='1'");
+                            $no=1;
+                            while($rr=mysqli_fetch_array($r)){
+
+
+                                $li=$rr['loginid'];
+                                $se=" select * from `tlb_staff` WHERE loginid='$li'";
+                                $re=mysqli_query($con,$se);
+                                $row=mysqli_fetch_assoc($re);
+                                $t=$row['subject_id'];
+                                $a="select subject_name from tbl_subject_master where subject_id=$t";
+                                $s=mysqli_query($con,$a);
+                                $rows=mysqli_fetch_array($s);
+                                //$p=$rows['subject_name'];
+                                ?>
+                                <tr>
+                                    <td style="font-size: 15px;">
+                                        <?php
+                                        echo $row['name'];
+                                        ?>
+                                    </td>
+                                    <td style="font-size: 15px;">
+                                        <?php
+                                        echo $row['designation'];
+                                        ?>
+                                    <td style="font-size: 15px;">
+                                        <?php
+                                        echo $rows['subject_name'];
+                                        ?>
+                                    </td>
+                                    <td style="font-size: 15px;">
+                                        <?php
+                                        echo $row['phone'];
+                                        ?>
+                                    </td>
+
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                            </tbody>
+
+
+                        </table>
+                </div>
+        </div>
                 <div>
                     <div class="scroll"
-                         style="margin-top:200px; margin-left: 580px;background-color: #0b97c4;width:500px;overflow:scroll;">
+                         style="margin-top:20px; margin-left: 580px;background-color: #0b97c4;width:500px;overflow:scroll;">
                         <table>
                             <thead>
                             <th>

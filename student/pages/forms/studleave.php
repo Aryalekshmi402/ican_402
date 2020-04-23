@@ -97,6 +97,13 @@ else
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <style>
+        .error{
+            color:#e36969;
+        }
+    </style>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -345,7 +352,7 @@ else
             </div>
             <!-- /.col -->
             <div class="col-md-6" style="margin-right:200px;margin-left:220px; ">
-              <form action="studleave.php" method="POST" style="color:blue;">
+              <form action="studleave.php" method="POST" style="color:blue;" id="fm" name="fm">
 
               <!-- /.form-group -->
 
@@ -359,8 +366,8 @@ else
               <div class="form-group" style="margin-left:100px; width:220px;">
               <br>
               <br><br>
-              <label for="inline3pwd" class="block form-control-label">Session</label>
-                 <select class="form-control" id="exampleSelect1" name="sess" style="margin-left:100px; margin-top:-30px;" required>
+              <label for="inline3pwd" class="block form-control-label" required>Session</label>
+                 <select class="form-control" id="exampleSelect1" name="sess" id="sess" style="margin-left:100px; margin-top:-30px;" required>
                  <option value="choose">choose</option>
                  <option value="AN">AN</option>
                  <option value="FN">FN</option>
@@ -781,6 +788,10 @@ else
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="leave.js"></script>
 <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

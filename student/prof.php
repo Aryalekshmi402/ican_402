@@ -413,7 +413,7 @@ if($l)
                                             <div class="form-panel con">
                                                 <h4 class="mb"><i class="fa fa-angle-right"></i> PROFILE </h4>
                                                 <button class="btn btn-primary btn-xs" style="margin-left:750px; margin-top:-80px;" onclick="onBtnClick('1')"><i class="fa fa-pencil"></i></button>
-                                                <form class="form-horizontal style-form" id="myform" method="post" action="prof.php" enctype="multipart/form-data">
+                                                <form class="form-horizontal style-form" id="myform" method="post" action="prof.php" enctype="multipart/form-data" >
 
                                                     <div class="form-group" style="margin-right: 290px;">
                                                         <label class="col-sm-2 col-sm-2 control-label">Name</label>
@@ -428,9 +428,9 @@ if($l)
 
                                                     <div class="form-group" style="margin-right: 290px;">
                                                         <label class="col-sm-2 col-sm-2 control-label">Gender</label>
-                                                        <label class="col-sm-3 col-sm-3 control-label"><?php echo $gen; ?></label>
+                                                        <div style="margin-left:40px;"> <label class="col-sm-3 col-sm-3 control-label"><?php echo $gen; ?></label></div>
                                                         <label class="col-sm-1 col-sm-1 control-label"></label>
-                                                        <label class="col-sm-2 col-sm-2 control-label">DOB</label>
+                                                        <div style="margin-left:90px;"> <label class="col-sm-2 col-sm-2 control-label">DOB</label></div>
                                                         <label class="col-sm-3 col-sm-3 control-label"><?php echo $dob; ?></label>
                                                     </div>
                                                     <br>
@@ -440,8 +440,8 @@ if($l)
                                                         <label class="col-sm-2 col-sm-2 control-label">State</label>
                                                         <label class="col-sm-3 col-sm-3 control-label"><?php echo $state; ?></label>
                                                         <label class="col-sm-1 col-sm-1 control-label"></label>
-                                                        <label class="col-sm-2 col-sm-2 control-label">District</label>
-                                                        <label class="col-sm-3 col-sm-3 control-label"><?php echo $dist; ?></label>
+                                                        <div style="margin-left:140px;"> <label class="col-sm-2 col-sm-2 control-label">District</label></div>
+                                                        <div style="margin-left:100px;">  <label class="col-sm-3 col-sm-3 control-label"><?php echo $dist; ?></label></div>
                                                     </div>
                                                     <br>
                                                     <br>
@@ -451,7 +451,7 @@ if($l)
                                                         <label class="col-sm-3 col-sm-3 control-label"><?php echo $city; ?></label>
                                                         <label class="col-sm-1 col-sm-1 control-label"></label>
                                                         <label class="col-sm-2 col-sm-2 control-label">Pincode</label>
-                                                        <label class="col-sm-3 col-sm-3 control-label"><?php echo $pin; ?></label>
+                                                        <div style="margin-left:140px;"> <label class="col-sm-3 col-sm-3 control-label"><?php echo $pin; ?></label></div>
                                                     </div>
                                                     <br>
                                                     <br>
