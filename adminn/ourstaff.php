@@ -539,7 +539,11 @@ if($login)
 							$se=" select * from `tlb_staff` WHERE loginid='$li'";
 							$re=mysqli_query($con,$se);
 // echo "<script> alert('$re')
-							$row=mysqli_fetch_assoc($re);
+                                $row=mysqli_fetch_assoc($re);
+                                $t = $row['subject_id'];
+                                $a = "select subject_name from tbl_subject_master where subject_id=$t";
+                                $s = mysqli_query($con, $a);
+                                $rows = mysqli_fetch_array($s);
 								/*
 									$state=$row['state'];
 									$dist=$row['district'];
@@ -572,7 +576,7 @@ if($login)
   </td>
 <td style="font-size: 15px;">
 <?php
-echo $row['subject'];
+echo $rows['subject_name'];
 ?>
 </td>
 <td style="font-size: 15px;">
