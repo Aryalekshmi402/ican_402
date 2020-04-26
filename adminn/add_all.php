@@ -1,6 +1,5 @@
 <?php include('../config.php');?>
 <?php
-session_start();
 $login=$_SESSION['login'];
 $type=$_SESSION['type'];
 if($login)

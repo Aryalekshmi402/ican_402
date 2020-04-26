@@ -1,5 +1,5 @@
+<?php include('../config.php');?>
 <?php
-session_start();
 $login=$_SESSION['login'];
 $type=$_SESSION['type'];
 if($login)
@@ -9,7 +9,6 @@ if($login)
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include('../config.php');?>
 
 
 <?php

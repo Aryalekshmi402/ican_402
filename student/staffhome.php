@@ -1,5 +1,4 @@
 <?php
-session_start(); 
 include('config.php');
 
 $l=$_SESSION['loginid'];

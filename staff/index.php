@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('../config.php');
 $l=$_SESSION['loginid'];
 $qu=mysqli_query($con,"Select * from stafftbl where loginid='$l' ");

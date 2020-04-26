@@ -1,5 +1,5 @@
+<?php include('../config.php');?>
 <?php
-session_start();
 $login=$_SESSION['login'];
 $type=$_SESSION['type'];
 if($login)
@@ -12,7 +12,6 @@ if($login)
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include('../config.php');?>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -482,7 +481,7 @@ echo $row['city'];
 ?>
 </td>
 
-<td style="font-size: 15px;"> <a href="/ican/register/studproof/<?php echo $f; ?>" target="_blank">view proof</a>  </td>
+<td style="font-size: 15px;"> <a href="/register/studproof/<?php echo $f; ?>" target="_blank">view proof</a>  </td>
 
  
 </tr>

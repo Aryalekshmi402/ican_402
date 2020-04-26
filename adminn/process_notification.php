@@ -1,6 +1,5 @@
+<?php include('../config.php');?>
 <?php
-session_start();
-include('../config.php');
 //TODO check for existing attendance in same date and same session and session number
 $message = $_POST['message'];
 $audience = $_POST['audience'];

@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('../../../config.php');
 $loginid = $_SESSION['loginid'];
 $subid=$_GET['sub_id'];

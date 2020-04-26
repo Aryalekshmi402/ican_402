@@ -1,6 +1,5 @@
+<?php include('../config.php'); ?>
 <?php
-session_start();
-include('../config.php');
 if(isset($_SESSION['login']))
 {
 $l = $_SESSION['login'];

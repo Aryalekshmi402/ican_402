@@ -1,5 +1,5 @@
+<?php include('../config.php'); ?>
 <?php
- include('../config.php');
 $student_id=$_GET['id'];
 $amount=$_GET['amount'];
 $year=date('Y');

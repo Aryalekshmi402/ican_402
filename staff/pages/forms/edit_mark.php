@@ -1,6 +1,5 @@
 <?php
-session_start();
-$con=mysqli_connect("localhost","root","","ican");
+include('../../../config.php');
 $syll_id=$_POST["syl"];
 $cls_id=$_POST["cls"];
 $staff_id=$_SESSION['loginid'];
