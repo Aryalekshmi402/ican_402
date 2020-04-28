@@ -1,6 +1,6 @@
 import { createDuration } from '../duration/create';
 import { createLocal } from '../create/local';
-import { isMoment } from '../moment/constructor';
+import { isMoment } from './constructor';
 
 export function from (time, withoutSuffix) {
     if (this.isValid() &&

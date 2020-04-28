@@ -1,4 +1,3 @@
-
 <?php include('../config.php');;
 
 $b=$_POST['id'];

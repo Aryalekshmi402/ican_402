@@ -1,7 +1,5 @@
 <?php include('../config.php');?>
-
 <?php
-
 $date_string=implode(',',$_POST['dates']);
 $b=$_POST['id'];
  

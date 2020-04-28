@@ -470,7 +470,7 @@ if($login)
                 </div><br><br>
                 <div class="form-group">
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Subject :<label class="sr-only" for="exampleInputEmail2">subject</label>
-                    <select class="form-control select2" name="sub" id="sub stud"
+                    <select class="form-control select2" name="sub" id="substud"
                             style="width:200px;"">
                         <option value="place" selected>Subject</option>
 
@@ -693,8 +693,8 @@ if($login)
                   if(swlt==1)
                   {
                     swal({  type: 'success',
-                            title: 'staff Added'
-                            },
+                            title: 'staff Added',
+                            text:'password in yyyy-mm-dd format' },
                             function()
                             {
                               window.location="form_component.php";

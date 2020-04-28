@@ -10,6 +10,7 @@ if ($login) {
     <html lang="en">
 
     <head>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
@@ -35,6 +36,11 @@ if ($login) {
           Author: TemplateMag.com
           License: https://templatemag.com/license/
         ======================================================= -->
+        <style>
+            .error{
+                color:#e36969;
+            }
+        </style>
     </head>
 
     <body>
@@ -270,7 +276,7 @@ if ($login) {
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <h4 class="title">sent office alert message to staff</h4>
                         <div id="message"></div>
-                        <form class="contact-form php-mail-form" role="form" action="index.php" method="POST">
+                        <form class="contact-form php-mail-form" role="form" name="mineform" id="mineform" action="index.php" method="POST">
 
                             <div class="form-group">
                                 <input type="text" name="subject" class="form-control" id="contact-subject"
@@ -509,6 +515,11 @@ if ($login) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/abc.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="office.js"></script>
 
     <script type='text/Javascript'>
         function swtalert(swlt) {

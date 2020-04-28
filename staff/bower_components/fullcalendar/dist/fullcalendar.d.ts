@@ -2639,7 +2639,7 @@ declare module 'fullcalendar/src/main' {
 }
 declare module 'fullcalendar/plugins/gcal/GcalEventSource' {
 	/// <reference types="jquery" />
-	import { EventSource } from 'fullcalendar';
+	import { EventSource } from 'staff/bower_components/fullcalendar/dist/fullcalendar';
 	export class Default extends EventSource {
 	    static API_BASE: string;
 	    googleCalendarApiKey: any;
