@@ -307,7 +307,7 @@ if ($l) {
                     <!-- Small boxes (Stat box) -->
                     <div class="row">
                         <?php
-                        $stu = mysqli_query($con, "select DISTINCT loginid FROM studentsub where subject_id in (SELECT subject_id from studentsub WHERE loginid = $l)");
+                        $stu = mysqli_query($con, "select DISTINCT studentsub.loginid FROM studentsub,studtbl where studentsub.loginid = studtbl.loginid and  studentsub.subject_id in (SELECT subject_id from studentsub WHERE loginid = $l) and studtbl.course =(SELECT course FROM studtbl WHERE loginid = $l)");
                         $stuc = mysqli_num_rows($stu);
 
                         ?>
