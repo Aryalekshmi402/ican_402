@@ -330,7 +330,7 @@ if ($l) {
                             </div>
                         </div>
                         <?php
-                        $stu = mysqli_query($con, "select * from tlb_staff WHERE subject_id in (SELECT subject_id FROM studentsub WHERE loginid=$l)");
+                        $stu = mysqli_query($con, "select DISTINCT loginid from tlb_staff WHERE subject_id in (SELECT subject_id FROM studentsub WHERE loginid=$l)");
                         $stuc = mysqli_num_rows($stu);
 
                         $due = mysqli_query($con, "SELECT sum(amount) FROM `student_dues` WHERE `payment_date` is NULL and `student_id`=$l");
