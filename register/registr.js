@@ -9,7 +9,7 @@ jQuery.validator.addMethod("customEmail", function(value, element) {
 
 jQuery.validator.addMethod("CheckDOB", function (value, element) {
        var  minDate = Date.parse("01/01/1950");
-        var today=new Date();
+        var today= Date.parse("01/01/2015");
         var DOB = Date.parse(value);
         if((DOB <= today && DOB >= minDate)) {
             return true;
