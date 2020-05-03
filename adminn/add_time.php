@@ -457,7 +457,7 @@ if($login)
                 <!-- INLINE FORM ELELEMNTS -->
                 <div class="row mt">
                     <div class="col-lg-12">
-                        <div class="form-panel">
+                        <div class="form-panel" style="height: 400px;">
                             <h4 class="mb"><i class="fa fa-angle-right"></i><b> Add TimeTable</b></h4>
                             <?php if(isset($_SESSION['message'])){
                                 ?>
@@ -467,7 +467,7 @@ if($login)
                                 <?php
                                 unset($_SESSION['message']);
                             }?>
-                            <form class="form-inline" role="form" action="process_notification.php" method="post" name="form1" id="form1" align="center">
+                            <form class="form-inline" role="form" action="#" method="post" name="form1" id="form1" align="center">
 
                                 <div class="form-group" style="margin-left:-25px;">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Syllabus
@@ -531,7 +531,8 @@ if($login)
                                         <td><input type="text"></td>
                                         <td><input type="text"></td>
                                         <td><input type="text"></td>
-                                        <td> <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button></td>
+                                        <td> <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                                        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
 
                                     </tr>
 
