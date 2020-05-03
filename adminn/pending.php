@@ -18,7 +18,7 @@ if($login)
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+  <title>ican</title>
 
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
@@ -54,7 +54,7 @@ if($login)
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>i<span>Can</span></b></a>
+      <a href="#" class="logo"><b>i<span>Can</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -377,9 +377,9 @@ if($login)
         <div class="row mb">
           <!-- page start-->
 
-          <div class="content-panel">
-            <div class="adv-table">
-              <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+          <div class="content-panel" style="width:1300px;">
+            <div class="adv-table" >
+              <table cellpadding="0" cellspacing="0" border="0" style="margin-left: 10px; width: auto;" class="display table table-bordered" id="hidden-table-info">
                 <thead>
                   <tr>
                   <th>#</th>

@@ -21,7 +21,12 @@ jQuery.validator.addMethod("accept", function(value, element, param) {
 });
 
 
-
+jQuery.validator.addMethod("phonenum", function(value, element) {
+    return this.optional( element ) || /^([7-9_\.\-])+(([0-9]))+$/.test( value );
+}, "Please enter valid phone number!");
+$.validator.addMethod("alphabetsnspace", function(value, element) {
+    return this.optional(element) || /^[a-zA-Z ]*$/.test(value);
+});
 
 jQuery.validator.addMethod("passstrength", function(value, element) {
     return this.optional(element) || /([0-9])/ && /([a-zA-Z])/ && /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/.test(value);});
@@ -58,6 +63,7 @@ if($registrationForm.length){
               required:true,
               number:true,
               maxlength:10,
+              phonenum: true,
               minlength:10
           },
           pwd: {
@@ -163,6 +169,7 @@ if($registrationForm.length){
               required:'mobile number required!',
               number:'invalid format!',
               minlength:'invalid!',
+              phonenum: 'The number must start with 7/8/9',
               maxlength:'invalid!'
           },
             doj:{

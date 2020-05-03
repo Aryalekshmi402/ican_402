@@ -594,7 +594,7 @@
             <img src="girl.jpg">
               
               </div>
-            <form action="addsub.php" method="post">   
+            <form action="addsub.php?lid=<?php echo $_GET['lid'];?>" method="post">
             <div class="col-md-6" style="margin-left:500px; margin-top:-350px;">
               <div class="form-group"><br><br><br><br>
                 <label>Syllabus</label>

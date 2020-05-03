@@ -261,9 +261,7 @@ if($l)
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+
         </ul>
       </div>
     </nav>
@@ -730,12 +728,12 @@ if($l)
           </div>
           <!-- /.box -->
 
-          <div class="box">
+          <div class="box" >
             <div class="box-header">
               <!--<h3 class="box-title">Leave Status</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body" >
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -846,7 +844,6 @@ if($l)
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
       <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">

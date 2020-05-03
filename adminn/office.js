@@ -42,10 +42,9 @@ if($registrationForm.length){
             message: {
                 required: true,
                 noSpace: true,
-                alphanumeric:true,
+                alphabetsnspace: true,
                 minlength:2,
                 maxlength:30
-
 
             },
         },

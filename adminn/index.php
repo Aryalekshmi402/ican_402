@@ -270,6 +270,52 @@ if ($login) {
         <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
+
+                <div class="col-lg-3 col-xs-6" style="margin-left: 120px;">
+                    <?php
+                    $stu = mysqli_query($con, "select * from studtbl");
+                    $stuc = mysqli_num_rows($stu);
+
+                    ?>
+                    <!-- small box -->
+                    <div class="small-box bg-yellow" style="margin-left:-80px;">
+                        <div class="inner" style="background-color: #9ad717;height: 120px;">
+                            <h3  style="margin-left: 150px;"><br><?php echo $stuc; ?></h3>
+
+                            <p style="margin-left: 130px;">Students</p>
+                            <div class="icon" >
+                                <i class="ion ion-person-add"></i>
+                            </div>
+                            <a href="#" class="small-box-footer" style="margin-left: 150px;"><i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                        </div>
+
+
+                </div>
+
+                <div class="col-lg-3 col-xs-6" style="margin-left: 120px;">
+                    <?php
+                    $stu = mysqli_query($con, "select * from tlb_staff");
+                    $stuc = mysqli_num_rows($stu);
+
+                    ?>
+                    <!-- small box -->
+                    <div class="small-box bg-yellow" style="margin-left:-80px;">
+                        <div class="inner" style="background-color: #9ad717;height: 120px;">
+                            <h3  style="margin-left: 150px;"><br><b></b><?php echo $stuc; ?></b></h3>
+
+                            <p style="margin-left: 140px;">Staff</p>
+                            <div class="icon" >
+                                <i class="ion ion-person-add"></i>
+                            </div>
+                            <a href="#" class="small-box-footer" style="margin-left: 150px;"><i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+
+
+                </div>
+                <br>
+                <br><br> <br><br> <br><br> <br><br> <br><br> <br><br>
                 <h3><i class="fa fa-angle-right"></i>Office Alert</h3>
                 <!-- BASIC FORM ELELEMNTS -->
                 <div class="row mt">
@@ -303,6 +349,11 @@ if ($login) {
 
                         </form>
                     </div>
+                </div>
+                <div style="background-color: #0a568c; margin-left: 840px;margin-top:-557px; width: 270px; height: 100px;">
+                    <form action="upload_file.php" method="get" target="_blank">
+                        <button type="submit" style=" width: 270px; height: 120px;background-color:#09F;"><font color="black" size="4"> Upload Gallary Images</font></button>
+                    </form>
                 </div>
             </section>
             <!--<div class="table-inbox-wrap ">
@@ -504,6 +555,10 @@ if ($login) {
         <!--footer end-->
     </section>
     <!-- js placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="office.js"></script>
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
@@ -515,11 +570,6 @@ if ($login) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/abc.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="office.js"></script>
 
     <script type='text/Javascript'>
         function swtalert(swlt) {

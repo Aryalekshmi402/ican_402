@@ -55,7 +55,7 @@ if ($login) {
                         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
                     </div>
                     <!--logo start-->
-                    <a href="index.html" class="logo"><b>i<span>Can</span></b></a>
+                    <a href="#" class="logo"><b>i<span>Can</span></b></a>
                     <!--logo end-->
                     <div class="nav notify-row" id="top_menu">
                         <!--  notification start -->
@@ -272,11 +272,11 @@ if ($login) {
                 <section id="main-content">
                     <section class="wrapper">
                         <h3><i class="fa fa-angle-right"></i>Student Fees</h3>
-                        <div class="row">
-                            <div class="col-md-12">
+                        <div class="row" style="height: 500px;">
+                            <div class="col-md-12" >
                                 <div class="content-panel">
                                     <!-- row -->
-                                    <div class="row">
+                                    <div class="row" style="height: 500px;">
                                         <div class="col-md-12">
                                             <div class="col-md-6">
                                             <form action="" method="POST">

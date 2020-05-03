@@ -2,7 +2,7 @@
     <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-            <p class="centered"><a href="profile.html"><img src="img/adm.png" class="img-circle" width="80"></a>
+            <p class="centered"><a href="#"><img src="img/adm.png" class="img-circle" width="80"></a>
             </p>
             <h5 class="centered"><?php echo "Welcome $type"; ?></h5>
             <li class="mt">
@@ -127,13 +127,6 @@
                 </ul>
             </li>
             <li>
-                <a class="active" href="inbox.html">
-                    <i class="fa fa-envelope"></i>
-                    <span>Mail </span>
-                    <span class="label label-theme pull-right mail-info">3</span>
-                </a>
-            </li>
-            <li>
                 <a  href="student_fees.php">
                     <i class="fa fa-envelope"></i>
                     <span>Student Fees </span>
@@ -166,6 +159,8 @@
                             </li>
                         </ul>
                     </li>
+
+
 
 
 
