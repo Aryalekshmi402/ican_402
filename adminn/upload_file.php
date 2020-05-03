@@ -14,15 +14,14 @@ if($login)
         <link href="form_style.css" type="text/css" rel="stylesheet"/>
         <script type="text/javascript" src="jquery.js"></script>
         <script type="text/javascript">
-            function add_row()
-            {
-                $rowno=$("#employee_table tr").length;
-                $rowno=$rowno+1;
-                $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><label for=\"cars\"><b>Enter Subject:</b></label>&nbsp;<input type='text' name='name[]' placeholder='Enter Subject' ></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td></tr>");
+            function add_row() {
+                $rowno = $("#employee_table tr").length;
+                $rowno = $rowno + 1;
+                $("#employee_table tr:last").after("<tr id='row" + $rowno + "'><td><input type='text' name='docname[]'style=\"width: 240px; \" class='form-control' placeholder='Document Title'></td><td><input type='file' name='file[]' class='form-control' placeholder='Choose documents '></td><td><input type='button' class='btn btn-primary' value='DELETE' onclick=delete_row('row" + $rowno + "')></td></tr>");
             }
-            function delete_row(rowno)
-            {
-                $('#'+rowno).remove();
+
+            function delete_row(rowno) {
+                $('#' + rowno).remove();
             }
         </script>
         <meta charset="utf-8">
@@ -391,7 +390,7 @@ if($login)
         <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
-                <h3><i class="fa fa-angle-right"></i> Subjects Details</h3>
+                <h3><i class="fa fa-angle-right"></i> Gallary Details</h3>
                 <!-- BASIC FORM ELELEMNTS -->
                 <div class="row mt">
                     <div class="col-lg-12">
@@ -454,24 +453,44 @@ if($login)
                 </div>
                 <!-- /row -->
                 <!-- INLINE FORM ELELEMNTS -->
-                <div class="row mt">
-                    <div class="col-lg-12">
-                        <div class="form-panel">
-                            <h4 class="mb"><i class="fa fa-angle-right"></i>Add Subject</h4>
-                            <form class="form-inline" role="form" action="add_all.php" method="post">
-                                <div id="wrapper">
+                <div class="row mt" >
+                    <div class="col-lg-12" >
+                        <div class="form-panel" style="height:500px;">
+                            <h4 class="mb"><i class="fa fa-angle-right"></i>Add Documents for Gallary</h4>
+                            <form class="form-inline" role="form" action="upload_file.php" method="post" enctype="multipart/form-data">
 
-                                    <div id="form_div">
-                                        <br>
-                                        <table id="employee_table" align=center>
+                                <div class="form-group" style="margin-left: 13.5px;">
+                                    <div>
+                                        <table id="employee_table" align="center" style="margin-left: 120px;">
                                             <tr id="row1">
-                                                &nbsp;&nbsp;<td><label for="cars"><b>Enetr Subject:</b></label>&nbsp;<input type="text" size="135" name="name[]" placeholder="Enter Subject" required></td> <br>
-                                                <!--<td><input type="text" name="age[]" placeholder="Enter Age"></td>
-                                                <td><input type="text" name="job[]" placeholder="Enter Job"></td>-->
+                                                <td><input type="text" name="docname[]" class="form-control"
+                                                           style="width: 240px; " placeholder="Document Title" required></td>
+                                                <td><input type="file" name="file[]" class="form-control"
+                                                           style="width: 240px;" placeholder="Choose documents "
+                                                           multiple required></td>
+                                                <td><input type="button" class="btn btn-primary"
+                                                           onclick="add_row();" value="ADD ROW"></td>
                                             </tr>
                                         </table>
-                                        <input type="button" onclick="add_row();" value="ADD ROW">
-                                        <input type="submit" name="submit_row" value="SUBMIT">
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-10">
+                                        <input type="hidden" class="form-control" name="lid" id="lid" placeholder=""
+                                               value="<?php echo $login; ?>"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-10">
+                                        <button style="margin-left:350px;" type="submit" value="submit"
+                                                name="submit" class="btn btn-primary">Submit
+                                        </button>
+                                    </div>
+                                </div>
+
+
                             </form>
 
 
@@ -612,7 +631,7 @@ if($login)
         <br>
         <br>
         <br>
-        <footer class="site-footer">
+        <footer class="site-footer" style="margin-top: 200px;">
             <div class="text-center">
                 <p>
                     &copy; Copyrights <strong>iCan</strong>. All Rights Reserved
@@ -663,20 +682,20 @@ if($login)
             if(swlt==1)
             {
                 swal({  type: 'success',
-                        title: 'Subject Added' },
+                        title: 'document Uploaded' },
                     function()
                     {
-                        window.location="add_all.php";
+                        window.location="upload_file.php";
                     });
             }
             else
             {
                 swal({  type: 'error',
                         title: 'Oops!!!',
-                        text: 'Subject not added'},
+                        text: 'Document not Uploaded'},
                     function()
                     {
-                        window.location="add_all.php";
+                        window.location="upload_file.php";
                     });
             }
         }
@@ -688,30 +707,37 @@ if($login)
     <?php
     // $lin=$_GET['id'];
 
+    if (isset($_POST['submit'])) {
 
-    // $lin=$_GET['id'];
+        $countfiles = count($_FILES['file']['name']);
+        $docname = $_POST['docname'];
+        $loginid = $_POST['lid'];
+        // $sub = $_POST['s'];
 
-    if (isset($_POST['submit_row'])) {
-        $sub = $_POST['name'];
-        for ($i = 0; $i < count($sub); $i++) {
-            if ($sub[$i] != "") {
+        // echo $sub;
+        // echo mysqli_error($con);
+        // echo "<script>alert($countfiles);</script>";
 
+        for ($i = 0; $i < $countfiles; $i++) {
+            $filename = $_FILES['file']['name'][$i];
 
-                $p = mysqli_query($con, "insert into tbl_subject_master (subject_name)values('$sub[$i]')");
-                // echo mysqli_error($con);
-                if ($p) {
+            if ($filename != "") {
+                if ($filename == '') {
+                    continue;
+                } else {
+                    move_uploaded_file($_FILES['file']['tmp_name'][$i], 'gallary/images/' . $filename);
 
-                    $swlt = 1;
-                    echo "<script> swtalert($swlt);
-          		 </script>";
-
+                    $p = mysqli_query($con, "insert into tlb_image (loginid,docname,docs)values( '$loginid','$docname[$i]','$filename')");
+                    echo mysqli_error($con);
+                    if ($p) {
+                        $swlt = 1;
+                        echo "<script> swtalert($swlt);
+                     </script>";
+                    }
                 }
 
-            } else {
-                echo mysqli_error($con);
             }
         }
-
     }
     ?>
     <?php
@@ -719,4 +745,5 @@ if($login)
 else
     header("location:/ican/login.php");
 ?>
+
 

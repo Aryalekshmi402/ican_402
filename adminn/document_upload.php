@@ -38,7 +38,7 @@ if(isset($_SESSION['login']))
         <meta name="description" content="">
         <meta name="author" content="Dashboard">
         <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-        <title>Dashio - Bootstrap Admin Template</title>
+        <title>ican</title>
 
         <!-- Favicons -->
         <link href="img/favicon.png" rel="icon">
@@ -79,7 +79,7 @@ if(isset($_SESSION['login']))
                 <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
             </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>i<span>Can</span></b></a>
+            <a href="#" class="logo"><b>i<span>Can</span></b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->

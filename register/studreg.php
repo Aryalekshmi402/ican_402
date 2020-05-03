@@ -217,8 +217,9 @@ function getdistrict(val) {
 					</div>
 					
 						<div class="form-row form-row-3">
-							<input type="file" name="file"  id="file" autocomplete="off"  accept="(jpg?|jpeg|pdf)" class="street" title="upload proof" placeholder="proof" required>
-						</div>
+                           <label style="margin-left:18px; color: #dbdce0;">Proof</label> <input type="file" name="file" id="file" autocomplete="off"  accept="(jpg?|jpeg|pdf)" class="street" title="upload proof" placeholder="proof" required>
+
+                        </div>
 
 					<div class="form-group">
 						<div class="form-row form-row-3">

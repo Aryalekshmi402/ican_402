@@ -21,7 +21,7 @@ if($login)
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+  <title>ican</title>
 
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
@@ -56,7 +56,7 @@ if($login)
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>i<span>Can</span></b></a>
+      <a href="#" class="logo"><b>i<span>Can</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -470,7 +470,7 @@ if($login)
                 </div><br><br>
                 <div class="form-group">
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Subject :<label class="sr-only" for="exampleInputEmail2">subject</label>
-                    <select class="form-control select2" name="sub" id="sub stud"
+                    <select class="form-control select2" name="sub" id="substud"
                             style="width:200px;"">
                         <option value="place" selected>Subject</option>
 
@@ -693,8 +693,8 @@ if($login)
                   if(swlt==1)
                   {
                     swal({  type: 'success',
-                            title: 'staff Added'
-                            },
+                            title: 'staff Added',
+                            text:'password in yyyy-mm-dd format' },
                             function()
                             {
                               window.location="form_component.php";

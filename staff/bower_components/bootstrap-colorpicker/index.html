@@ -20,7 +20,7 @@
 
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="dist/js/bootstrap-colorpicker.js"></script>
+    <script src=""></script>
 </head>
 <body>
     <div class="container">
@@ -67,13 +67,13 @@
 <div class="row">
     <div class="col-md-7">
       <h2>Documentation</h2>
-      
+
       <hr>
-      
+
       <p>Call the colopicker via javascript:</p>
       <pre class="well">$('.sample-selector').colorpicker({ /*options...*/ });</pre>
       <h3>Options</h3>
-      
+
       <p>
           You can set colorpicker options either as a plugin parameter or data-* attributes
       </p>
@@ -203,105 +203,105 @@
           </tr>
           </tbody>
       </table>
-      
+
       <h3>jQuery API Methods</h3>
-      
+
       <p>General usage methods</p>
       <h4>.colorpicker(options)</h4>
-      
+
       <p>Initializes an colorpicker.</p>
-      
+
       <h4>.colorpicker('getValue', defaultValue)</h4>
-      
+
       <p>Gets the value from the input or the data attribute (if has no input), otherwise returns the default
           value, which defaults to #000000 if not specified.</p>
-      
+
       <h4>.colorpicker('setValue', value)</h4>
-      
+
       <p>Set a new value for the color picker (also updates everything). Triggers 'changeColor' event.</p>
-      
+
       <h4>.colorpicker('show')</h4>
-      
+
       <p>Show the color picker</p>
-      
+
       <h4>.colorpicker('hide')</h4>
-      
+
       <p>Hide the color picker</p>
-      
+
       <h4>.colorpicker('reposition')</h4>
-      
+
       <p>Updates the color picker's position relative to the element</p>
-      
+
       <h4>.colorpicker('update')</h4>
-      
+
       <p>Refreshes the widget colors (this is done automatically)</p>
-      
+
       <h4>.colorpicker('enable')</h4>
-      
+
       <p>Enable the color picker.</p>
-      
+
       <h4>.colorpicker('disable')</h4>
-      
+
       <p>Disable the color picker.</p>
-      
+
       <h4>.colorpicker('destroy')</h4>
-      
+
       <p>Destroys the colorpicker widget and unbind all .colorpicker events from the element and component</p>
-      
+
       <h4>.data('colorpicker')</h4>
-      
+
       <p>Access to the colorpicker API directly</p>
-      
+
       <h4>.data('colorpicker').color</h4>
-      
+
       <p>Access to the colorpicker Color object information</p>
-      
+
       <hr>
-      
+
       <h3>Color object methods</h3>
-      
+
       <p>Each triggered events have a color object (avaliable through event.color, see the example at the
           bottom) used internally by the picker. This object has several useful methods. These are the more
           commonly used:</p>
-      
+
       <h4>.setColor(value)</h4>
-      
+
       <p>Set a new color. The value is parsed and tries to do a quess on the format.</p>
-      
+
       <h4>.setHue(value)</h4>
-      
+
       <p>Set the HUE with a value between 0 and 1.</p>
-      
+
       <h4>.setSaturation(value)</h4>
-      
+
       <p>Set the saturation with a value between 0 and 1.</p>
-      
+
       <h4>.setBrightness(value)</h4>
-      
+
       <p>Set the brightness with a value between 0 and 1.</p>
-      
+
       <h4>.setAlpha(value)</h4>
-      
+
       <p>Set the transparency with a value between 0 and 1.</p>
-      
+
       <h4>.toRGB()</h4>
-      
+
       <p>Returns a hash with red, green, blue and alpha.</p>
-      
+
       <h4>.toHex()</h4>
-      
+
       <p>Returns a string with HEX format for the current color.</p>
-      
+
       <h4>.toHSL()</h4>
-      
+
       <p>Returns a hash with HSLA values.</p>
-      
+
       <hr>
-      
+
       <h3>Events</h3>
-      
+
       <p>The colorpicker plugin exposes some events</p>
-      
+
       <table class="table table-bordered table-striped">
           <thead>
           <tr>
@@ -351,7 +351,7 @@
 
 <div class="example">
     <div class="example-title">Simple input field</div>
-    
+
     <div class="example-content well">
         <div class="example-content-widget">
       <input id="cp1" type="text" class="form-control" value="#5367ce"/>
@@ -371,7 +371,7 @@
 </div>
 <div class="example">
     <div class="example-title">As a component</div>
-    
+
     <div class="example-content well">
         <div class="example-content-widget">
       <div id="cp2" class="input-group colorpicker-component">
@@ -429,7 +429,7 @@
 </div>
 <div class="example">
     <div class="example-title">Working with events</div>
-    
+
     <div class="example-content well">
         <div class="example-content-widget">
       <a href="#" class="btn btn-default" id="cp4">Change background color</a>
@@ -454,7 +454,7 @@
 </div>
 <div class="example">
     <div class="example-title">Transparent color support</div>
-    
+
     <div class="example-content well">
         <div class="example-content-widget">
       <input type="text" class="form-control" id="cp5"/>
@@ -480,7 +480,7 @@
 </div>
 <div class="example">
     <div class="example-title">Horizontal mode</div>
-    
+
     <div class="example-content well">
         <div class="example-content-widget">
       <input type="text" class="form-control" id="cp6" />
@@ -506,7 +506,7 @@
 </div>
 <div class="example">
     <div class="example-title">Inline mode</div>
-    
+
     <div class="example-content well">
         <div class="example-content-widget">
       <div id="cp7" class="inl-bl"></div>
@@ -544,7 +544,7 @@
 </div>
 <div class="example">
     <div class="example-title">Aliased color palette</div>
-    
+
     <div class="example-content well">
         <div class="example-content-widget">
       <div id="cp8" data-format="alias" class="input-group colorpicker-component">
@@ -603,13 +603,13 @@
               width: 200px;
               height: 200px;
           }
-      
+
           .colorpicker-2x .colorpicker-hue,
           .colorpicker-2x .colorpicker-alpha {
               width: 30px;
               height: 200px;
           }
-      
+
           .colorpicker-2x .colorpicker-color,
           .colorpicker-2x .colorpicker-color div {
               height: 30px;
@@ -676,7 +676,7 @@
 </div>
 <div class="example">
     <div class="example-title">Disabled / enabled status</div>
-    
+
     <div class="example-content well">
         <div class="example-content-widget">
       <div id="cp10" class="input-group colorpicker-component">
@@ -694,7 +694,7 @@
                   e.preventDefault();
                   $("#cp10").colorpicker('disable');
               });
-      
+
               $(".enable-button").click(function(e) {
                   e.preventDefault();
                   $("#cp10").colorpicker('enable');
@@ -730,7 +730,7 @@
 </div>
 <div class="example">
     <div class="example-title">Inside a modal</div>
-    
+
     <div class="example-content well">
         <div class="example-content-widget">
       <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">

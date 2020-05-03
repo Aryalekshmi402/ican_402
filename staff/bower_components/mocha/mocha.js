@@ -5716,7 +5716,7 @@ process.on = function(e, fn){
  * Expose mocha.
  */
 
-var Mocha = global.Mocha = require('mocha'),
+var Mocha = global.Mocha = require('staff/bower_components/mocha/mocha'),
     mocha = global.mocha = new Mocha({ reporter: 'html' });
 
 // The BDD UI is registered by default, but no UI will be functional in the

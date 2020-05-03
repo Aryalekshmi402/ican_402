@@ -1,4 +1,4 @@
-<!-- 
+<!--
 
 THIS TEMPLATE IS MANDATORY!!
 
@@ -31,7 +31,7 @@ Please mark with `x` inside the `[ ]` for anything that applies to this PR.
 - [ ] Tested at least with latest Chrome, Firefox and Mobile (iOS Safari and/or Chrome for Android)
 - [ ] This PR also introduces coding style changes (indentation, etc), in a separated commit
 - [ ] The commit history is understandable and grouped into the minimum number of commits possible
-- [ ] I've followed all other [`CONTRIBUTING.md`](.github/CONTRIBUTING.md#pull-requests) guidelines for Pull Requests.
+- [ ] I've followed all other [`CONTRIBUTING.md`](CONTRIBUTING.md#pull-requests) guidelines for Pull Requests.
 
 ### Additional Comments (if any)
 

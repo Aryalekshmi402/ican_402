@@ -1,5 +1,4 @@
 <?php include('../config.php');?>
-
 <?php
 $b=$_GET['id'];
 $sql=mysqli_query($con,"UPDATE `stud_leave` SET  status=-1 where leaveid='$b'");

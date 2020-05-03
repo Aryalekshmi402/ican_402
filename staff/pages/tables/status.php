@@ -812,7 +812,7 @@ if ($l) {
                                     <tr>
                                         <th>sl no:</th>
                                         <th>Date</th>
-                                        <th>Type</th>
+                                        <th>Session</th>
                                         <th>Reason</th>
                                         <th>Status</th>
                                         <th>Action</th>

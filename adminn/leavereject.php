@@ -1,7 +1,6 @@
 <?php include('../config.php');?>
-
 <?php
-$b=$_POST['id'];
+$b=$_GET['id'];
 $sql=mysqli_query($con,"UPDATE `tbl_leave` SET  status=-1 where leaveid='$b'");
 if ($sql){
  echo "<script>alert('Removed');
