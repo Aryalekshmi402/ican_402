@@ -307,7 +307,7 @@ if ($l) {
                     <!-- Small boxes (Stat box) -->
                     <div class="row">
                         <?php
-                        $stu = mysqli_query($con, "select * from studtbl");
+                        $stu = mysqli_query($con, "select DISTINCT loginid FROM studentsub where subject_id in (SELECT subject_id from studentsub WHERE loginid = $l)");
                         $stuc = mysqli_num_rows($stu);
 
                         ?>
@@ -330,9 +330,11 @@ if ($l) {
                             </div>
                         </div>
                         <?php
-                        $stu = mysqli_query($con, "select * from tlb_staff");
+                        $stu = mysqli_query($con, "select * from tlb_staff WHERE subject_id in (SELECT subject_id FROM studentsub WHERE loginid=$l)");
                         $stuc = mysqli_num_rows($stu);
 
+                        $due = mysqli_query($con, "SELECT sum(amount) FROM `student_dues` WHERE `payment_date` is NULL and `student_id`=$l");
+                        $due = mysqli_fetch_array($due);
                         ?>
                         <div class="col-lg-4 col-xs-6">
                             <!-- small box -->
@@ -353,7 +355,7 @@ if ($l) {
                             <!-- small box -->
                             <div class="small-box bg-green">
                                 <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                    <h3><?php echo $due[0]>0?'Rs '.$due[0]:'No Dues' ?></h3>
 
                                     <p>Dues</p>
                                 </div>
