@@ -139,6 +139,13 @@
                 </a>
             </li>
 
+            <li>
+                <a  href="add_time.php">
+                    <i class="fa fa-envelope"></i>
+                    <span>Add Timetable</span>
+                </a>
+            </li>
+
 
             <li class="sub-menu">
                 <a href="javascript:;">
@@ -159,6 +166,8 @@
                             </li>
                         </ul>
                     </li>
+
+
 
 
 

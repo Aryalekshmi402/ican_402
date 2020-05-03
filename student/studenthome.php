@@ -330,6 +330,7 @@ if ($l) {
                             </div>
                         </div>
                         <?php
+                       // echo "select DISTINCT loginid from tlb_staff WHERE subject_id in (SELECT subject_id FROM studentsub WHERE loginid=$l)";
                         $stu = mysqli_query($con, "select DISTINCT loginid from tlb_staff WHERE subject_id in (SELECT subject_id FROM studentsub WHERE loginid=$l)");
                         $stuc = mysqli_num_rows($stu);
 

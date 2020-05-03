@@ -350,7 +350,7 @@ if ($login) {
                         </form>
                     </div>
                 </div>
-                <div style="background-color: #0a568c; margin-left: 840px;margin-top:-557px; width: 270px; height: 100px;">
+                <div style="background-color: #0a568c; margin-left: 840px;margin-top:-559px; width: 270px; height: 100px;">
                     <form action="upload_file.php" method="get" target="_blank">
                         <button type="submit" style=" width: 270px; height: 120px;background-color:#09F;"><font color="black" size="4"> Upload Gallary Images</font></button>
                     </form>

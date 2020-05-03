@@ -938,17 +938,14 @@ else
                 <tr>
                 <th>sl no:</th>
                   <th>Name</th>
-                  <th>Designation</th>
                   <th>Subject</th>
-                  
-                  <th>Phone number</th>
-                  <th>Registered</th>
+                    <th>Phone number</th>
                   
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-     						$r=mysqli_query($con,"select * from logintbl where usertype='ostaff' and status='1'");
+                $r = mysqli_query($con, "select DISTINCT loginid from tlb_staff WHERE subject_id in (SELECT subject_id FROM studentsub WHERE loginid=$l)");
 								$no=1;
 						    while($rr=mysqli_fetch_array($r)){
 								
@@ -975,10 +972,6 @@ else
         echo $row['name'];
     ?>
   </td>
-  <td style="font-size: 15px;">
-<?php
-echo $row['designation'];
-?>
 <td style="font-size: 15px;">
 <?php
 echo $rows['subject_name'];
@@ -989,16 +982,6 @@ echo $rows['subject_name'];
 echo $row['phone'];
 ?>
 </td>
-
-<td>
-
-
-<button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-<!-- <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>-->
-<!--<a href="delete.php?id=<?php echo $li;?>"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>-->
-
-</td>
- 
 </tr>
 <?php
 ++$no;
