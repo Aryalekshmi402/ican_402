@@ -525,10 +525,10 @@ if($login)
                                 <input type="date" required="required" class="form-control" id="date" name="sh_date[]">
                             </td>
                             <td>
-                                <textarea  required class="form-control" name="fn_sub[]"></textarea>
+                                <textarea  required class="form-control" name="fn_sub[]">Enter FN Subjects</textarea>
                             </td>
                             <td>
-                                <textarea required class="form-control" name="an_sub[]"></textarea>
+                                <textarea required class="form-control" name="an_sub[]"> Enter AN Subjects</textarea>
                             </td>
                             <td>
                                 <button type="button" class="btn btn-success fa fa-plus"  id="addVar"></button>
