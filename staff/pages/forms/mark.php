@@ -272,7 +272,7 @@ else
 							
                            <?php 
 						   
-                           $result=mysqli_query($con,"select * from tbl_class");
+                           $result=mysqli_query($con,"select distinct classname from tbl_class");
                             while($row=mysqli_fetch_array($result)){
 							              	$t=$row['classname'];
                         ?>

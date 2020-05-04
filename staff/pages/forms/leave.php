@@ -204,9 +204,8 @@ if ($l) {
                                     <div class="form-group" style="margin-left:100px; width:220px;">
                                         <br>
                                         <br><br>
-                                        <label for="inline3mail" class="block form-control-label">Leave Date</label><br>
-                                        <input type="text" class="form-control" name="ldate"
-                                               style="margin-left:100px; margin-top:-30px;" id="datepicker" required>
+                                        <label  for="inline3mail" class="block form-control-label">Leave Date</label><br>
+                                        <input type="text" class="form-control" name="ldate" style="margin-left:100px; margin-top:-30px;" id="datepicker" required>
                                     </div>
 
                                     <div class="form-group" style="margin-left:100px; width:220px;">

@@ -133,6 +133,16 @@
                 </a>
             </li>
             <li>
+                <a  href="staff_attendance.php">
+                    <i class="fa fa-envelope"></i>
+                    <span>Staff Attendance </span>
+                </a>
+            </li>
+
+
+
+
+            <li>
                 <a  href="add_notification.php">
                     <i class="fa fa-envelope"></i>
                     <span>Add Notification </span>
