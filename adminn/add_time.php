@@ -1,4 +1,6 @@
-<?php include('../config.php');?>
+<?php
+session_start();
+include('../config.php');?>
 <?php
 $login=$_SESSION['login'];
 $type=$_SESSION['type'];
@@ -53,7 +55,10 @@ if($login)
         <!-- Custom styles for this template -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/style-responsive.css" rel="stylesheet">
-
+        <script data-require="angularjs@1.3.6" data-semver="1.3.6" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.6/angular.min.js"></script>
+    <link rel="stylesheet" href="textarea/style.css" />
+    <script type="text/javascript" src="textarea/behave.js"></script>
+    <script type="text/javascript" src="textarea/script.js"></script>
         <!-- =======================================================
           Template Name: Dashio
           Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
@@ -80,183 +85,183 @@ if($login)
                 <ul class="nav top-menu">
                     <!-- settings start -->
                     <li class="dropdown">
-                        <!--    <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-                                <i class="fa fa-tasks"></i>
-                                <span class="badge bg-theme">4</span>
-                            </a>
-                            <ul class="dropdown-menu extended tasks-bar">
-                                <div class="notify-arrow notify-arrow-green"></div>
-                                <li>
-                                    <p class="green">You have 4 pending tasks</p>
-                                </li>
-                                <li>
-                                    <a href="index.html#">
-                                        <div class="task-info">
-                                            <div class="desc">Dashio Admin Panel</div>
-                                            <div class="percent">40%</div>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                            <i class="fa fa-tasks"></i>
+                            <span class="badge bg-theme">4</span>
+                        </a>
+                        <ul class="dropdown-menu extended tasks-bar">
+                            <div class="notify-arrow notify-arrow-green"></div>
+                            <li>
+                                <p class="green">You have 4 pending tasks</p>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <div class="task-info">
+                                        <div class="desc">Dashio Admin Panel</div>
+                                        <div class="percent">40%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
                                         </div>
-                                        <div class="progress progress-striped">
-                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                                <span class="sr-only">40% Complete (success)</span>
-                                            </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <div class="task-info">
+                                        <div class="desc">Database Update</div>
+                                        <div class="percent">60%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
                                         </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="index.html#">
-                                        <div class="task-info">
-                                            <div class="desc">Database Update</div>
-                                            <div class="percent">60%</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <div class="task-info">
+                                        <div class="desc">Product Development</div>
+                                        <div class="percent">80%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete</span>
                                         </div>
-                                        <div class="progress progress-striped">
-                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                                <span class="sr-only">60% Complete (warning)</span>
-                                            </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <div class="task-info">
+                                        <div class="desc">Payments Sent</div>
+                                        <div class="percent">70%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                            <span class="sr-only">70% Complete (Important)</span>
                                         </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="index.html#">
-                                        <div class="task-info">
-                                            <div class="desc">Product Development</div>
-                                            <div class="percent">80%</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                                <span class="sr-only">80% Complete</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="index.html#">
-                                        <div class="task-info">
-                                            <div class="desc">Payments Sent</div>
-                                            <div class="percent">70%</div>
-                                        </div>
-                                        <div class="progress progress-striped">
-                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                                                <span class="sr-only">70% Complete (Important)</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="external">
-                                    <a href="#">See All Tasks</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- settings end -->
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="external">
+                                <a href="#">See All Tasks</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- settings end -->
                     <!-- inbox dropdown start-->
-                        <!--  <li id="header_inbox_bar" class="dropdown">
-                              <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-                                  <i class="fa fa-envelope-o"></i>
-                                  <span class="badge bg-theme">5</span>
-                              </a>
-                              <ul class="dropdown-menu extended inbox">
-                                  <div class="notify-arrow notify-arrow-green"></div>
-                                  <li>
-                                      <p class="green">You have 5 new messages</p>
-                                  </li>
-                                  <li>
-                                      <a href="index.html#">
-                                          <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
-                                          <span class="subject">
-                        <span class="from">Zac Snider</span>
-                        <span class="time">Just now</span>
-                        </span>
-                                          <span class="message">
-                        Hi mate, how is everything?
-                        </span>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="index.html#">
-                                          <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
-                                          <span class="subject">
-                        <span class="from">Divya Manian</span>
-                        <span class="time">40 mins.</span>
-                        </span>
-                                          <span class="message">
-                        Hi, I need your help with this.
-                        </span>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="index.html#">
-                                          <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
-                                          <span class="subject">
-                        <span class="from">Dan Rogers</span>
-                        <span class="time">2 hrs.</span>
-                        </span>
-                                          <span class="message">
-                        Love your new Dashboard.
-                        </span>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="index.html#">
-                                          <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
-                                          <span class="subject">
-                        <span class="from">Dj Sherman</span>
-                        <span class="time">4 hrs.</span>
-                        </span>
-                                          <span class="message">
-                        Please, answer asap.
-                        </span>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="index.html#">See all messages</a>
-                                  </li>
-                              </ul>
-                          </li>
-                          <!-- inbox dropdown end -->
+                    <li id="header_inbox_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="badge bg-theme">5</span>
+                        </a>
+                        <ul class="dropdown-menu extended inbox">
+                            <div class="notify-arrow notify-arrow-green"></div>
+                            <li>
+                                <p class="green">You have 5 new messages</p>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
+                                    <span class="subject">
+                  <span class="from">Zac Snider</span>
+                  <span class="time">Just now</span>
+                  </span>
+                                    <span class="message">
+                  Hi mate, how is everything?
+                  </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
+                                    <span class="subject">
+                  <span class="from">Divya Manian</span>
+                  <span class="time">40 mins.</span>
+                  </span>
+                                    <span class="message">
+                  Hi, I need your help with this.
+                  </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
+                                    <span class="subject">
+                  <span class="from">Dan Rogers</span>
+                  <span class="time">2 hrs.</span>
+                  </span>
+                                    <span class="message">
+                  Love your new Dashboard.
+                  </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
+                                    <span class="subject">
+                  <span class="from">Dj Sherman</span>
+                  <span class="time">4 hrs.</span>
+                  </span>
+                                    <span class="message">
+                  Please, answer asap.
+                  </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">See all messages</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- inbox dropdown end -->
                     <!-- notification dropdown start-->
-                        <!--  <li id="header_notification_bar" class="dropdown">
-                              <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-                                  <i class="fa fa-bell-o"></i>
-                                  <span class="badge bg-warning">7</span>
-                              </a>
-                              <ul class="dropdown-menu extended notification">
-                                  <div class="notify-arrow notify-arrow-yellow"></div>
-                                  <li>
-                                      <p class="yellow">You have 7 new notifications</p>
-                                  </li>
-                                  <li>
-                                      <a href="index.html#">
-                                          <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                          Server Overloaded.
-                                          <span class="small italic">4 mins.</span>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="index.html#">
-                                          <span class="label label-warning"><i class="fa fa-bell"></i></span>
-                                          Memory #2 Not Responding.
-                                          <span class="small italic">30 mins.</span>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="index.html#">
-                                          <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                          Disk Space Reached 85%.
-                                          <span class="small italic">2 hrs.</span>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="index.html#">
-                                          <span class="label label-success"><i class="fa fa-plus"></i></span>
-                                          New User Registered.
-                                          <span class="small italic">3 hrs.</span>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="index.html#">See all notifications</a>
-                                  </li>
-                              </ul>
-                          </li>
-                          <!-- notification dropdown end -->
+                    <li id="header_notification_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="badge bg-warning">7</span>
+                        </a>
+                        <ul class="dropdown-menu extended notification">
+                            <div class="notify-arrow notify-arrow-yellow"></div>
+                            <li>
+                                <p class="yellow">You have 7 new notifications</p>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                    Server Overloaded.
+                                    <span class="small italic">4 mins.</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <span class="label label-warning"><i class="fa fa-bell"></i></span>
+                                    Memory #2 Not Responding.
+                                    <span class="small italic">30 mins.</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                    Disk Space Reached 85%.
+                                    <span class="small italic">2 hrs.</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <span class="label label-success"><i class="fa fa-plus"></i></span>
+                                    New User Registered.
+                                    <span class="small italic">3 hrs.</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">See all notifications</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- notification dropdown end -->
                 </ul>
                 <!--  notification end -->
             </div>
@@ -455,9 +460,9 @@ if($login)
                 </div>
                 <!-- /row -->
                 <!-- INLINE FORM ELELEMNTS -->
-                <div class="row mt">
+                <div class="row">
                     <div class="col-lg-12">
-                        <div class="form-panel" style="height: 400px;">
+                        <div class="form-panel" >
                             <h4 class="mb"><i class="fa fa-angle-right"></i><b> Add TimeTable</b></h4>
                             <?php if(isset($_SESSION['message'])){
                                 ?>
@@ -467,11 +472,10 @@ if($login)
                                 <?php
                                 unset($_SESSION['message']);
                             }?>
-                            <form class="form-inline" role="form" action="#" method="post" name="form1" id="form1" align="center">
-
-                                <div class="form-group" style="margin-left:-25px;">
+                            <div class="col-md-4">
+                                <div class="form-group" >
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Syllabus
-                                    <select class="form-control" name="audience" id="audience" style="width:200px;" >
+                                    <select class="form-control" name="syllabus_id" id="syllabus_id" >
 
                                         <?php
                                         $result=mysqli_query($con,"select * from syllabustbl");
@@ -485,14 +489,14 @@ if($login)
 
                                     </select>
                                 </div>
-                                <br>
-                                <br>
-                                <div class="form-group" style="margin-left:-25px;">
+                                </div>
+                                <div class="col-md-4">
+                                <div class="form-group">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Class
-                                   &nbsp; &nbsp;&nbsp;<select class="form-control" name="audience" id="audience" style="width:200px;" >
+                                   &nbsp; &nbsp;&nbsp;<select class="form-control" name="class_id" id="class_id" >
                                         <?php
 
-                                        $result=mysqli_query($con,"select distinct classname from tbl_class");
+                                        $result=mysqli_query($con,"select * from tbl_class");
                                         while($row=mysqli_fetch_array($result)){
                                             $t=$row['classname'];
                                             ?>
@@ -501,53 +505,95 @@ if($login)
                                         }
                                         ?>
                                     </select>
-                                </div><br><br>
-
-
-
-
-
-
-                                <div class="form-group" style="margin-left:-25px;">
+                                </div>
+                                </div>
+                                <div class="col-md-4">
+                                <div class="form-group">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Audience
-                                    <select class="form-control" name="audience" id="audience" style="width:200px;" >
-                                        <option value="STAFF">Staff</option>
-                                        <option value="STUDENT">Student</option>
+                                    <select class="form-control" name="time_type" id="time_type">
+                                        <option value="Staff">Staff</option>
+                                        <option value="Student">Student</option>
                                     </select>
-                                </div><br><br>
-
-
-
-                                <table>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Day</th>
-                                        <th>FN</th>
-                                        <th>AN</th>
-                                        <th>Add/Delete</th>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="date"></td>
-                                        <td><input type="text"></td>
-                                        <td><input type="text"></td>
-                                        <td><input type="text"></td>
-                                        <td> <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
-
-                                    </tr>
-
-                                </table>
-
-                            </form>
-
+                                </div>
+                                </div>
+                                <form name="order" id="myForm">
+                                <input type="hidden" id="row_count" value="0">
+                <table id="myTable" class="table table-bordered" class="col-md-12">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="date" required="required" class="form-control" id="date" name="sh_date[]">
+                            </td>
+                            <td>
+                                <textarea  required class="form-control" name="fn_sub[]"></textarea>
+                            </td>
+                            <td>
+                                <textarea required class="form-control" name="an_sub[]"></textarea>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-success fa fa-plus"  id="addVar"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <center>
+                <input type="button" onclick="saveTimetable()" value="Save Timetable" class="btn btn-success btn-md">
+                </center>
+            </form>
                         </div>
 
+                        <script>
+                       
+                  function saveTimetable(){
+                    var status=true;
+                    var sh_date = $('input[name="sh_date[]"]').map(function() {
+                      var text = $(this).val();
+                      if (text) {
+                        return this.value;
+                      }else{
+                        status=false;
+                      }
+                    }).get();
+                    var fn_sub = $('textarea[name="fn_sub[]"]').map(function() {
+                      var text = $(this).val();
+                      if (text) {
+                        return this.value;
+                      }else{
+                        status=false;
+                      }
+                    }).get();
+                    var an_sub = $('textarea[name="an_sub[]"]').map(function() {
+                      var text = $(this).val();
+                      if (text) {
+                        return this.value;
+                      }else{
+                        status=false;
+                      }
+                    }).get();
+                    if(status==true){
+                          $.ajax({
+                          url: "save_timetable.php",
+                          type: "POST",
+                          data: { 
+                            syllabus_id:$('#syllabus_id').val(),
+                            class_id:$('#class_id').val(),
+                            time_type:$('#time_type').val(),
+                            row_count:$('#row_count').val(),
+                            date:sh_date,
+                            fn_sub:fn_sub,
+                            an_sub:an_sub,
 
-
-
-
-
-
+                          },
+                          success: function(res){
+                            console.log(res);
+                             alert(res);
+                          }
+                        });
+                    }else{
+                      alert('Please fill all the fields !')
+                    }
+                  }
+</script>
 
                         <!-- /form-panel -->
                     </div>
@@ -698,7 +744,7 @@ if($login)
     <!--custom tagsinput-->
     <script src="lib/jquery.tagsinput.js"></script>
     <!--custom checkbox & radio-->
-
+    <script type="text/javascript" src="textarea/add.js"></script>
     <script type="text/javascript" src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="lib/bootstrap-daterangepicker/date.js"></script>
     <script type="text/javascript" src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
