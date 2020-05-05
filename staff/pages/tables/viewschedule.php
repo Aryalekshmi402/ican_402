@@ -798,20 +798,7 @@ if ($l) {
                          <!-- /.box-body -->
                     </div>
                     <!-- /.box -->
-                    <?php
-                    $result11=mysqli_query($con,"select * from timetable");
-                    $sub_de=mysqli_fetch_array($result11);
-                    $syid=$sub_de['syllabus_id'];
-                    $result2=mysqli_query($con,"select * from syllabustbl where syid='$syid'");
-                    $sub_deta=mysqli_fetch_array($result2)
-                    ?>
-                    <?php
-                    $result11=mysqli_query($con,"select * from timetable");
-                    $sub_de=mysqli_fetch_array($result11);
-                    $clsid=$sub_de['class_id'];
-                    $result2=mysqli_query($con,"select * from tbl_class where classid='$clsid'");
-                    $cls=mysqli_fetch_array($result2)
-                    ?>
+
 
                     <div class="box">
                         <div class="box-header">
@@ -840,6 +827,13 @@ if ($l) {
 
                                     {
 
+                                        $clsid=$row3['class_id'];
+                                        $result2=mysqli_query($con,"select * from tbl_class where classid='$clsid'");
+                                        $cls=mysqli_fetch_array($result2);
+
+                                        $syid=$row3['syllabus_id'];
+                                        $result2=mysqli_query($con,"select * from syllabustbl where syid='$syid'");
+                                        $sub_deta=mysqli_fetch_array($result2)
 
                                         ?>
 

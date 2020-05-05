@@ -32,7 +32,9 @@ if($l)
     $re=mysqli_query($con,"SELECT * FROM `studtbl` WHERE  loginid='$l'");
     $row1=mysqli_fetch_array($re);
     $sid=$row1['signid'];
-    $se="SELECT * FROM `timetable` WHERE type='Student'";
+    $syllabus=$row1['syllabus_id'];
+    $class_id = $row1['course'];
+    $se="SELECT * FROM `timetable` WHERE type='Student' and class_id =$class_id and syllabus_id=$syllabus ";
     $rel=mysqli_query($con,$se) or die(mysqli_error($con));
     ?>
 
@@ -42,7 +44,7 @@ if($l)
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AdminLTE 2 | LEAVE STATUS</title>
+        <title>ICAN | SCHEDULE STATUS</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.7 -->
@@ -481,7 +483,7 @@ if($l)
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Leave Status
+                    Time Table
 
                 </h1>
                 <ol class="breadcrumb">
