@@ -38,7 +38,7 @@ if ($l) {
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AdminLTE 2 | LEAVE STATUS</title>
+        <title>ican | SCHEDULE</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.7 -->
@@ -345,7 +345,7 @@ if ($l) {
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Leave Status
+                    Schedule
 
                 </h1>
                 <ol class="breadcrumb">
@@ -798,6 +798,20 @@ if ($l) {
                          <!-- /.box-body -->
                     </div>
                     <!-- /.box -->
+                    <?php
+                    $result11=mysqli_query($con,"select * from timetable");
+                    $sub_de=mysqli_fetch_array($result11);
+                    $syid=$sub_de['syllabus_id'];
+                    $result2=mysqli_query($con,"select * from syllabustbl where syid='$syid'");
+                    $sub_deta=mysqli_fetch_array($result2)
+                    ?>
+                    <?php
+                    $result11=mysqli_query($con,"select * from timetable");
+                    $sub_de=mysqli_fetch_array($result11);
+                    $clsid=$sub_de['class_id'];
+                    $result2=mysqli_query($con,"select * from tbl_class where classid='$clsid'");
+                    $cls=mysqli_fetch_array($result2)
+                    ?>
 
                     <div class="box">
                         <div class="box-header">
@@ -837,11 +851,11 @@ if ($l) {
                                                 echo $row3['date'];
                                                 ?></td>
                                             <td><?php
-                                                echo $row3['syllabus_id'];
+                                                echo  $sub_deta['Name'];
                                                 ?></td>
 
                                             <td><?php
-                                                echo $row3['class_id'];
+                                                echo $cls['classname'];
                                                 ?></td>
 
                                             <td><?php
