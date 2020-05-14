@@ -37,6 +37,7 @@ if ($login) {
         <link href="css/style-responsive.css" rel="stylesheet">
         <script src="/js/vue.js"></script>
         <script src="/js/axios.min.js"></script>
+        <script src="/js/sweetalert.js"></script>
 
         <!-- =======================================================
           Template Name: Dashio
@@ -280,7 +281,7 @@ if ($login) {
                             <!-- row -->
                             <div class="row" style="height: 500px;">
                                 <div class="col-md-12">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
 
                                         <section class="content" id="attendence">
 
@@ -292,8 +293,16 @@ if ($login) {
                                                         <div class="row">
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
+                                                                    <label for="class">Staff</label>
+                                                                    <select name="" v-model="form.staff" class="form-control" id="class">
+                                                                        <option v-for="staff in staffs" :value="staff.loginid">{{staff.name}}</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
                                                                     <label for="class">Class</label>
-                                                                    <select @change="get_students" name="" v-model="form.class" class="form-control" id="class">
+                                                                    <select name="" v-model="form.class" class="form-control" id="class">
                                                                         <option v-for="cls in classes" :value="cls.classid">{{cls.classname}}</option>
                                                                     </select>
                                                                 </div>
@@ -301,7 +310,7 @@ if ($login) {
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="syllubus">Syllabus</label>
-                                                                    <select @change="get_students" v-model="form.syllabus" name="" class="form-control" id="syllubus">
+                                                                    <select v-model="form.syllabus" name="" class="form-control" id="syllubus">
                                                                         <option v-for="syll in syllabus" :value="syll.syid">{{syll.Name}}</option>
                                                                     </select>
                                                                 </div>
@@ -332,52 +341,13 @@ if ($login) {
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="duration">Duration</label>
-                                                                    <input type="number" id="duration" class="form-control" v-model="form.duration">
+                                                                    <input min="0" type="number" id="duration" class="form-control" v-model.number="form.duration">
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <table class="table table-bordered table-striped">
-                                                                    <thead>
-                                                                    <tr>
-                                                                        <th>Name</th>
-                                                                        <th>Mobile No</th>
-                                                                        <th>
-                                                                            Status
-                                                                        </th>
-                                                                    </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                    <template v-if="students.length">
-                                                                        <tr v-for="(student,index) in form.students">
-                                                                            <td>{{student.fname}}</td>
-                                                                            <td>{{student.mob}}</td>
-                                                                            <td>
-                                                                                <!--                                            <input :value="student.signid" type="checkbox"-->
-                                                                                <!--                                                   @click="select_student(student.signid)">-->
-                                                                                <label class="radio-inline">
-                                                                                    <input type="radio" :value="true"
-                                                                                           v-model="student.status"
-                                                                                           :name="student.mob"
-                                                                                           checked>Present</label>
-                                                                                <label class="radio-inline">
-                                                                                    <input type="radio" :value="false"
-                                                                                           v-model="student.status"
-                                                                                           :name="student.mob">Absent</label>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </template>
-                                                                    <tr v-else>
-                                                                        <td colspan="4" class="text-center">No Student Selected</td>
-                                                                    </tr>
-                                                                    </tbody>
-                                                                </table>
                                                             </div>
                                                         </div>
 
                                                     </div>
-                                                    <div class="box-footer text-right" v-if="students.length">
+                                                    <div class="box-footer text-right">
                                                         <button class="btn btn-success">Save</button>
                                                     </div>
                                                 </form>
@@ -387,9 +357,6 @@ if ($login) {
                                             <!-- /.box -->
 
                                         </section>
-
-
-
 
                                     </div>
                                 </div>
@@ -405,29 +372,21 @@ if ($login) {
             new Vue({
                 el: '#attendence',
                 data: {
-                    students: [],
+                    staffs: [],
                     classes: [],
                     syllabus: [],
                     sessions: [],
                     form: {
+                        staff:'',
                         class: '',
                         syllabus: '',
                         date:'',
-                        duration: '',
+                        duration: 0,
                         session: '',
                         session_number: '',
-                        students: {}
                     }
                 },
                 methods: {
-                    select_student(student) {
-                        let index = this.form.students.indexOf(student);
-                        if (index === -1) {
-                            this.form.students.push(student)
-                        } else {
-                            this.form.students.splice(index, 1)
-                        }
-                    },
                     get_classes() {
                         axios.get('/staff/attendance_process.php', {
                             params: {
@@ -441,6 +400,19 @@ if ($login) {
                                 console.log(error);
                             })
                     },
+                    get_staffs() {
+                        axios.get('/staff/attendance_process.php', {
+                            params: {
+                                type: 'STAFFS'
+                            }
+                        })
+                            .then(({data}) => {
+                                this.staffs = data.staffs;
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            })
+                    },
                     get_session() {
                         axios.get('/staff/attendance_process.php', {
                             params: {
@@ -449,25 +421,6 @@ if ($login) {
                         })
                             .then(({data}) => {
                                 this.sessions = data.sessions;
-                            })
-                            .catch(function (error) {
-                                console.log(error);
-                            })
-                    },
-                    get_students() {
-                        axios.get('/staff/attendance_process.php', {
-                            params: {
-                                type: 'STUDENTS',
-                                ...this.form
-                            }
-                        })
-                            .then(({data}) => {
-
-                                for (const student of  data.students) {
-                                    student['status'] = true;
-                                }
-                                this.form.students = data.students;
-                                this.students = data.students;
                             })
                             .catch(function (error) {
                                 console.log(error);
@@ -497,7 +450,7 @@ if ($login) {
                                 return;
                             }
                         }
-                        axios.post('/staff/save_attendance.php', {
+                        axios.post('/adminn/save_attendance.php', {
                             ...this.form
                         })
                             .then(({data}) => {
@@ -509,12 +462,12 @@ if ($login) {
                                 this.students = [];
                                 this.form = {
                                     class: '',
+                                    staff:'',
                                     syllabus: '',
                                     date: Date(),
                                     duration: '',
                                     session: '',
                                     session_number: '',
-                                    students: []
                                 };
                             })
                             .catch(function (error) {
@@ -526,6 +479,7 @@ if ($login) {
                     this.get_classes();
                     this.get_syllabus();
                     this.get_session();
+                    this.get_staffs();
                 },
 
             })

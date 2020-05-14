@@ -9,6 +9,13 @@ if (isset($_GET['type'])) {
         }
         echo json_encode(['classes' => $myArray]);
     }
+    if ($_GET['type'] == 'STAFFS') {
+        $res = mysqli_query($con, "select * from tlb_staff");
+        while ($row = mysqli_fetch_array($res)) {
+            $myArray[] = $row;
+        }
+        echo json_encode(['staffs' => $myArray]);
+    }
     if ($_GET['type'] == 'SYLLABUS') {
         $res = mysqli_query($con, "select * from syllabustbl");
         while ($row = mysqli_fetch_array($res)) {
