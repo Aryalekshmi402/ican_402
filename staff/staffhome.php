@@ -223,7 +223,7 @@ if ($l) {
 
                 <div class="col-lg-4 col-xs-6" style="margin-left: 780px;margin-top:-147px;">
                     <?php
-                    $due = mysqli_query($con, "SELECT salary FROM `staff_sal` WHERE  `loginid`=$l");
+                    $due = mysqli_query($con, "SELECT sum(salary) FROM `staff_sal` WHERE status='1' and `loginid`=$l");
                     $due = mysqli_fetch_array($due);
                     ?>
                     <!-- small box -->

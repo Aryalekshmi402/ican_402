@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2020 at 08:58 PM
+-- Generation Time: May 14, 2020 at 09:09 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -32,16 +32,17 @@ CREATE TABLE `staff_sal` (
   `sal_id` int(11) NOT NULL,
   `loginid` int(11) NOT NULL,
   `month` date NOT NULL,
-  `salary` int(11) NOT NULL
+  `salary` int(11) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `staff_sal`
 --
 
-INSERT INTO `staff_sal` (`sal_id`, `loginid`, `month`, `salary`) VALUES
-(1, 7, '2020-05-05', 2000),
-(2, 8, '2020-05-11', 3000);
+INSERT INTO `staff_sal` (`sal_id`, `loginid`, `month`, `salary`, `status`) VALUES
+(1, 7, '2020-05-05', 2000, 1),
+(2, 8, '2020-05-11', 3000, 0);
 
 --
 -- Indexes for dumped tables
