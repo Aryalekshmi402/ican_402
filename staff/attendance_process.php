@@ -65,6 +65,20 @@ if (isset($_GET['type'])) {
         }
         echo json_encode(['reports' => $myArray]);
     }
+    if ($_GET['type'] == 'STAFF_REPORT') {
+        $staff = $_GET['staff'];
+        $date = $_GET['date'];
+        if ($date == '') {
+            $query = "select * from staff_attendance where loginid=$staff";
+        } else {
+            $query = "select * from staff_attendance where loginid=$staff and date='$date'";
+        }
+        $res = mysqli_query($con, $query);
+        while ($row = mysqli_fetch_array($res)) {
+            $myArray[] = $row;
+        }
+        echo json_encode(['reports' => $myArray]);
+    }
 
     if ($_GET['type'] == 'INDIVIDUAL_REPORT') {
         $student = $_SESSION['loginid'];
@@ -74,7 +88,6 @@ if (isset($_GET['type'])) {
         } else {
             $query = "select * from tbl_attendance where student_id=(select signid from studtbl where loginid=$student) and date='$date'";
         }
-
         $res = mysqli_query($con, $query);
         while ($row = mysqli_fetch_array($res)) {
             $myArray[] = $row;
