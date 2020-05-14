@@ -119,8 +119,6 @@
                     <span>Add Notification </span>
                 </a>
             </li>
-
-
             <li class="sub-menu">
                 <a href="javascript:;">
                     <i class="fa fa-th"></i>
