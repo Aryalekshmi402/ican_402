@@ -69,6 +69,7 @@
                 <ul class="treeview-menu">
                     <li><a href="/staff/attendance.php"><i class="fa fa-circle-o"></i>Attendance</a></li>
                     <li><a href="/staff/attendance_report.php"><i class="fa fa-circle-o"></i> Attendance Report</a></li>
+
                 </ul>
             </li>
 
