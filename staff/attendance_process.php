@@ -79,6 +79,22 @@ if (isset($_GET['type'])) {
         }
         echo json_encode(['reports' => $myArray]);
     }
+    if ($_GET['type'] == 'STAFF_LEAVE_COUNT') {
+        $staff = $_GET['staff'];
+        $month = $_GET['month'];
+        $year = $_GET['year'];
+
+            $query = "select * from  tbl_leave where staffid =(select staffid from tlb_staff where loginid=$staff)";
+
+        $res = mysqli_query($con, $query);
+        $count =0;
+        while ($row = mysqli_fetch_array($res)) {
+            if (strpos($row['ldate'], $month.'/'.$year) !== false) {
+                echo 'true';
+            }
+        }
+        echo json_encode(['leave' => $myArray]);
+    }
 
     if ($_GET['type'] == 'INDIVIDUAL_REPORT') {
         $student = $_SESSION['loginid'];
