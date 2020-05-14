@@ -331,7 +331,7 @@ if ($login) {
                                                                         <tbody>
                                                                         <template v-for="items in reports">
                                                                             <tr v-for="item in items">
-                                                                                <td>{{item.class_id}}</td>
+                                                                                <td>{{item.classname}}</td>
                                                                                 <td>{{sessions[item.session-1]}}</td>
                                                                                 <td>{{item.session_number}}</td>
                                                                                 <td v-text="item.duration>0?item.duration+' Hr':'AB'"></td>

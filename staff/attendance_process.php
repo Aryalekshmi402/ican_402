@@ -69,7 +69,7 @@ if (isset($_GET['type'])) {
         $staff = $_GET['staff'];
         $date = $_GET['date'];
         if ($date == '') {
-            $query = "select * from staff_attendance where loginid=$staff";
+            $query = "select *,tbl_class.classname from staff_attendance,tbl_class where loginid=$staff and tbl_class.classid=staff_attendance.class_id";
         } else {
             $query = "select * from staff_attendance where loginid=$staff and date='$date'";
         }
