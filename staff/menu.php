@@ -67,9 +67,22 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/staff/attendance.php"><i class="fa fa-circle-o"></i>Attendance</a></li>
+                    <li><a href="/staff/attendance.php"><i class="fa fa-circle-o"></i>Mark Attendance</a></li>
                     <li><a href="/staff/attendance_report.php"><i class="fa fa-circle-o"></i> Attendance Report</a></li>
 
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Self Attendance</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/staff/staff_attendance_report.php"><i class="fa fa-circle-o"></i>View Attendance Report</a></li>
                 </ul>
             </li>
 

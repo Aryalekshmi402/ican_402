@@ -222,10 +222,14 @@ if ($l) {
                 </div>
 
                 <div class="col-lg-4 col-xs-6" style="margin-left: 780px;margin-top:-147px;">
+                    <?php
+                    $due = mysqli_query($con, "SELECT salary FROM `staff_sal` WHERE  `loginid`=$l");
+                    $due = mysqli_fetch_array($due);
+                    ?>
                     <!-- small box -->
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>0.0<sup style="font-size: 20px">%</sup></h3>
+                            <h3><?php echo $due[0]>0?'Rs '.$due[0]:'No Dues' ?></h3>
 
                             <p>Dues</p>
                         </div>
