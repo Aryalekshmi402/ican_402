@@ -132,16 +132,20 @@
                     <span>Student Fees </span>
                 </a>
             </li>
-            <li>
-                <a  href="staff_attendance.php">
-                    <i class="fa fa-envelope"></i>
-                    <span>Staff Attendance </span>
+            <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-tasks"></i>
+                    <span>Attendance Details</span>
                 </a>
+                <ul class="sub">
+                    <li><a href="staff_attendance.php">Add Staff Attendance</a></li>
+                    <li><a href="attendance_report.php">View Attendance Report</a></li>
+                    <!--<li><a href="advanced_form_components.html">iCan staff</a></li>-->
+                    <!--<li><a href="form_validation.html">Form Validation</a></li>
+                   <li><a href="contactform.php">iCan staff</a></li>
+                   <li><a href="contactform.php">iCan students</a></li>-->
+                </ul>
             </li>
-
-
-
-
             <li>
                 <a  href="add_notification.php">
                     <i class="fa fa-envelope"></i>
@@ -151,7 +155,7 @@
 
             <li>
                 <a  href="add_time.php">
-                    <i class="fa fa-envelope"></i>
+                    <i class="fa fa-tasks"></i>
                     <span>Add Timetable</span>
                 </a>
             </li>
