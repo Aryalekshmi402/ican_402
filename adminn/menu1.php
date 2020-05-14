@@ -101,7 +101,7 @@
 
             <li>
                 <a  href="staff_attendance.php">
-                    <i class="fa fa-envelope"></i>
+                    <i class="fa fa-tasks"></i>
                     <span>Staff Attendance </span>
                 </a>
             </li>

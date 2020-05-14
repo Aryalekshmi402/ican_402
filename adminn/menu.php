@@ -134,7 +134,7 @@
             </li>
             <li>
                 <a  href="staff_attendance.php">
-                    <i class="fa fa-envelope"></i>
+                    <i class="fa fa-tasks"></i>
                     <span>Staff Attendance </span>
                 </a>
             </li>
@@ -151,7 +151,7 @@
 
             <li>
                 <a  href="add_time.php">
-                    <i class="fa fa-envelope"></i>
+                    <i class="fa fa-tasks"></i>
                     <span>Add Timetable</span>
                 </a>
             </li>
