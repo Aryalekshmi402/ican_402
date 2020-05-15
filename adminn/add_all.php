@@ -465,7 +465,7 @@ if($login)
                                         <br>
                                         <table id="employee_table" align=center>
                                             <tr id="row1">
-                                                &nbsp;&nbsp;<td><label for="cars"><b>Enetr Subject:</b></label>&nbsp;<input type="text" size="135" name="name[]" placeholder="Enter Subject" required></td> <br>
+                                                &nbsp;&nbsp;<td><label for="cars"><b>Enter Subject:</b></label>&nbsp;<input type="text" size="135" name="name[]" placeholder="Enter Subject" required></td> <br>
                                                 <!--<td><input type="text" name="age[]" placeholder="Enter Age"></td>
                                                 <td><input type="text" name="job[]" placeholder="Enter Job"></td>-->
                                             </tr>

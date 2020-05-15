@@ -73,7 +73,7 @@
 					while($result2=mysqli_fetch_array($s3))
 					{
                         $t=$result2['type'];
-                        $a="select subject_name from tbl_subject_master where subject_id=$t";
+                        $a="select  subject_name from tbl_subject_master where subject_id=$t";
                         $s=mysqli_query($con,$a);
                         $row=mysqli_fetch_array($s);
                         $p=$row['subject_name'];
