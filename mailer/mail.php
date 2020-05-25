@@ -1,32 +1,35 @@
 <?php
 $result="";
-$maild='riyatreesajimmy@mca.ajce.in';
-require 'phpmailer/PHPMailerAutoload.php'; 
-$mail = new PHPMailer;
-$mail->isSMTP();
-$mail->Host='smtp.gmail.com';
-$mail->Port=587;
-$mail->SMTPAuth=true;
-$mail->SMTPsecure='tls';
-$mail->Username='aryasyama402@gmail.com';//send cheyyunna mail id
-$mail->Password='syamasurya';//ayinte password
+$maild='aryasyama402@gmail.com';
+require 'phpmailer/PHPMailerAutoload.php';
+function send($receiver,$body){
+    $mail = new PHPMailer;
+    $mail->isSMTP();
+    $mail->Host='smtp.gmail.com';
+    $mail->Port=587;
+    $mail->SMTPAuth=true;
+    $mail->SMTPsecure='tls';
+    $mail->Username='aryasyama402@gmail.com';//send cheyyunna mail id
+    $mail->Password='syamasurya';//ayinte password
 
-$mail->setFrom($maild);
-$mail->addAddress('riyatreesajimmy@mca.ajce.in');//receiverinte mail
-$mail->addReplyTo($maild);//thirich reply theranam engil a mail
+    $mail->setFrom($receiver);
+    $mail->addAddress($receiver);//receiverinte mail
+    $mail->addReplyTo($receiver);//thirich reply theranam engil a mail
 
-$mail->isHTML(true);//html code mail ayakkan true akki iduka
-$mail->Subject='Test Mail';//mail subject
-$mail->Body='<h1>Hello Arjun</h1>';//body
-if(!$mail->send())
-{
-$result="Something went wrong";
-echo $result;
+    $mail->isHTML(true);//html code mail ayakkan true akki iduka
+    $mail->Subject='Test Mail';//mail subject
+    $mail->Body=$body;//body
+    if(!$mail->send())
+    {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 
+    }
+    else
+    {
+
+        $result="Mail went successfully";
+        echo $result;
+    }
 }
-else
-{
-    $result="Mail went successfully";  
-    echo $result;
-}
+send('aryasyama402@gmail.com','<h1>hi</h1>');
 ?>

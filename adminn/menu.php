@@ -55,6 +55,13 @@
                 <li><a href="500.html">500 Error</a></li>
               </ul>
             </li> -->
+            <li>
+                <a href="inbox.php">
+                    <i class="fa fa-envelope"></i>
+                    <span>Mail </span>
+                    <span class="label label-theme pull-right mail-info">2</span>
+                </a>
+            </li>
             <li class="sub-menu">
                 <a href="javascript:;">
                     <i class="fa fa-th"></i>
