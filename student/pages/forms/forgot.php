@@ -1259,8 +1259,8 @@ if(isset($_POST['recover']))
         $mail->Port=587;
         $mail->SMTPAuth=true;
         $mail->SMTPsecure='tls';
-        $mail->Username='aryasyama402@gmail.com';//send cheyyunna mail id
-        $mail->Password='sakhi@402';//ayinte password
+        $mail->Username='icanmine402@gmail.com';//send cheyyunna mail id
+        $mail->Password='kunJa@1323';//ayinte password
 
         $mail->setFrom($maild);
         $mail->addAddress($a);//receiverinte mail
