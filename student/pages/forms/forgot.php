@@ -1233,6 +1233,7 @@
     </body>
     </html>
 <?php
+include ('send_mail.php');
 if(isset($_POST['recover']))
 {
 
@@ -1248,35 +1249,16 @@ if(isset($_POST['recover']))
 
     if($a==$emailid)
     {
-
-
-        $result="";
-        $maild=$a;
-        require 'phpmailer/PHPMailerAutoload.php';
-        $mail = new PHPMailer;
-        $mail->isSMTP();
-        $mail->Host='smtp.gmail.com';
-        $mail->Port=587;
-        $mail->SMTPAuth=true;
-        $mail->SMTPsecure='tls';
-        $mail->Username='icanmine402@gmail.com';//send cheyyunna mail id
-        $mail->Password='kunJa@1323';//ayinte password
-
-        $mail->setFrom($maild);
-        $mail->addAddress($a);//receiverinte mail
-        $mail->addReplyTo($maild);//thirich reply theranam engil a mail
-
-        $mail->isHTML(true);//html code mail ayakkan true akki iduka
-        $mail->Subject='Forgot password..';//mail subject
-        $mail->Body='<h1>Please reset your password</h1>
+        $body='<h1>Please reset your password</h1>
 		<p>We heard that you lost your  password. Sorry about that!
 
 But don’t worry! You can use the following link to reset your password:
 </p>
 <a href="http://localhost:8000/contact.php">https://ican/forgot/password</a>
-'
-        ;//body
-        if(!$mail->send())
+';
+        $status = send($emailid,'Forgot password..',$body);
+
+        if(!$status)
         {
             $swlt=0;
             echo "<script> swtalert($swlt);</script>";

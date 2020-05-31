@@ -718,7 +718,7 @@ if($login)
 </html>
 <?php
   // $lin=$_GET['id'];
-  
+  include('../student/pages/forms/send_mail.php');
   if(isset($_POST['submitclk']))
   {
 	$name=$_POST['nm'];
@@ -751,6 +751,9 @@ if($login)
           $lin=$row['loginid'];
           $sqll="INSERT INTO tlb_staff (`loginid`,`name`,`gender`,`designation`,`subject_id`,`phone`) VALUES ('$lin','$name','$gender','$des','$sub','$phone')";
           //echo $sqll;
+
+            $body = ' welcome to iCan Smart Study Center. Now you can login our site with your email id as user name and your Password is <strong>'.$password.'</strong>';
+            send($email,'Staff Registration Successful',$body);
           $quer=mysqli_query($con,$sqll);
           if($quer)
           {
